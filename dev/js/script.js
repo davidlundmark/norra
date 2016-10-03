@@ -31,7 +31,7 @@
             $('.same-height > .column').matchHeight();
         }
 
-        //Anchor card
+        //Anchor card 
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
             if (!isMobile) {
                 $('.card.card-anchor').hover(function() {
