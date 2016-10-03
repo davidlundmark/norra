@@ -1,0 +1,33 @@
+html {
+    box-sizing: border-box;
+}
+
+*,
+*::before,
+*::after {
+    box-sizing: inherit;
+}
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    min-width: $breakpoint-xs;
+}
+
+.page-section {
+    position: relative;
+    background-color: $base-background-color;
+}
+
+.section-container {
+    position: relative;
+    margin: 0 auto;
+    width: auto;
+    &:not(.full-width) {
+        max-width: $page-section-max-width;
+        padding: $page-section-padding;
+    }
+}

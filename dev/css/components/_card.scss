@@ -1,0 +1,40 @@
+.card {
+    position: relative;
+    height: 100%;
+    //@include border();
+    &-image {
+        position: relative;
+    }
+    /*
+    &-icon {
+        @include centerElement();
+    }
+    */
+    background-color: $card-background-color;
+    &-text {
+        //@include border($dir: top);
+        position: relative;
+        padding: $card-text-padding-vertical $card-text-padding-horizontal;
+        > *:last-child {
+            margin-bottom: 0;
+        }
+    }
+    &-anchor, &-lightbox {
+        .card-link {
+            @include coverAll();
+        }
+    }
+    &-overlay {
+        .card-text {
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            background-color: rgba($card-background-color, $card-overlay-opacity);
+            @include breakpoint($breakpoint-md) {
+                background-color: $card-background-color;
+                position: relative;
+                bottom: auto;
+            }
+        }
+    }
+}

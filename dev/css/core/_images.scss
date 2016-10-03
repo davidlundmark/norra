@@ -1,0 +1,10 @@
+picture, img {
+	display: block;
+	line-height: 0;
+	width: 100%;
+	user-select: none;
+
+	&:focus, &:active {
+		outline: none;
+	}
+}
