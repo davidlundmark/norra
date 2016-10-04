@@ -31,7 +31,7 @@ gulp.task('watch:sync-wwwroot', function() {
 var spawn = require('cross-spawn');
 
 gulp.task('webpack:watch', (cb) => {
-  const webpack_watch = spawn('webpack', ['--watch --progress --colors']);
+  const webpack_watch = spawn('webpack', ['--watch']);
 
   webpack_watch.stdout.on('data', (data) => {
     console.log(`stdout: ${data}`);

@@ -63,7 +63,7 @@
             > span {
                 cursor: default;
             }
-            .no-touch & { 
+            .no-touch & {  
                 > .text {
                     &:hover {
                         color: $header-hover-color;
@@ -93,15 +93,17 @@
             opacity: 0;
             z-index: -1;
             visibility: hidden;
-            
+             
             &:before {
                 height: $gap-xl+1px;
                 display: block;
                 content: '';
                 background-color: transparent;
             }
-            &-content {
+            &-container {
                 background-color: $header-background-color;
+            }
+            &-content {
                 max-width: $page-section-max-width;
                 margin: 0 auto;
                 padding: $page-section-padding/2 $page-section-padding $page-section-padding;

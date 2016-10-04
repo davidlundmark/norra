@@ -4,7 +4,10 @@ var CarouselHandler = {
         var $carousel;
         var $this = this;
 
-        $('.slick-carousel').each(function() {
+        var _carousels = document.querySelectorAll('.slick-carousel');
+        if (_carousels === null) return;
+
+        $(_carousels).each(function() {
             $carousel = $(this);
             var slidesToShow = $carousel.data('slidesToShow');
             var slidesToScroll = $carousel.data('slidesToScroll');

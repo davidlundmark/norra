@@ -10,7 +10,10 @@ var FlexsliderHandler = {
     menuHeight: 0,
     sliderHeight: 0,
     init: function() {
-        this.$pageslider = $('.page-slider');
+        var _flexsliders = document.querySelector('.page-slider');
+        if (_flexsliders === null) return;
+
+        this.$pageslider = $(_flexsliders);
         this.$flexslider = this.$pageslider.find('.flexslider');
         this.$slidertext = this.$pageslider.find('.flexslider-figcaption');
         this.$pageheader = $('.page-header');

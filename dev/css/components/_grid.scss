@@ -13,7 +13,7 @@
 }
 
 @mixin setColumnWidth($count, $gap-grid) {
-    body:not(.ie) & {
+    html:not(.ie) & {
         @if $gap !=0 {
             width: calc((100% / #{$count}) - #{$gap-grid});
         }
@@ -21,7 +21,7 @@
             width: calc(100% / #{$count});
         }
     }
-    body.ie & {
+    html.ie & {
         $iefix: 1px; //-1px = IE subpixel rounding fix
         @if $gap !=0 {
             width: calc((100% / #{$count}) - #{$gap-grid} - #{$iefix});

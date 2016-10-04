@@ -5,7 +5,10 @@ var ExpanderHandler = {
         if (this.initialized) return;
         this.initialized = true;
 
-        $('.expander-trigger').bind('click', function(e) {
+        var _triggers = document.querySelector('.expander-trigger');
+        if (_triggers === null) return;
+
+        $(_triggers).bind('click', function(e) {
             var $expander = $(this).closest('.expander');
             $expander.find('.expander-content').slideToggle(400, 'easeOutSine'); // apply the toggle to the ul
             $expander.toggleClass('is-expanded');

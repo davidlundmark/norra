@@ -1,12 +1,14 @@
-//#region AccordionHandler
+//#region AccordionHandlerZ
 var AccordionHandler = {
     initialized: null,
     init: function() {
         if (this.initialized) return;
         this.initialized = true;
-        var $triggers = $('.accordion-trigger');
 
-        $triggers.on('click', function(e) {
+        var _triggers = document.querySelectorAll('.accordion-trigger');
+        if (_triggers === null) return;
+
+        $(_triggers).on('click', function(e) {
             var $this = $(this);
             var $parent = $(this).parent();
             var $submenu = $parent.find('> .submenu');
@@ -23,8 +25,8 @@ var AccordionHandler = {
                 $this.trigger('resize-end');
             });
 
-            //e.preventDefault();
-            return false;
+            //e.preventDefault(); 
+            return false; 
         });
 
     }
@@ -36,4 +38,3 @@ $(document).ready(function() {
         AccordionHandler.init();
     }
 });
-    

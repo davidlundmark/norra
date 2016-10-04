@@ -1,10 +1,10 @@
 //#region Dekai
-var deKai = {
+deKai = {
     isMobile: false,
     //check if IE
     checkOS: function() {
         var isIE = this.detectIE();
-        if (isIE && isIE > 9) $('body').addClass('ie');
+        if (isIE && isIE > 9) $('html').addClass('ie');
     },
 
     detectIE: function() {

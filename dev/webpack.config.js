@@ -5,7 +5,7 @@ var extracttextplugin = require('extract-text-webpack-plugin');
 
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
- 
+
 //var bourbon = require('bourbon');
 //var neat = require('bourbon-neat');
 
@@ -21,9 +21,9 @@ module.exports = {
         filename: jsFile,
         publicPath: './assets/'
     },
-    watch: true,
+    //watch: true,
     plugins: debug ? [new extracttextplugin(cssFile),
-        new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery"})
+        new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" })
     ] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
