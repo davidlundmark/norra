@@ -22,7 +22,7 @@
     //require('./custom/informationHandler.js');
     require('./custom/dekai.js');
 
-    console.log('deKai v.2.1');
+    console.log('deKai v.2.422');
 
     //
     var useAccordion = true;

@@ -6,8 +6,7 @@ var extracttextplugin = require('extract-text-webpack-plugin');
 var precss = require('precss');
 var autoprefixer = require('autoprefixer');
 
-//var bourbon = require('bourbon');
-//var neat = require('bourbon-neat');
+//var livereloadplugin = require('webpack-livereload-plugin');
 
 var jsFile = '../scripts.min.js';
 var cssFile = '../styles.min.css';
@@ -15,15 +14,22 @@ var cssFile = '../styles.min.css';
 module.exports = {
     context: __dirname,
     devtool: debug ? 'inline-sourcemap' : null,
-    entry: './app.js',
+    entry: [
+        './app.js'
+        /*,
+        'webpack/hot/dev-server',
+        'webpack-dev-server/client?http://localhost:8080/',*/
+    ],
     output: {
         path: __dirname,
         filename: jsFile,
         publicPath: './assets/'
     },
     //watch: true,
-    plugins: debug ? [new extracttextplugin(cssFile),
-        new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" })
+    plugins: debug ? [
+        new extracttextplugin(cssFile),
+        new webpack.ProvidePlugin({ $: "jquery", jQuery: "jquery" }),
+        //new webpack.HotModuleReplacementPlugin()
     ] : [
         new webpack.optimize.DedupePlugin(),
         new webpack.optimize.OccurenceOrderPlugin(),
@@ -75,6 +81,9 @@ module.exports = {
         ];
     },
     sassLoader: {
-        includePaths: [].concat('client/style' /*, bourbon.includePaths, neat.includePaths*/ )
-    }
+        includePaths: [].concat('client/style' )
+    }/*,
+    devServer: {
+        inline: true
+    }*/
 };

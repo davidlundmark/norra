@@ -29,13 +29,18 @@
         width: $header-logo-width;
         float: left;
         margin-right: $gap;
+        position: relative;
+        z-index: 1;
+        > a {
+            display: block;
+        }
     }
     .search-container {
         display: inline-block;
         @include centerVertical();
         right: $page-section-padding;
+        width: 20%;
         .search {
-            width: 20%;
             float: right;
             .label {
                 display: none;
@@ -63,11 +68,11 @@
             > span {
                 cursor: default;
             }
-            .no-touch & {  
+            .no-touch & {
                 > .text {
                     &:hover {
                         color: $header-hover-color;
-                    } 
+                    }
                 }
             }
             .no-touch & {
@@ -93,7 +98,6 @@
             opacity: 0;
             z-index: -1;
             visibility: hidden;
-             
             &:before {
                 height: $gap-xl+1px;
                 display: block;
