@@ -4,6 +4,9 @@
     //@include border();
     &-image {
         position: relative;
+        > .background-image {
+            min-height: $card-image-min-height;
+        }
     }
     /*
     &-icon {

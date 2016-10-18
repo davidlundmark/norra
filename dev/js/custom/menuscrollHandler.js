@@ -9,10 +9,14 @@ var MenuScrollHandler =  {
     offsetTop: 0,
     prevScrollTop: 0,
     init: function() {
-        this.$pageheader = $('.page-header');
-        if (!this.$pageheader.length) return;
+        var _pageheader = document.querySelectorAll('.page-header');
+        if (_pageheader === null) return;
+
+        this.$pageheader = $(_pageheader);
         //console.log(ScreensizeHandler.isBigScreen)
-        if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
+        
+        if (window.ScreensizeHandler.isBigScreen && document.querySelector('.flexslider') !== null) {
+        //if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
             this.offsetTop = 168;
         } else {
             this.offsetTop = this.$pageheader.outerHeight();

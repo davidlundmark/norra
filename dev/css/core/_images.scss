@@ -1,16 +1,33 @@
-picture, img {
-	display: block;
-	//line-height: 0;
-	width: 100%;
-	user-select: none;
-	height: auto;
+picture,
+img {
+    display: block;
+    //line-height: 0;
+    width: 100%;
+    user-select: none;
+    height: auto;
+    &:focus,
+    &:active {
+        outline: none;
+    }
+    div[class^="sc"] & {
+        //sitecore items.
+        display: inline-block;
+        width: auto;
+    }
+}
 
-	&:focus, &:active {
-		outline: none;
-	}
+.background-image {
+    display: block;
+    height: 100%;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center center;
+}
 
-	div[class^="sc"] & { //sitecore items.
-		display: inline-block;
-		width: auto; 
-	}
-} 
+//sitecore fix
+#breadcrumbMenuSubcontrol_context_menu {
+    img {
+        display: inline-block;
+        width: auto;
+    }
+}

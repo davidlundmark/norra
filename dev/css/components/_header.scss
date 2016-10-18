@@ -1,9 +1,9 @@
-.page-section.header {
+.page-header {
     background-color: $header-background-color;
     position: fixed;
     width: 100%;
     top: 0;
-    z-index: 1000;
+    z-index: 1000 !important;
     transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transform: translateZ(0);
     backface-visibility: hidden;

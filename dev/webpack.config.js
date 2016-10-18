@@ -43,19 +43,21 @@ module.exports = {
                 loader: extracttextplugin.extract(
                     'style-loader', // The backup style loader
                     ['css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
-                )
+                ),
+                exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]" },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]' }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]', exclude: /node_modules/ }
         ] : [{
                 test: /\.scss$/,
                 loader: extracttextplugin.extract(
                     'style-loader', // The backup style loader
                     ['css-loader', 'postcss-loader', 'sass-loader']
-                )
+                ),
+                exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]" },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]' }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]', exclude: /node_modules/ }
         ]
     },
     postcss: function() {

@@ -76,12 +76,12 @@ html.swipebox-html.swipebox-touch {
         }
     }
     .slide-loading {
-        background: url($path-images+'ajax-loader.gif') no-repeat center center;
+        /*background: url($path-images+'ajax-loader.gif') no-repeat center center;*/
     }
 }
 
 //#swipebox-bottom-bar,
-#swipebox-top-bar {
+#swipebox-top-bar {  
     position: absolute;
     left: 0;
     right: 0;

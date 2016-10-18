@@ -6,6 +6,9 @@ html {
 *::before,
 *::after {
     box-sizing: inherit;
+    #breadcrumbMenuSubcontrol_context_menu & {
+        box-sizing: content-box;
+    }
 }
 
 html,
@@ -15,11 +18,22 @@ body {
 
 body {
     min-width: $breakpoint-xs;
+    background-color: $base-background-color;
 }
 
 .page-section {
     position: relative;
     background-color: $base-background-color;
+    &.page-body {
+        background-color: transparent;
+        > .section-container {
+            background-color: $base-background-color;
+            margin-top: -$gap-double;
+            @include breakpoint($breakpoint-lg) {
+                margin-top: 0;
+            }
+        }
+    }
 }
 
 .section-container {

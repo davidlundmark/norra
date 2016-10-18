@@ -16,7 +16,7 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
-    require('./custom/swipeboxHandler.js');
+    require('./custom/swipeboxHandler.js'); 
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
@@ -24,7 +24,7 @@
 
     console.log('deKai v.2.422');
 
-    //
+    //project specific var
     var useAccordion = true;
     var useMenuToggle = true;
     var useSubMenus = true;
@@ -43,7 +43,7 @@
 
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
-            if (!deKai.isMobile) {
+            if (!deKai.isMobile) { 
                 var _cards = document.querySelectorAll('.card');
                 if (_cards !== null) {
                     $(_cards).filter('.card-anchor').hover(function() {
@@ -72,8 +72,8 @@
 
             function positionSubmenus() {
                 if (!ScreensizeHandler.isBigScreen) return;
-                //var $subMenus = $('.header li.has-child');
-                var _submenus = document.querySelectorAll('.header li.has-child');
+                //var $subMenus = $('.page-header li.has-child');
+                var _submenus = document.querySelectorAll('.page-header li.has-child');
                 if (_submenus === null) return;
 
                 $(_submenus).each(function() {
@@ -93,7 +93,7 @@
             $(_arrowdown).find('.icon').on('click', function(e) {
                 hideArrow();
                 $('html, body').animate({
-                    scrollTop: $('.scroll-target').offset().top
+                    scrollTop: $('.content-wrapper').offset().top
                 }, 1000);
             });
         }
@@ -104,14 +104,14 @@
             $(_arrowdown).fadeOut(200);
         }
 
-        $('#header .search .icon-container').on('click', function(e) {
+        $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
             $this.siblings('.label').fadeToggle(200, function() {
                 $(this).focus();
             });
         });
 
-        $('#header .search .label').keypress(function(e) {
+        $('.page-header .search .label').keypress(function(e) {
             if (e.which == 13) {
                 alert('SÖK: ' + $(this).val());
             }
@@ -121,12 +121,18 @@
             if (e.which == 13) {
                 alert('SÖK: ' + $(this).val());
             }
-        });
+        }); 
 
         $('#mobile-menu .search .icon-container').on('click', function(e) {
             var $this = $(this);
             alert('SÖK: ' + $this.parent().find('.label').val());
         });
+
+        if (document.querySelector('.page-image') !== null) {
+            $('body').css({
+                'padding-top': $('.page-header').outerHeight()
+            });
+        }
 
         /*
         $('#mobile-menu .search .label').on('click', function(e) {
@@ -144,7 +150,7 @@
 
     });
 
-    $(window).on('load', function() {
+    $(window).on('load', function() { 
         /*
         if (ScreensizeHandler.isBigScreen) {
             
@@ -163,19 +169,18 @@
         }
         */
 
-        $('#mobile-menu .content').css({ 'padding-top': $('#header.page-header').outerHeight() });
-        //$('#mobile-menu .content').css({'min-height':'calc(100% - '+$('#header').outerHeight()+'px)'});
+        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar
-        if (document.documentElement.className == 'sitecore') {
+        if (document.documentElement.className == 'sitecore') { 
             var _scRibbon = document.getElementById('scWebEditRibbon');
             var _height = _scRibbon.offsetHeight;
             var _timer = setInterval(function() {
                 if (_scRibbon.offsetHeight > _height) {
                     _height = _scRibbon.offsetHeight;
-                    $('.page-section.header').css({ 'top': _height + 'px' });
-                    $('#mobile-menu .content').css({ 'padding-top': $('#header.page-header').outerHeight() + _height });
+                    $('.page-header').css({ 'top': _height + 'px' });
+                    $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
                     clearInterval(_timer);
                 }
             }, 200);

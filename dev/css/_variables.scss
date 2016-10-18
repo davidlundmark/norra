@@ -40,13 +40,14 @@ $path-fonts: '../../assets/fonts/';
 
 // Font familys
 $oswald: 'Oswald', sans-serif;
+$roboto: 'Roboto', sans-serif;
 
 // Text
-$base-font-family: $oswald;
+$base-font-family: $roboto;
 $base-font-weight: 400;
 $light-font-weight: 300;
-$bold-font-weight: 500;
-$base-font-size: 14px;
+$medium-font-weight: 500;
+$base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
@@ -59,12 +60,14 @@ $large-font-size: $base-font-size + 2px;
 $large-font-name: 'large';
 
 // Text
-$heading-font-weight: $base-font-weight;
+$heading-font-weight: 400;
 $heading-font-family: $oswald;
 $heading-font-size: 26px;
 $heading-line-height: 1.2;
 $heading-text-transform: none;
 $heading-font-name: 'heading';
+$heading-light-font-weight: 300;
+$heading-bold-font-weight: 700;
 
 // h1
 $h1-font-size: 40px;
@@ -206,6 +209,7 @@ $header-submenu-hover-color: $base-brand-color;
 $header-text-transform: uppercase;
 $header-scrolled-background-color: rgba($header-background-color,0.95);
 $header-scrolled-border-bottom: none;
+$header-font-size: 14px;
 
 // =================================================
 // Footer
@@ -274,6 +278,7 @@ $card-overlay-opacity: 0.5;
 $card-text-padding-horizontal: $gap-double;
 $card-text-padding-vertical: $gap-xl;
 $card-secondary-color: $white;
+$card-image-min-height: 250px;
 
 // =================================================
 // Carousel
@@ -307,3 +312,16 @@ $lightbox-icon-disabled-opacity: 0.3;
 $lightbox-icon-size: $gap;
 $lightbox-top-bar-background-color:rgba($tertiary-background-color, 1);
 $lightbox-video-max-width: 1024px;
+
+// =================================================
+// Page image
+// =================================================
+
+$page-image-text-font-color: $secondary-font-color;
+$page-image-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
+
+// =================================================
+// Page body
+// =================================================
+
+$page-body-max-width: 800px;

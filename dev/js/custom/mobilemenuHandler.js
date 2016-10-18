@@ -2,9 +2,12 @@
 var MobileMenuHandler =  {
     lastScrollPos: 0,
     init: function() {
-        $('.menu-toggle').on('click', function(e) {
-            e.stopPropagation();
+        var _menutoggle = document.querySelectorAll('.menu-toggle');
+        if (_menutoggle === null) return;
 
+        $(_menutoggle).on('click', function(e) {
+            e.stopPropagation();
+ 
             var $this = $(this);
             $this.toggleClass('open');
             $this.find('.burger-container').toggleClass('active');
@@ -58,7 +61,7 @@ var MobileMenuHandler =  {
         }
 
         var $menuHeight = $elem.find('.accordion').outerHeight();
-        var $windowHeight = $(window).outerHeight() - $('#header').outerHeight();
+        var $windowHeight = $(window).outerHeight() - $('.page-header').outerHeight();
 
         $content.off('touchmove touchstart');
         var scrollTop = 0;

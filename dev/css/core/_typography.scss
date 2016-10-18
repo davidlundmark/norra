@@ -2,6 +2,12 @@ body {
     color: $base-font-color;
     @include setFont($base-font-name);
     -webkit-font-smoothing: antialiased;
+    header,
+    footer,
+    nav,
+    .card {
+        @include setTextFormat($heading-font-family, $small-font-size, $heading-font-weight);
+    }
 }
 
 h1,
@@ -115,7 +121,7 @@ a,
     color: $link-color;
     text-decoration: underline;
     cursor: pointer;
-    -webkit-tap-highlight-color: rgba(0,0,0,0);
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     &:active,
     &:hover,
     &:focus {
@@ -127,6 +133,10 @@ a,
         &.hover {
             color: $link-hover-color;
         }
+    }
+    &[class^="sc"] {
+        //sitecore fix
+        color: #2B2B2B !important;
     }
 }
 
@@ -157,6 +167,11 @@ hr {
     }
 }
 
+.link-icon {
+    display: inline-block;
+    line-height: 1;
+}
+
 .small {
     @include setFontSize($small-font-size);
 }
@@ -169,8 +184,22 @@ hr {
     font-weight: $light-font-weight;
 }
 
+@include headings {
+    &.light,
+    .light {
+        font-weight: $heading-bold-font-weight;
+    }
+}
+
 .bold {
-    font-weight: $bold-font-weight;
+    font-weight: $medium-font-weight;
+}
+
+@include headings {
+    &.bold,
+    .bold {
+        font-weight: $heading-bold-font-weight;
+    }
 }
 
 .title {
