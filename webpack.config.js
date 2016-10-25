@@ -8,8 +8,8 @@ var autoprefixer = require('autoprefixer');
 
 //var livereloadplugin = require('webpack-livereload-plugin');
 
-var jsFile = '../scripts.min.js';
-var cssFile = '../styles.min.css';
+var jsFile = './src/scripts.min.js';
+var cssFile = './src/styles.min.css';
 
 module.exports = {
     context: __dirname,
@@ -23,7 +23,7 @@ module.exports = {
     output: {
         path: __dirname,
         filename: jsFile,
-        publicPath: './assets/'
+        publicPath: '../' //used on index to find the dist folder
     },
     //watch: true,
     plugins: debug ? [
@@ -46,8 +46,8 @@ module.exports = {
                 ),
                 exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
         ] : [{
                 test: /\.scss$/,
                 loader: extracttextplugin.extract(
@@ -56,8 +56,8 @@ module.exports = {
                 ),
                 exclude: /node_modules/
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=../assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=../assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
         ]
     },
     postcss: function() {

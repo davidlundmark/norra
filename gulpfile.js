@@ -1,9 +1,9 @@
 var gulp = require('gulp');
 var watch = require('gulp-watch');
 
-var source = '../';
-var project_destination = 'C:/projects/dev/src/Project/Norra/code/src/';
-var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/src/';
+var source = './';
+var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
+var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
 
 gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
 
@@ -11,9 +11,7 @@ gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch
 gulp.task('watch:sync-project', function() {
     gulp.src(source, { base: source })
         //.pipe(watch(source + 'assets/' + '/**/*', { base: source + 'assets/' }))
-        .pipe(watch(source + 'assets/', { base: source }))
-        .pipe(watch(source + 'scripts.min.js', { base: source }))
-        .pipe(watch(source + 'styles.min.css', { base: source }))
+        .pipe(watch(source + 'src/', { base: source }))
         .pipe(gulp.dest(project_destination));
 });
 
@@ -21,9 +19,7 @@ gulp.task('watch:sync-project', function() {
 gulp.task('watch:sync-wwwroot', function() {
     gulp.src(source, { base: source })
         //.pipe(watch(source + 'assets/' + '/**/*', { base: source + 'assets/' }))
-        .pipe(watch(source + 'assets/', { base: source }))
-        .pipe(watch(source + 'scripts.min.js', { base: source }))
-        .pipe(watch(source + 'styles.min.css', { base: source }))
+        .pipe(watch(source + 'src/', { base: source }))
         .pipe(gulp.dest(wwwroot_destination));
 });
 
