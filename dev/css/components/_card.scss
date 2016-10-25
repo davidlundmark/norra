@@ -4,8 +4,18 @@
     //@include border();
     &-image {
         position: relative;
-        > .background-image {
+        .background-image {
             min-height: $card-image-min-height;
+            @include breakpoint($breakpoint-sm) {
+                min-height: $card-image-min-height-sm;
+            }
+            &.youtube-image {
+                //fix for removing black borders around image
+                background-size: 120%;
+                @include breakpoint($breakpoint-md) {
+                    background-size: 122%;
+                } 
+            }
         }
     }
     /*
@@ -22,7 +32,8 @@
             margin-bottom: 0;
         }
     }
-    &-anchor, &-lightbox {
+    &-anchor,
+    &-lightbox {
         .card-link {
             @include coverAll();
         }

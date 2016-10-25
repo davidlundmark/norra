@@ -54,7 +54,7 @@
 								<a id="swipebox-next" class="icon-container"><span class="icon icon-play3"></span></a>\
 							</div>\
 						</div>\
-						<a id="swipebox-close" class="icon-container"><span class="icon icon-cross"></span></a>\
+						<a id="swipebox-close" class="icon-container"><span class="icon icon-cross2"></span></a>\
                         <div id="swipebox-numeratio">\
 								<p id="swipebox-numeratio-text">\
                                     <span id="swipebox-current-slide"></span>\

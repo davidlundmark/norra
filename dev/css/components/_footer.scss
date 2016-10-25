@@ -19,12 +19,9 @@
     .text {
         text-align: center;
     }
-    .logo-container {
-        > a {
+    .logo {
+        > img {
             width: $footer-logo-width;
-            @include centerVertical();
-            right: 0;
         }
     }
-
 }

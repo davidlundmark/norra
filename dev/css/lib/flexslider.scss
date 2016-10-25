@@ -50,6 +50,7 @@
         @include centeredContainer(800px);
         padding: 0 $page-section-padding;
         height: 0;
+        will-change: opacity;
         .content {
             @include translateY(-50%);
             position: absolute;

@@ -223,6 +223,13 @@ $footer-color: $white;
 //$footer-text-transform: uppercase;
 
 // =================================================
+// Breadcrumb
+// =================================================
+ 
+$breadcrumb-padding: 0 0 $gap-double;
+$breadcrumb-font-size: $small-font-size;
+
+// =================================================
 // Text inputs
 // =================================================
 
@@ -279,6 +286,7 @@ $card-text-padding-horizontal: $gap-double;
 $card-text-padding-vertical: $gap-xl;
 $card-secondary-color: $white;
 $card-image-min-height: 250px;
+$card-image-min-height-sm: 200px;
 
 // =================================================
 // Carousel
@@ -325,3 +333,9 @@ $page-image-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 // =================================================
 
 $page-body-max-width: 800px;
+
+// =================================================
+// Cookie
+// =================================================
+
+$cookie-background-color: rgba($white, 0.96);

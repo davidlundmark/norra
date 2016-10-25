@@ -1,10 +1,6 @@
 //#region AccordionHandlerZ
 var AccordionHandler = {
-    initialized: null,
     init: function() {
-        if (this.initialized) return;
-        this.initialized = true;
-
         var _triggers = document.querySelectorAll('.accordion-trigger');
         if (_triggers === null) return;
 

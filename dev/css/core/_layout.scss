@@ -28,7 +28,7 @@ body {
         background-color: transparent;
         > .section-container {
             background-color: $base-background-color;
-            margin-top: -$gap-double;
+            //margin-top: -$gap-double;
             @include breakpoint($breakpoint-lg) {
                 margin-top: 0;
             }

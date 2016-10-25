@@ -1,5 +1,12 @@
 (function() {
 
+    //project specific var
+    // var useAccordion = true;
+    // var useMenuToggle = true;
+    // var useSubMenus = true;
+    // var useMenuScrollEffect = true;
+    // var useCookie = true;
+
     //libs
     require('./lib/jquery.easing.1.3.js');
     //require('./lib/prism.js');
@@ -20,15 +27,10 @@
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
+    require('./custom/cookieHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2.422');
-
-    //project specific var
-    var useAccordion = true;
-    var useMenuToggle = true;
-    var useSubMenus = true;
-    var useMenuScrollEffect = true;
 
     $(document).ready(function() {
 
@@ -58,7 +60,7 @@
                     });
                     $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
                         var $this = $(this);
-                        var $card = $this.closest('.card');
+                        var $card = $this.closest('.card'); 
                         $card.toggleClass('hover');
                         $card.find('.link').toggleClass('hover');
                     });

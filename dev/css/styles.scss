@@ -11,6 +11,7 @@
     left: 0;
     right: 0;
     z-index: 1;
+    will-change: transform;
     @include breakpoint($breakpoint-lg) {
         position: absolute;
     }
@@ -120,8 +121,9 @@
         text-align: center;
         margin: 0 auto;
         .logo {
-            margin: $gap-xl auto 0;
-            width: 200px;
+            > img {
+                margin: $gap-xl auto 0;
+            }
         }
         @include headings {
             text-transform: uppercase;
@@ -163,6 +165,7 @@
     bottom: $gap-double;
     width: 100%;
     text-align: center;
+    will-change: auto;
     .icon {
         cursor: pointer;
         position: relative;
@@ -189,7 +192,7 @@
 
 .page-image {
     .section-container {
-        height: 40vh;
+        height: 30vh;
         overflow: hidden;
         @include breakpoint($breakpoint-lg) {
             height: auto;
@@ -225,7 +228,12 @@
             margin-bottom: $gap-double;
         }
         &-date {
-            padding-top: $gap-xl;
+            font-size: $small-font-size;
+            margin-top: $gap-xl;
+            line-height: 1;
+        }
+        &-image, &-video {
+            margin-bottom: $gap-double;
         }
     }
 }
