@@ -293,3 +293,7 @@
 @mixin scaleX ($factor) {
     transform: scaleX($factor);
 }
+
+@mixin scale ($factor) {
+    transform: scale($factor);
+}

@@ -1,8 +1,10 @@
 .card {
     position: relative;
     height: 100%;
+    background-color: $card-background-color;
     //@include border();
     &-image {
+        overflow: hidden;
         position: relative;
         .background-image {
             min-height: $card-image-min-height;
@@ -23,7 +25,6 @@
         @include centerElement();
     }
     */
-    background-color: $card-background-color;
     &-text {
         //@include border($dir: top);
         position: relative;

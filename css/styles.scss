@@ -29,6 +29,18 @@
 }
 
 .card {
+    // zoom effect on images
+    // .no-touch & {
+    //     .background-image {
+    //         @include transition(transform, $transition-timing: $easeOutSine);
+    //     }
+    //     &.hover {
+    //         .background-image {
+    //             will-change: transform;
+    //             @include scale(1.02);
+    //         }
+    //     }
+    // }
     &-anchor,
     &-lightbox {
         .card {
@@ -153,7 +165,7 @@
         // position: absolute;
         // bottom: 0;
         // right: 0;
-        opacity: 0.2;   
+        opacity: 0.2;
         @include breakpoint($breakpoint-sm) {
             position: relative;
         }
@@ -186,7 +198,7 @@
         bottom: -$gap;
     }
     100% {
-        bottom: 0; 
+        bottom: 0;
     }
 }
 
@@ -199,7 +211,7 @@
             overflow: visible;
         }
     }
-    picture { 
+    picture {
         @include centerVertical();
         @include breakpoint($breakpoint-lg) {
             position: relative;
@@ -232,7 +244,8 @@
             margin-top: $gap-xl;
             line-height: 1;
         }
-        &-image, &-video {
+        &-image,
+        &-video {
             margin-bottom: $gap-double;
         }
     }
