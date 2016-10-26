@@ -137,7 +137,7 @@
     }
 }
 
-@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: 0, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
+@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: 1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;
     @if $distance !=0 {
