@@ -4,8 +4,17 @@ var watch = require('gulp-watch');
 var source = './';
 var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
 var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
+var debug = true;
 
-gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch'/*, 'webpack:dev-server'*/]);
+gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch' /*, 'webpack:dev-server'*/ ]);
+
+var runSequence = require('run-sequence');
+
+//set debug = false, will uglify and more
+gulp.task('production', function() {
+    debug = false;
+    runSequence('watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch');
+});
 
 //sync files to VS project
 gulp.task('watch:sync-project', function() {
@@ -27,7 +36,13 @@ gulp.task('watch:sync-wwwroot', function() {
 var spawn = require('cross-spawn');
 
 gulp.task('webpack:watch', (cb) => {
-    const webpack_watch = spawn('webpack', ['--watch']);
+    var env = debug ? 'development' : 'production';
+
+    process.env.NODE_ENV = env;
+
+    //const cross_env = spawn('cross-env', [env]);
+    const webpack_watch = spawn('webpack', ['--watch','--display-error-details']);
+    console.log(debug,env);
 
     webpack_watch.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);

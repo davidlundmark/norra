@@ -17,3 +17,27 @@ dt {
 dd {
     margin: 0;
 }
+
+ul,
+ol {
+    &.list {
+        @include resetList();
+        li {
+            // &:not(:last-child) {
+            //     border-bottom: $base-border;
+            //     padding-bottom: $gap-half;
+            //     margin-bottom: $gap-half;
+            // }
+            //border-bottom: $base-border;
+            //padding-bottom: $gap-md;
+            //margin-bottom: $gap-md;
+            padding-bottom: $gap;
+            &:last-child {
+                //border-bottom: 0;
+                //padding-bottom: 0;
+                //margin-bottom: 0;
+                padding-bottom: 0;
+            }
+        }
+    }
+}

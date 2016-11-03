@@ -1,4 +1,6 @@
-var debug = true; //process.env.NODE_ENV !== 'production';
+var debug = process.env.NODE_ENV != 'production';
+
+console.log(process.env.NODE_ENV,debug, process.env.NODE_ENV == 'production');
 
 var webpack = require('webpack');
 var extracttextplugin = require('extract-text-webpack-plugin');
@@ -64,19 +66,20 @@ module.exports = {
         return [
             autoprefixer({
                 browsers: [
-                    'Android >= 2.3',
-                    'BlackBerry >= 7',
-                    'Chrome >= 9',
-                    'Firefox >= 4',
-                    'Explorer >= 9',
-                    'iOS >= 5',
-                    'Opera >= 11',
-                    'Safari >= 5',
-                    'OperaMobile >= 11',
-                    'OperaMini >= 6',
-                    'ChromeAndroid >= 9',
-                    'FirefoxAndroid >= 4',
-                    'ExplorerMobile >= 9'
+                    // 'Android >= 2.3',
+                    // 'BlackBerry >= 7',
+                    // 'Chrome >= 9',
+                    // 'Firefox >= 4',
+                    // 'Explorer >= 9',
+                    // 'iOS >= 5',
+                    // 'Opera >= 11',
+                    // 'Safari >= 5',
+                    // 'OperaMobile >= 11',
+                    // 'OperaMini >= 6',
+                    // 'ChromeAndroid >= 9',
+                    // 'FirefoxAndroid >= 4',
+                    // 'ExplorerMobile >= 9'
+                    '> 1%'
                 ]
             }),
             precss

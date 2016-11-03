@@ -137,7 +137,7 @@
     }
 }
 
-@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: 1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
+@mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: -1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;
     @if $distance !=0 {
@@ -147,18 +147,21 @@
         color: $color;
     }
     &:before {
-        content: '';
-        position: absolute;
-        width: 100%;
-        height: $thickness;
-        bottom: -$distance;
-        left: 0;
-        background-color: $line-color;
-        visibility: hidden;
-        @include scaleX(0);
-        @include transition(all, $time, $easeOutCirc);
     }
     .no-touch & {
+        &:before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: $thickness;
+            bottom: -$distance;
+            left: 0;
+            background-color: $line-color;
+            visibility: hidden;
+            //@include scaleX(0);
+            transform: scaleX(0) translate3d(0, 0, 0);
+            @include transition(all, $time, $easeOutCirc);
+        }
         &:hover {
             @if $hover-color !=null {
                 color: $hover-color;
@@ -167,8 +170,10 @@
         &.selected:before,
         &:hover:before,
         &.hover:before {
+            will-change: auto;
             visibility: visible;
-            @include scaleX($scale);
+            //@include scaleX($scale);
+            transform: scaleX(1) translate3d(0, 0, 0);
         }
     }
 }
@@ -262,7 +267,7 @@
 
 @mixin translate($x, $y) {
     transform: translate($x, $y);
-    @include sharpen();
+    //@include sharpen();
 }
 
 @mixin translateY($y) {

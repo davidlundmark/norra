@@ -24,6 +24,7 @@
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
     require('./custom/swipeboxHandler.js'); 
+    require('./custom/backgroundimageHandler.js');
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
@@ -171,7 +172,9 @@
         }
         */
 
-        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() });
+        var headerHeight = $(document.querySelector('.page-header')).outerHeight();
+        if(document.querySelector('.page-slider') === null) $(document.querySelector('.content-wrapper')).css({ 'padding-top': headerHeight });
+        $('#mobile-menu .content').css({ 'padding-top': headerHeight });
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar

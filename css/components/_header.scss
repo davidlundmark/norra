@@ -8,6 +8,12 @@
     transform: translateZ(0);
     backface-visibility: hidden;
     will-change: auto;
+    .logo {
+        width: $header-logo-width;
+        @include breakpoint($breakpoint-md) {
+            width: $header-logo-width-md;
+        }
+    }
     &.scrolled:not(.menu-open) {
         background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
@@ -58,7 +64,7 @@
         }
         .menu-item {
             position: relative;
-            @include animateLine($color: $header-color, $distance: -50px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+            @include animateLine($color: $header-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
             > .text {
                 color: $header-color;
                 text-transform: $header-text-transform;
@@ -100,7 +106,7 @@
             z-index: -1;
             visibility: hidden;
             &:before {
-                height: $gap-xl+1px;
+                height: $gap-xl;
                 display: block;
                 content: '';
                 background-color: transparent;

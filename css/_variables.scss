@@ -18,6 +18,8 @@ $secondary-background-color : #f6f6f6;
 $tertiary-background-color : #444444;
 //$quaternary-background-color : #;
 
+$light-background-color: $white;
+
 // Brand
 $base-brand-color: $color-green;
 $secondary-brand-color: #373b37;
@@ -27,6 +29,8 @@ $tertiary-brand-color: #e0e0e0;
 $base-font-color: #373b37;
 $secondary-font-color: $base-background-color;
 $tertiary-font-color: $white;
+
+$light-font-color: $white;
 
 // =================================================
 // Paths 
@@ -202,6 +206,7 @@ $page-section-max-width: 1280px;
 
 $header-background-color: $white;
 $header-logo-width: 200px;
+$header-logo-width-md: 160px;
 $header-bottom-border: none;
 $header-color: $base-font-color;
 $header-hover-color: $base-brand-color;
@@ -287,6 +292,13 @@ $card-text-padding-vertical: $gap-xl;
 $card-secondary-color: $white;
 $card-image-min-height: 250px;
 $card-image-min-height-sm: 200px;
+$card-horizontal-image-size: 30%;
+$card-horizontal-text-size: 70%;
+$card-horizontal-image-min-height: 200px;
+$card-list-item-image-size: $card-horizontal-image-size;
+$card-list-item-text-size: $card-horizontal-text-size;
+$card-list-item-image-min-height: $card-horizontal-image-min-height;
+$card-list-item-text-padding: $gap;
 
 // =================================================
 // Carousel

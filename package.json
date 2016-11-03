@@ -1,7 +1,7 @@
 {
-  "name": "norra-test",
+  "name": "norra",
   "version": "1.0.0",
-  "description": "",
+  "description": "norra",
   "main": "app.js",
   "dependencies": {
     "css-loader": "^0.25.0",
@@ -20,10 +20,23 @@
     "style-loader": "^0.13.1",
     "webpack": "^1.13.2"
   },
-  "devDependencies": {},
+  "devDependencies": {
+    "run-sequence": "^1.2.2"
+  },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "",
-  "license": "ISC"
+  "author": "david",
+  "license": "ISC",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/davidlundmark/norra.git"
+  },
+  "keywords": [
+    "norra"
+  ],
+  "bugs": {
+    "url": "https://github.com/davidlundmark/norra/issues"
+  },
+  "homepage": "https://github.com/davidlundmark/norra#readme"
 }
