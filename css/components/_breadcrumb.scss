@@ -4,7 +4,7 @@
     ol {
         @include resetList();
         @include horizontalList($margin: 0);
-        padding: $breadcrumb-padding;
+        //padding: $breadcrumb-padding;
         li {
             &:not(:last-child) {
                 margin-right: $gap-xs;
@@ -36,5 +36,12 @@
     p,
     a {
         margin: 0;
+    }
+}
+
+.breadcrumb-section {
+    background-color: $breadcrumb-background-color;
+    .section-container {
+        padding: $breadcrumb-padding;
     }
 }

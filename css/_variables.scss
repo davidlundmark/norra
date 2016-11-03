@@ -231,8 +231,9 @@ $footer-color: $white;
 // Breadcrumb
 // =================================================
  
-$breadcrumb-padding: 0 0 $gap-double;
+$breadcrumb-padding: $gap-half $page-section-padding;
 $breadcrumb-font-size: $small-font-size;
+$breadcrumb-background-color: $tertiary-brand-color;
 
 // =================================================
 // Text inputs
