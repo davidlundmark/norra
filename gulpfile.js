@@ -42,7 +42,7 @@ gulp.task('webpack:watch', (cb) => {
 
     //const cross_env = spawn('cross-env', [env]);
     const webpack_watch = spawn('webpack', ['--watch','--display-error-details']);
-    console.log(debug,env);
+    //console.log(debug,env);
 
     webpack_watch.stdout.on('data', (data) => {
         console.log(`stdout: ${data}`);

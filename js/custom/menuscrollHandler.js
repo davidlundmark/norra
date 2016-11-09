@@ -8,11 +8,19 @@ var MenuScrollHandler =  {
     senseSpeed: 5,
     offsetTop: 0,
     prevScrollTop: 0,
+    timer: null,
+    $rootMenu: null,
+    $subwebMenu: null,
+    rootMenuHidden: false,
     init: function() {
         var _pageheader = document.querySelectorAll('.page-header');
         if (_pageheader === null) return;
 
         this.$pageheader = $(_pageheader);
+
+        this.$subwebMenu = this.$pageheader.find('.subweb-menu');
+        if(this.$subwebMenu.length) this.$rootMenu = this.$pageheader.find('.rootweb-menu');
+
         //console.log(ScreensizeHandler.isBigScreen)
         
         if (window.ScreensizeHandler.isBigScreen && document.querySelector('.flexslider') !== null) {
@@ -25,6 +33,8 @@ var MenuScrollHandler =  {
         $(window).scroll(function() {
             this.handleTopMenu();
         }.bind(this));
+
+        if(this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
     },
     handleTopMenu: function() {
         if (this.$pageheader.hasClass('menu-open')) return;
@@ -33,7 +43,7 @@ var MenuScrollHandler =  {
 
         //console.log(this.offsetTop, scrollTop)
 
-        //change bg color, hide flexslider nav
+        //change bg color
         if (scrollTop >= this.offsetTop) {
             if (!this.scrolled) {
                 this.scrolled = true;
@@ -46,8 +56,8 @@ var MenuScrollHandler =  {
             }
         }
 
+        //hide show menu
         if (scrollTop >= this.offsetTop) {
-            //hide show menu
             if (scrollTop - this.senseSpeed > this.prevScrollTop) {
                 if (!this.hidden) {
                     this.hidden = true;
@@ -66,6 +76,25 @@ var MenuScrollHandler =  {
             }
         }
         this.prevScrollTop = scrollTop;
+
+        if(!this.$subwebMenu.length) return;
+
+        if(scrollTop <= 0) {
+            this.showRootMenu();
+        }
+        else this.hideRootMenu();
+    },
+    hideRootMenu: function() {
+        if(!ScreensizeHandler.isBigScreen || this.rootMenuHidden) return;
+        this.rootMenuHidden = true;
+        clearTimeout(this.timer);
+        this.$rootMenu.stop(true, false).slideUp();
+        //this.$rootMenu.addClass(this.hideClass);
+    },
+    showRootMenu: function() {
+        if(!ScreensizeHandler.isBigScreen || !this.rootMenuHidden) return;
+        this.rootMenuHidden = false;
+        this.$rootMenu.stop(true, false).slideDown();
     }
 };
 //#endregion

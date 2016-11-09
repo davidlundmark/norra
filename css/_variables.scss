@@ -205,14 +205,17 @@ $page-section-max-width: 1280px;
 // =================================================
 
 $header-background-color: $white;
+$header-subweb-background-color: $secondary-background-color;
 $header-logo-width: 200px;
 $header-logo-width-md: 160px;
+$header-logo-small-width: 30px;
 $header-bottom-border: none;
 $header-color: $base-font-color;
 $header-hover-color: $base-brand-color;
 $header-submenu-hover-color: $base-brand-color;
 $header-text-transform: uppercase;
 $header-scrolled-background-color: rgba($header-background-color,0.95);
+$header-subweb-scrolled-background-color: rgba($header-subweb-background-color,0.9);
 $header-scrolled-border-bottom: none;
 $header-font-size: 14px;
 

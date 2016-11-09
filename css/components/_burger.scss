@@ -3,7 +3,7 @@
     margin-top: $height + $gutter;
     margin-bottom: $height + $gutter;
     user-select: none;
-    @include translateZ(0);
+    //@include translateZ(0);
     &,
     &:before,
     &:after {

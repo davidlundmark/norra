@@ -1,24 +1,40 @@
 .page-header {
-    background-color: $header-background-color;
     position: fixed;
     width: 100%;
     top: 0;
     z-index: 1000 !important;
-    transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
-    transform: translateZ(0);
-    backface-visibility: hidden;
-    will-change: auto;
+    background-color: transparent;
+    //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
+    transition: transform 0.4s $easeOutQuad;
+    //transform: translateZ(0);
+    //backface-visibility: hidden;
+    //will-change: auto;
     .logo {
         width: $header-logo-width;
         @include breakpoint($breakpoint-md) {
             width: $header-logo-width-md;
         }
+        &.logo-small {
+            width: $header-logo-small-width;
+        }
     }
     &.scrolled:not(.menu-open) {
-        background-color: $header-scrolled-background-color;
+        //background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
+        .section-container {
+            //.subweb & {
+            &:nth-child(1) {
+                background-color: $header-scrolled-background-color;
+            }
+            &:nth-child(2) {
+                background-color: $header-subweb-scrolled-background-color;
+            }
+            //}
+            @include clearfix();
+        }
     }
-    &.slide-up {
+    &.slide-up,
+    .slide-up {
         @include translateY(-100%);
     }
     &.page-section {
@@ -30,6 +46,19 @@
     }
     .section-container {
         padding: $gap $page-section-padding;
+        transition: background-color $base-transition-duration $base-transition-timing;
+        &:nth-child(1) {
+            background-color: $header-background-color;
+        }
+        .subweb & {
+            &:nth-child(1) {
+                padding: $gap-half $page-section-padding;
+            }
+            &:nth-child(2) {
+                padding: 0 $page-section-padding;
+                background-color: $header-subweb-background-color;
+            }
+        }
         @include clearfix();
     }
     .logo-container {
@@ -57,14 +86,25 @@
     #default-menu {
         z-index: 1;
         display: inline-block;
-        @include centerVertical();
+        .rootweb & {
+            position: absolute;
+            top: 13px;
+            //@include centerVertical();
+        }
         //left: $page-section-padding;
         .menu {
             @include horizontalList();
+            .subweb & {
+                > li:first-child {
+                    margin-left: 0;
+                }
+            }
         }
         .menu-item {
+            .rootweb & {
+                @include animateLine($color: $header-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+            }
             position: relative;
-            @include animateLine($color: $header-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
             > .text {
                 color: $header-color;
                 text-transform: $header-text-transform;
@@ -89,6 +129,7 @@
                             visibility: visible;
                             opacity: 1;
                             z-index: 99;
+                            @include transition(all, 0.2s, linear);
                         }
                     }
                 }
@@ -101,23 +142,30 @@
             width: 100vw;
             display: block;
             position: absolute;
-            @include transition(all, 0.3s, linear);
+            //@include transition(all, 0.2s, linear);
+            //transition: all $base-transition-duration $base-transition-timing $base-transition-duration*2;
             opacity: 0;
             z-index: -1;
             visibility: hidden;
             &:before {
                 height: $gap-xl;
+                .subweb & {
+                    height: $gap;
+                }
                 display: block;
                 content: '';
                 background-color: transparent;
             }
             &-container {
                 background-color: $header-background-color;
+                .subweb & {
+                    background-color: $header-subweb-background-color;
+                }
             }
             &-content {
-                max-width: $page-section-max-width;
+                //max-width: $page-section-max-width;
                 margin: 0 auto;
-                padding: $page-section-padding/2 $page-section-padding $page-section-padding;
+                padding: $page-section-padding/2 0 $page-section-padding;
             }
             &-item {
                 display: inline-block;
