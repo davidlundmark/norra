@@ -94,9 +94,13 @@
         //left: $page-section-padding;
         .menu {
             @include horizontalList();
+            //line-height: 0;
             .subweb & {
-                > li:first-child {
-                    margin-left: 0;
+                > li {
+                    //line-height: $base-line-height;
+                    &:first-child {
+                        margin-left: 0;
+                    }
                 }
             }
         }

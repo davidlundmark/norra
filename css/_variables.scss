@@ -3,7 +3,7 @@
 // =================================================
 
 // Brand Colors
-$color-green: #9eba00;
+$color-green: #2ABE52;
 
 // Grays
 $black: #000;
@@ -13,10 +13,10 @@ $light-gray: #ddd;
 $white: #fff;
 
 // Background Colors
-$base-background-color: #efeee9;
-$secondary-background-color : #f6f6f6;
-$tertiary-background-color : #444444;
-//$quaternary-background-color : #;
+$base-background-color: #ffffff;//#efeee9;
+$secondary-background-color : #FAFAFA;//f6f6f6;
+$tertiary-background-color : #efeee9;// #444444;
+$quaternary-background-color : #444444;
 
 $light-background-color: $white;
 
@@ -26,7 +26,7 @@ $secondary-brand-color: #373b37;
 $tertiary-brand-color: #e0e0e0;
 
 // Font Colors
-$base-font-color: #373b37;
+$base-font-color: #444444;
 $secondary-font-color: $base-background-color;
 $tertiary-font-color: $white;
 
@@ -114,7 +114,7 @@ $h6-font-size-sm: $h1-font-size-sm - 20px;
 // =================================================
 
 // Border
-$base-border-color: #d0d0d0;
+$base-border-color: #E1E1E1;//#d0d0d0;
 $base-border: 1px solid $base-border-color;
 $base-border-thickness: 1px;
 $base-border-style: solid;
@@ -223,7 +223,7 @@ $header-font-size: 14px;
 // Footer
 // =================================================
 
-$footer-background-color: $tertiary-background-color;
+$footer-background-color: $quaternary-background-color;
 $footer-logo-width: 50%;
 $footer-top-border: none; 
 $footer-color: $white;

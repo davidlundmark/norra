@@ -29,6 +29,7 @@
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');
+    require('./custom/arrowdownHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2.422');
@@ -91,21 +92,21 @@
         }
 
         //handle arrow down click <!_.|(x(XX)x)|._!>  
-        var _arrowdown = document.querySelector('.arrow-down');
-        if (_arrowdown !== null) {
-            $(_arrowdown).find('.icon').on('click', function(e) {
-                hideArrow();
-                $('html, body').animate({
-                    scrollTop: $('.content-wrapper').offset().top
-                }, 1000);
-            });
-        }
+        // var _arrowdown = document.querySelector('.arrow-down');
+        // if (_arrowdown !== null) {
+        //     $(_arrowdown).find('.icon').on('click', function(e) {
+        //         hideArrow();
+        //         $('html, body').animate({
+        //             scrollTop: $('.content-wrapper').offset().top
+        //         }, 1000);
+        //     });
+        // }
 
-        setTimeout(hideArrow, 5000);
+        // setTimeout(hideArrow, 5000);
 
-        function hideArrow() {
-            $(_arrowdown).fadeOut(200);
-        }
+        // function hideArrow() {
+        //     $(_arrowdown).fadeOut(200);
+        // }
 
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);

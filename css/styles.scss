@@ -9,16 +9,20 @@
 
 
 .arrow-down {
-    position: absolute;
+    z-index: 3;
+    position: fixed;
     bottom: $gap-double;
-    width: 100%;
+    //width: 100%;
+    @include centerHorizontal();
     text-align: center;
     will-change: auto;
     .icon {
+        color: $base-font-color;
+        //text-shadow: $base-text-shadow;
         cursor: pointer;
         position: relative;
         display: inline-block;
-        color: $white;
+        //color: $light-font-color;
         font-size: $gap-double;
         //display: none;
         //@include breakpoint($breakpoint-lg,false) {
@@ -26,6 +30,9 @@
         animation-timing-function: $easeOutQuad;
         @include forceHarwareAcceleration();
         //}
+    }
+    @include breakpoint($breakpoint-lg) {
+        display: none;
     }
 }
 

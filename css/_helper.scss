@@ -253,6 +253,17 @@
     @include translate(0, -50%);
 }
 
+@mixin centerHorizontal($centerContent:false) {
+    position: absolute;
+    left: 50%;
+    @if $centerContent==true {
+        @include translate(-50%, -50%);
+    }
+    @else {
+        @include translate(-50%, 0);
+    }
+}
+
 @mixin coverAll() {
     position: absolute;
     top: 0;
