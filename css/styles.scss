@@ -3,11 +3,8 @@
 @import './lib/base';
 @import './core/base';
 @import './components/base';
-@import './pages/base';
+//@import './pages/base';
 //
-
-
-
 .arrow-down {
     z-index: 3;
     position: fixed;
@@ -42,6 +39,20 @@
     }
     100% {
         bottom: 0;
+    }
+}
+
+.grid-section {
+    background-color: $tertiary-background-color;
+    + .grid-section {
+        > .section-container {
+            padding-top: 0;
+        }
+        // &:last-child {
+        //     > .section-container {
+        //         padding-top: $page-section-padding;
+        //     }
+        // }
     }
 }
 
@@ -95,7 +106,8 @@
 }
 
 .news-list {
-    ul, ol {
+    ul,
+    ol {
         @include resetList();
     }
 }
@@ -104,7 +116,8 @@
     footer,
     header,
     .breadcrumb-section,
-    .news-list {
+    .news-list,
+    .page-slider {
         pointer-events: none !important;
         user-select: none !important;
     }

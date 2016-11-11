@@ -3,7 +3,7 @@ var watch = require('gulp-watch');
 
 var source = './';
 var project_destination = 'C:/projects/dev/src/Project/Norra/code/';
-var wwwroot_destination = 'C:/inetpub/wwwroot/Norra/Website/';
+var wwwroot_destination = '//SITECORE/c$/inetpub/wwwroot/Norra/Website';//'C:/inetpub/wwwroot/Norra/Website/';
 var debug = true;
 
 gulp.task('default', ['watch:sync-project', 'watch:sync-wwwroot', 'webpack:watch' /*, 'webpack:dev-server'*/ ]);

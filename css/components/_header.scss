@@ -213,12 +213,32 @@
 
 #mobile-menu {
     .accordion {
-        padding: $gap;
+        //padding: 0 $gap;
         border: none;
         @include border($base-brand-color, top, 3px);
         .menu-item > * {
             border: none;
             background-color: rgba($white, 0);
+        }
+        > li {
+            &:first-child {
+                padding-top: $gap;
+            }
+            &:last-child {
+                padding-bottom: $gap;
+            }
+        }
+    }
+    .submenu {
+        background-color: $secondary-background-color !important;
+
+        > li {
+            &:first-child {
+                padding-top: $gap;
+            }
+            &:last-child {
+                padding-bottom: $gap;
+            }
         }
     }
     a {

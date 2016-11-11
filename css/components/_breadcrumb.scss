@@ -24,7 +24,6 @@
             &:first-child {
                 vertical-align: middle;
                 > a {
-                    text-decoration: none;
                     display: inline-block;
                     > span {
                         display: block;
@@ -37,10 +36,14 @@
     a {
         margin: 0;
     }
+    a {
+        @include hoverLink($breadcrumb-color);
+    }
 }
 
 .breadcrumb-section {
     background-color: $breadcrumb-background-color;
+    color: $breadcrumb-color;
     .section-container {
         padding: $breadcrumb-padding;
     }

@@ -150,7 +150,12 @@ hr {
     border-left: 0;
     border-right: 0;
     border-top: 0;
-    margin: $gap 0;
+    &:not(.minimal) {
+        margin: $gap 0;
+    }
+    &.minimal {
+        margin: 0;
+    }
     &.dashed {
         border-style: dashed;
     }
@@ -189,12 +194,12 @@ hr {
     font-weight: $light-font-weight;
 }
 
-@include headings {
-    &.light,
-    .light {
-        font-weight: $heading-bold-font-weight;
-    }
-}
+// @include headings {
+//     &.light,
+//     .light {
+//         font-weight: $heading-bold-font-weight;
+//     }
+// }
 
 .medium {
     font-weight: $medium-font-weight;

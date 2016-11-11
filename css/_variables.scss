@@ -3,34 +3,31 @@
 // =================================================
 
 // Brand Colors
-$color-green: #2ABE52;
+$green: #2ABE52;
 
 // Grays
 $black: #000;
-$dark-gray: #333;
-$medium-gray: #999;
-$light-gray: #ddd;
 $white: #fff;
 
 // Background Colors
 $base-background-color: #ffffff;//#efeee9;
-$secondary-background-color : #FAFAFA;//f6f6f6;
-$tertiary-background-color : #efeee9;// #444444;
-$quaternary-background-color : #444444;
+$secondary-background-color : #FAFAFA; //light grey //f6f6f6;
+$tertiary-background-color : #efeee9; //beige // #444444;
+$quaternary-background-color : #444444; //dark grey
 
 $light-background-color: $white;
 
 // Brand
-$base-brand-color: $color-green;
-$secondary-brand-color: #373b37;
-$tertiary-brand-color: #e0e0e0;
+$base-brand-color: $green;
+//$secondary-brand-color: #373b37;
+//$tertiary-brand-color: #e0e0e0;
 
 // Font Colors
 $base-font-color: #444444;
-$secondary-font-color: $base-background-color;
-$tertiary-font-color: $white;
+$secondary-font-color: #E1E1E1;
+//$tertiary-font-color: $white;
 
-$light-font-color: $white;
+$light-font-color: #E1E1E1;
 
 // =================================================
 // Paths 
@@ -118,7 +115,7 @@ $base-border-color: #E1E1E1;//#d0d0d0;
 $base-border: 1px solid $base-border-color;
 $base-border-thickness: 1px;
 $base-border-style: solid;
-$secondary-border-color : $light-gray;
+$secondary-border-color : $secondary-background-color;
 $secondary-border: 1px solid $secondary-border-color;
 
 // =================================================
@@ -173,7 +170,7 @@ $button-font-family: $oswald;
 $button-font-size: 12px;
 $button-font-weight: 600;
 $button-line-height: 1;
-$button-hover-color: $tertiary-font-color;
+$button-hover-color: $button-color;
 $button-hover-background-color: $base-brand-color;
 $button-border-color: $base-border-color;
 $button-text-transform: uppercase;
@@ -224,9 +221,10 @@ $header-font-size: 14px;
 // =================================================
 
 $footer-background-color: $quaternary-background-color;
-$footer-logo-width: 50%;
+$footer-logo-width: 400px;
 $footer-top-border: none; 
-$footer-color: $white;
+$footer-color: $light-font-color;
+$footer-copyright-color: #7F7F7F;
 //$header-hover-color: $base-brand-color;
 //$footer-text-transform: uppercase;
 
@@ -236,7 +234,8 @@ $footer-color: $white;
  
 $breadcrumb-padding: $gap-half $page-section-padding;
 $breadcrumb-font-size: $small-font-size;
-$breadcrumb-background-color: $tertiary-brand-color;
+$breadcrumb-background-color: #363636;
+$breadcrumb-color: $light-font-color;
 
 // =================================================
 // Text inputs
@@ -267,8 +266,8 @@ $accordion-sub-color: $accordion-color;
 $accordion-sub-background-color: $secondary-background-color;
 $accordion-sub-hover-color: $accordion-color;
 $accordion-sub-hover-background-color: $accordion-sub-background-color;
-$accordion-padding: $gap-half $gap;
-$accordion-sub-indent: $gap*2;
+$accordion-padding: $gap-half $gap*2;
+$accordion-sub-indent: $gap*3;
 $accordion-font: 'base';
 
 

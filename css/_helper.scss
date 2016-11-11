@@ -137,6 +137,31 @@
     }
 }
 
+@mixin hoverLink($color: $base-font-color, $hover-color: $base-brand-color) {
+    @if color != null {
+        color: $color;
+    }
+    text-decoration: none;
+    .no-touch & {
+        @include transition();
+        &:hover,
+        &.hover &.selected {
+            color: $hover-color;
+        }
+    }
+}
+
+@mixin underlineLink() {
+    text-decoration: none;
+
+    .no-touch & {
+        &:hover,
+        &.hover &.selected {
+            text-decoration: underline;
+        }
+    }
+}
+
 @mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: -1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;

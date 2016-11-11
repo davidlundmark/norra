@@ -16,13 +16,20 @@
         color: $footer-color;
         //text-decoration: none;
     }
-    .text {
-        text-align: center;
-    }
+    // .text {
+    //     text-align: center;
+    // }
     .logo {
         > img {
+            display: inline-block;
             width: $footer-logo-width;
+            margin-bottom: $page-section-padding;
         }
+    }
+    @include headings {
+        text-transform: uppercase;
+        margin-bottom: $gap;
+        @extend .light;
     }
     @include headings,
     p {
@@ -44,20 +51,50 @@
             }
         }
     }
-    .middle {
-        max-width: 570px;
+    .left {
+        @include breakpoint($breakpoint-md) {
+            text-align: center;
+        }
+    }
+    .middle,
+    .footer-bottom {
+        //max-width: 570px;
         text-align: center;
         margin: 0 auto;
-        .logo {
-            > img {
-                margin: $gap-xl auto 0;
+        // .logo {
+        //     > img {
+        //         margin: $gap-xl auto 0;
+        //     }
+        // }
+        // @include headings {
+        //     text-transform: uppercase;
+        // }
+        // .title {
+        //     margin-bottom: 0;
+        // }
+        .bottom-links {
+            p,a {
+                color: $footer-copyright-color;
+                display: inline-block;
+                margin-bottom: 0;
             }
-        }
-        @include headings {
-            text-transform: uppercase;
-        }
-        .title {
-            margin-bottom: 0;
+            > p {
+                margin-right: $gap-xs;
+                &:after {
+                    padding-left: $gap-xs;
+                    content: '|';
+                    display: inline-block;
+                }
+                &:last-child {
+                    margin-right: 0;
+                    &:after {
+                        content: '';
+                    }
+                }
+            }
+            a {
+                @include hoverLink($footer-copyright-color);
+            }
         }
     }
     .right {
@@ -65,7 +102,7 @@
         @include breakpoint($breakpoint-lg) {
             margin-bottom: $gap-double;
         }
-        @include breakpoint($breakpoint-sm) {
+        @include breakpoint($breakpoint-md) {
             text-align: center;
         }
     }
@@ -75,15 +112,16 @@
         margin: 0 $gap-half;
     }
     hr {
-        margin: $gap-double 0;
+        //margin: $gap-double 0;
+        border-color: $breadcrumb-background-color;
     }
     .copyright {
         // position: absolute;
         // bottom: 0;
         // right: 0;
-        opacity: 0.2;
-        @include breakpoint($breakpoint-sm) {
-            position: relative;
-        }
+        //opacity: 0.2;
+        // @include breakpoint($breakpoint-sm) {
+        //     position: relative;
+        // }
     }
 }
