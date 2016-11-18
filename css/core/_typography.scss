@@ -200,7 +200,6 @@ hr {
 //         font-weight: $heading-bold-font-weight;
 //     }
 // }
-
 .medium {
     font-weight: $medium-font-weight;
 }
@@ -216,7 +215,7 @@ hr {
     }
 }
 
-.title {
+.page-slider .title {
     @include setFont($heading-font-name);
     @include setFontSize($h1-font-size);
     margin: 0 0 $gap-half;
@@ -230,5 +229,20 @@ hr {
     }
     @include breakpoint($breakpoint-sm) {
         @include setFontSize($h1-font-size-sm);
+    }
+}
+
+.section-title {
+    margin-bottom: $gap-double;
+    padding-bottom: $gap;
+    position: relative;
+    &:after {
+        content: '';
+        position: absolute;
+        width: 50px;
+        height: 4px;
+        bottom: -2px;
+        left: 0;
+        background-color: $base-font-color;
     }
 }

@@ -20,6 +20,7 @@
     //     text-align: center;
     // }
     .logo {
+        display: inline-block;
         > img {
             display: inline-block;
             width: $footer-logo-width;
@@ -73,10 +74,14 @@
         //     margin-bottom: 0;
         // }
         .bottom-links {
-            p,a {
+            p,
+            a {
                 color: $footer-copyright-color;
                 display: inline-block;
                 margin-bottom: 0;
+                @include breakpoint($breakpoint-sm) {
+                    display: block;
+                }
             }
             > p {
                 margin-right: $gap-xs;
@@ -84,12 +89,20 @@
                     padding-left: $gap-xs;
                     content: '|';
                     display: inline-block;
+                    @include breakpoint($breakpoint-sm) {
+                        content: '';
+                        display: none;
+                    }
                 }
                 &:last-child {
                     margin-right: 0;
                     &:after {
                         content: '';
                     }
+                }
+                @include breakpoint($breakpoint-sm) {
+                    margin-right: 0;
+                    margin-bottom: $gap-xs;
                 }
             }
             a {

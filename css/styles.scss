@@ -7,14 +7,15 @@
 //
 .arrow-down {
     z-index: 3;
-    position: fixed;
     bottom: $gap-double;
     //width: 100%;
-    @include centerHorizontal();
+    position: fixed;
+    left: 50%;
     text-align: center;
     will-change: auto;
+    @include translateX(-50%);
     .icon {
-        color: $base-font-color;
+        color: $base-brand-color;
         //text-shadow: $base-text-shadow;
         cursor: pointer;
         position: relative;
@@ -105,20 +106,27 @@
     }
 }
 
-.news-list {
-    ul,
-    ol {
-        @include resetList();
+.news-list-section {
+    background-color: $secondary-background-color;
+    .load-more {
+        margin-top: $gap;
     }
 }
 
 .sitecore {
     footer,
     header,
-    .breadcrumb-section,
-    .news-list,
+    .breadcrumb-section, //.news-list,
     .page-slider {
         pointer-events: none !important;
         user-select: none !important;
+    }
+}
+
+noscript {
+    @include fixedOverlay();
+    > div {
+        @include centerElement();
+        text-align: center;
     }
 }

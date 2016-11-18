@@ -25,7 +25,7 @@ $base-brand-color: $green;
 // Font Colors
 $base-font-color: #444444;
 $secondary-font-color: #E1E1E1;
-//$tertiary-font-color: $white;
+$tertiary-font-color: #BEBEBE;
 
 $light-font-color: #E1E1E1;
 
@@ -249,7 +249,7 @@ $text-input-padding: $gap-sm $gap;
 // Side nav
 // =================================================
 
-$sidenav-width: 300px;
+$sidenav-width: 320px;
 $sidenav-background-color: $base-background-color;
 $sidenav-border-color: $base-border-color;
 
@@ -302,6 +302,11 @@ $card-list-item-image-size: $card-horizontal-image-size;
 $card-list-item-text-size: $card-horizontal-text-size;
 $card-list-item-image-min-height: $card-horizontal-image-min-height;
 $card-list-item-text-padding: $gap;
+$card-news-item-date-size: 10%;
+$card-news-item-text-size: 65%;
+$card-news-item-image-size: 25%;
+$card-news-item-image-min-height: $card-horizontal-image-min-height;
+$card-news-item-text-padding: $gap;
 
 // =================================================
 // Carousel
@@ -328,12 +333,12 @@ $slider-figcaption-text-transform: uppercase;
 // Lightbox
 // =================================================
 
-$lightbox-background-color: rgba($tertiary-background-color, 0.8);
-$lightbox-color: $white;
-$lightbox-icon-color: $white;
+$lightbox-background-color: rgba($quaternary-background-color, 0.8);
+$lightbox-color: $base-font-color;
+$lightbox-icon-color: $base-font-color;
 $lightbox-icon-disabled-opacity: 0.3;
 $lightbox-icon-size: $gap;
-$lightbox-top-bar-background-color:rgba($tertiary-background-color, 1);
+$lightbox-top-bar-background-color: $base-background-color;
 $lightbox-video-max-width: 1024px;
 
 // =================================================

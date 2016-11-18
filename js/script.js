@@ -25,6 +25,7 @@
     require('./custom/accordionHandler.js');
     require('./custom/swipeboxHandler.js');
     require('./custom/backgroundimageHandler.js');
+    require('./custom/apiHandler.js');
     //require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
@@ -34,7 +35,7 @@
 
     console.log('deKai v.2.422');
 
-    $(document).ready(function() {
+    (function () {
 
         //Grid same height
         if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
@@ -152,7 +153,7 @@
         });
         */
 
-    });
+    })();
 
     $(window).on('load', function() {
         /*
@@ -201,6 +202,7 @@
             }, 200);
         }
 
-        $(window).trigger('resize');
+        //$(window).trigger('resize');
     });
+    
 })();

@@ -52,6 +52,7 @@
         height: 0;
         will-change: opacity;
         .content {
+            max-width: calc(100% - #{$page-section-padding * 2});
             @include translateY(-50%);
             position: absolute;
             color: $slider-figcaption-color;

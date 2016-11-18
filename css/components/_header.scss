@@ -193,7 +193,9 @@
     .burger-container {
         cursor: pointer;
         display: none;
-        @include centerVertical();
+        //@include centerVertical();
+        position: absolute;
+        top: 12px;
         right: $page-section-padding;
         padding: $gap;
         padding-right: 0;
@@ -215,7 +217,7 @@
     .accordion {
         //padding: 0 $gap;
         border: none;
-        @include border($base-brand-color, top, 3px);
+        @include border($base-font-color, top, 3px);
         .menu-item > * {
             border: none;
             background-color: rgba($white, 0);
@@ -231,13 +233,14 @@
     }
     .submenu {
         background-color: $secondary-background-color !important;
-
-        > li {
-            &:first-child {
-                padding-top: $gap;
-            }
-            &:last-child {
-                padding-bottom: $gap;
+        &.level-2 {
+            > li {
+                &:first-child {
+                    padding-top: $gap;
+                }
+                &:last-child {
+                    padding-bottom: $gap;
+                }
             }
         }
     }

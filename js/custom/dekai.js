@@ -57,8 +57,8 @@ deKai = {
     },
 
     hideOverlay: function() {
-        $('#page-wrapper').removeClass('visibility-hidden');
-        $('.overlay').delay(200).fadeOut(200);
+        $(document.getElementById('page-wrapper')).removeClass('visibility-hidden');
+        $(document.querySelector('.overlay')).delay(200).fadeOut(200);
     }
 };
 //#endregion

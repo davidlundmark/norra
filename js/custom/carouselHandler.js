@@ -64,9 +64,9 @@ var CarouselHandler = {
 };
 //#endregion
 
-$(document).ready(function() {
+(function () {
     //Slick carousel
     if (typeof useCarousel !== 'undefined' && useCarousel) {
         CarouselHandler.init();
     }
-});
+})();

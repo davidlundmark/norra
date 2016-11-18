@@ -20,8 +20,11 @@ dd {
 
 ul,
 ol {
-    &.list {
+    &.list,
+    &.news-list {
         @include resetList();
+    }
+    &.list {
         li {
             // &:not(:last-child) {
             //     border-bottom: $base-border;
@@ -38,6 +41,45 @@ ol {
                 //margin-bottom: 0;
                 padding-bottom: 0;
             }
+        }
+    }
+    &.news-list {
+        li {
+            .card {
+                margin-bottom: $gap;
+                margin-top: $gap;
+                &-date,
+                &-text {
+                    //padding-bottom: $gap;
+                    //@include border($tertiary-font-color, bottom);
+                }
+
+            }
+            &:first-child {
+                .card {
+                    &-date,
+                    &-text {
+                        //padding-top: $gap;
+                        //@include border($tertiary-font-color, top);
+                    }
+                }
+            }
+            &:last-child {
+                .card {
+                    //margin-bottom: 0;
+                    &-date,
+                    &-text {
+                        //padding-bottom: 0;
+                        //border: none;
+                    }
+                }
+                hr {
+                    //display: none;
+                }
+            }
+        }
+        hr {
+            width: calc(#{$card-news-item-date-size + $card-news-item-text-size} - #{$card-news-item-text-padding});
         }
     }
 }
