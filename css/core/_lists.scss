@@ -53,7 +53,6 @@ ol {
                     //padding-bottom: $gap;
                     //@include border($tertiary-font-color, bottom);
                 }
-
             }
             &:first-child {
                 .card {
@@ -80,6 +79,22 @@ ol {
         }
         hr {
             width: calc(#{$card-news-item-date-size + $card-news-item-text-size} - #{$card-news-item-text-padding});
+            @include breakpoint($breakpoint-md) {
+                width: 100%;
+            }
         }
+    }
+}
+
+.list-filter {
+    margin-bottom: $gap-double;
+
+    label {
+        margin-bottom: $gap; 
+    }
+
+    select {
+        margin-bottom: 0;
+        max-width: 300px;
     }
 }

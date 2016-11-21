@@ -199,6 +199,10 @@
                 .background-image {
                     min-height: $card-news-item-image-min-height;
                 }
+
+                @include breakpoint($breakpoint-md) {
+                    display: none;
+                }
             }
             &-text {
                 padding: $card-news-item-text-padding;
@@ -209,6 +213,11 @@
                 // }
                 p.bottom {
                     @extend .small;
+                }
+
+                @include breakpoint($breakpoint-md) {
+                    width: 75%;
+                    padding-right: 0;
                 }
             }
             &-date {
@@ -222,6 +231,14 @@
                 span {
                     display: block;
                     text-align: center;
+                }
+
+                .month {
+                    text-transform: uppercase;
+                }
+
+                @include breakpoint($breakpoint-md) {
+                    width: 25%;
                 }
             }
         }

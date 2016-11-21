@@ -1,5 +1,5 @@
 //#region MenuScrollHandler
-var MenuScrollHandler =  {
+var MenuScrollHandler = {
     $pageheader: null,
     scrolledClass: 'scrolled',
     hideClass: 'slide-up',
@@ -13,18 +13,18 @@ var MenuScrollHandler =  {
     $subwebMenu: null,
     rootMenuHidden: false,
     init: function() {
-        var _pageheader = document.querySelectorAll('.page-header');
+        var _pageheader = document.querySelector('.page-header');
         if (_pageheader === null) return;
 
         this.$pageheader = $(_pageheader);
 
-        this.$subwebMenu = this.$pageheader.find('.subweb-menu');
-        if(this.$subwebMenu.length) this.$rootMenu = this.$pageheader.find('.rootweb-menu');
+        this.$subwebMenu = $(_pageheader.querySelector('.subweb-menu'));//this.$pageheader.find('.subweb-menu');
+        if (this.$subwebMenu.length) this.$rootMenu = $(_pageheader.querySelector('.rootweb-menu')); //this.$pageheader.find('.rootweb-menu');
 
         //console.log(ScreensizeHandler.isBigScreen)
-        
+
         if (window.ScreensizeHandler.isBigScreen && document.querySelector('.flexslider') !== null) {
-        //if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
+            //if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
             this.offsetTop = 168;
         } else {
             this.offsetTop = this.$pageheader.outerHeight();
@@ -34,7 +34,7 @@ var MenuScrollHandler =  {
             this.handleTopMenu();
         }.bind(this));
 
-        if(this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
+        if (this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
     },
     handleTopMenu: function() {
         if (this.$pageheader.hasClass('menu-open')) return;
@@ -77,22 +77,25 @@ var MenuScrollHandler =  {
         }
         this.prevScrollTop = scrollTop;
 
-        if(!this.$subwebMenu.length) return;
+        if (!this.$subwebMenu.length) return;
 
-        if(scrollTop <= 0) {
+        if (scrollTop <= 0) {
             this.showRootMenu();
+        } else {
+            this.hideRootMenu();
         }
-        else this.hideRootMenu();
     },
     hideRootMenu: function() {
-        if(!ScreensizeHandler.isBigScreen || this.rootMenuHidden) return;
+        if (!ScreensizeHandler.isBigScreen || this.rootMenuHidden) return;
         this.rootMenuHidden = true;
         clearTimeout(this.timer);
         this.$rootMenu.stop(true, false).slideUp();
         //this.$rootMenu.addClass(this.hideClass);
+
+        if ($(window).scrollTop() == 0) $(window).scrollTop(1);
     },
     showRootMenu: function() {
-        if(!ScreensizeHandler.isBigScreen || !this.rootMenuHidden) return;
+        if (!ScreensizeHandler.isBigScreen || !this.rootMenuHidden) return;
         this.rootMenuHidden = false;
         this.$rootMenu.stop(true, false).slideDown();
     }

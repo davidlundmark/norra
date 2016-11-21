@@ -359,3 +359,15 @@ $page-body-max-width: 800px;
 // =================================================
 
 $cookie-background-color: rgba($white, 0.96);
+
+// =================================================
+// Select, Input
+// =================================================
+
+$select-background-color: $base-background-color;
+$select-color: $base-font-color;
+$select-border-radius: 0;
+$select-background-image: $path-images+'arrow-down.svg';
+$select-text-transform: uppercase;
+$select-border-color: $base-background-color;
+$input-border-radius: 0; 

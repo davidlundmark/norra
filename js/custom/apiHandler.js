@@ -1,7 +1,8 @@
 //#region NewsHandler
 NewsHandler = {
     initilized: false,
-    apiUrl: window.location.origin + '/sitecore/api/ssc/Sitecore-Foundation-SitecoreExtensions-Controls/',
+    apiUrl: window.location.origin + '/sitecore/api/ssc/norra/',
+    newsUrl: 'News/1337/GetNews',
     siteId: null,
     page: 1,
     pageSize: 3,
@@ -9,6 +10,8 @@ NewsHandler = {
     $newsItem: null,
     items: [],
     $loadmore: null,
+    loading: false,
+    $filter: null,
     init: function(SiteId) {
         this.siteId = SiteId;
         this.initilized = true;
@@ -21,6 +24,9 @@ NewsHandler = {
         this.$newsList.removeAttr('id');
         this.$newsItem.removeAttr('id');
 
+        //hide list
+        this.$newsList.hide();
+
         //remoe from DOM
         this.$newsItem.remove();
 
@@ -29,9 +35,32 @@ NewsHandler = {
         if (_loadmore !== null) {
             this.$loadmore = $(_loadmore);
             this.$loadmore.on('click', function(e) {
+                if (this.loading) return false;
+                this.loading = true;
+
+                this.$loadmore.height(this.$loadmore.height());
+                this.$loadmore.width(this.$loadmore.width());
+
+                $(_loadmore.querySelector('.text')).addClass('hide');
+                $(_loadmore.querySelector('.loader')).removeClass('hide');
+
                 this.getNews(this.createNewsItems);
                 return false;
             }.bind(this));
+        }
+
+        //load more button
+        var _filter = document.getElementById('select_year');
+        var $this = $(this);
+        if (_filter !== null) {
+            this.$filter = $(_filter);
+            this.$filter.on('change', function(e) {
+                console.log('Selected year: ' + this.value);
+                var year = (this.value == 'All') ? -1 : this.value;
+                NewsHandler.clearNewsList();
+                NewsHandler.getNews(NewsHandler.createNewsItems, year);
+                return false;
+            });
         }
     },
     onload: function() {
@@ -39,13 +68,24 @@ NewsHandler = {
         //get news
         this.getNews(this.createNewsItems);
     },
+    clearNewsList: function() {
+        NewsHandler.page = 1;
+        $.each(NewsHandler.items, function(i, item) {
+            item.parentNode.removeChild(item);
+        });
+        NewsHandler.items = [];
+    },
     createNewsItems: function(data) {
+        var fadeIn = false;
         if (!NewsHandler.items.length) {
+            fadeIn = true;
             NewsHandler.$newsList.removeClass('hide');
         }
         if (data.length < NewsHandler.pageSize) {
             //end reached
-            NewsHandler.$loadmore.addClass('visibility-hidden');
+            NewsHandler.$loadmore.addClass('hide');
+        } else {
+            NewsHandler.$loadmore.removeClass('hide');
         }
         $.each(data, function(i, item) {
             var _clone = NewsHandler.$newsItem.clone()[0];
@@ -60,13 +100,25 @@ NewsHandler = {
             _clone.querySelector('.year').innerHTML = date[2];
 
             //Summary
-            _clone.querySelector('.summary').innerHTML = item.Summary;
+            var _summary = _clone.querySelector('.summary');
+            if (ScreensizeHandler.isMdOrSmaller || !item.Summary) {
+                _summary.parentNode.removeChild(_summary);
+            } else {
+                _summary.innerHTML = item.Summary;
+            }
 
-            //Summary
-            _clone.querySelector('.card-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
+
+            //Link
+            _clone.querySelector('.text-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
 
             //Background Image
-            _clone.querySelector('.background-image').style.backgroundImage = item.Image.replace('"', '');
+            var _backgroundImage = _clone.querySelector('.background-image');
+
+            if (ScreensizeHandler.isMdOrSmaller) {
+                _backgroundImage.parentNode.removeChild(_backgroundImage);
+            } else if (item.Image != 'none') {
+                _backgroundImage.style.backgroundImage = item.Image.replace('"', '');
+            }
 
             if (!NewsHandler.items.length) {
                 $(_clone.querySelector('hr.minimal')).first().removeClass('hide');
@@ -76,6 +128,17 @@ NewsHandler = {
 
             NewsHandler.$newsList.append($(_clone));
         });
+
+        $(NewsHandler.$loadmore[0].querySelector('.text')).removeClass('hide');
+        $(NewsHandler.$loadmore[0].querySelector('.loader')).addClass('hide');
+        NewsHandler.$loadmore.height('auto');
+        NewsHandler.$loadmore.width('auto');
+        NewsHandler.loading = false;
+
+        if (fadeIn) {
+            NewsHandler.$newsList.hide();
+            NewsHandler.$newsList.fadeIn(600);
+        }
     },
     patch: function() {
         var newTitle = Math.random();
@@ -90,7 +153,7 @@ NewsHandler = {
         };
         xhr.send("{ \"NewsTitle\":\"Sitecore Modified " + newTitle + "\" }");
     },
-    getNews: function(handleData) {
+    getNews: function(handleData, year = -1) {
         if (!this.initilized) return;
 
         var $this = $(this);
@@ -98,11 +161,12 @@ NewsHandler = {
         $.getJSON({
             type: 'GET',
             dataType: 'json',
-            url: this.apiUrl + 'News/1337/GetPaged',
+            url: this.apiUrl + this.newsUrl,
             data: {
                 page: this.page,
                 pageSize: this.pageSize,
-                siteId: this.siteId
+                siteId: this.siteId,
+                year: year
             },
             success: function(data) {
                 console.log(data);
@@ -122,8 +186,6 @@ NewsHandler = {
 (function() {
     if (typeof SiteId !== 'undefined' && typeof useNewsApi !== 'undefined' && useNewsApi) {
         NewsHandler.init(SiteId);
-    } else {
-        console.log('Variable SiteId or useNewsApi is undefined!');
     }
 })();
 

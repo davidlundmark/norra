@@ -13,6 +13,8 @@ var autoprefixer = require('autoprefixer');
 var jsFile = './src/scripts.min.js';
 var cssFile = './src/styles.min.css';
 
+var path = require("path");
+
 module.exports = {
     context: __dirname,
     devtool: debug ? 'inline-sourcemap' : null,
@@ -46,20 +48,20 @@ module.exports = {
                     'style-loader', // The backup style loader
                     ['css-loader?sourceMap', 'postcss-loader', 'sass-loader?sourceMap']
                 ),
-                exclude: /node_modules/
+                include: path.resolve(__dirname, 'css/')
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", include: path.resolve(__dirname, 'assets/fonts/') },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', include: path.resolve(__dirname, 'assets/images/') }
         ] : [{
                 test: /\.scss$/,
                 loader: extracttextplugin.extract(
                     'style-loader', // The backup style loader
                     ['css-loader', 'postcss-loader', 'sass-loader']
                 ),
-                exclude: /node_modules/
+                include: path.resolve(__dirname, 'css/')
             },
-            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", exclude: /node_modules/ },
-            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', exclude: /node_modules/ }
+            { test: /\.(eot|woff|woff2|svg|ttf)([\?]?.*)$/, loader: "file-loader?name=./src/assets/fonts/[name]/[name].[ext]", include: path.resolve(__dirname, 'assets/fonts/') },
+            { test: /\.(jpe?g|png|gif|svg)$/i, loader: 'file-loader?name=./src/assets/images/[name].[ext]', include: path.resolve(__dirname, 'assets/images/') }
         ]
     },
     postcss: function() {
@@ -86,9 +88,10 @@ module.exports = {
         ];
     },
     sassLoader: {
-        includePaths: [].concat('client/style' )
-    }/*,
-    devServer: {
-        inline: true
-    }*/
+        includePaths: [].concat('client/style')
+    }
+    /*,
+        devServer: {
+            inline: true
+        }*/
 };

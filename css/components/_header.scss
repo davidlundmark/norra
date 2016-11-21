@@ -195,15 +195,26 @@
         display: none;
         //@include centerVertical();
         position: absolute;
-        top: 12px;
         right: $page-section-padding;
         padding: $gap;
         padding-right: 0;
+        top: 12px;
+        .subweb & {
+            top: 2px;
+        }
         .burger {
             @include burger($color: $header-color);
         }
         @include breakpoint($breakpoint-lg) {
             display: block;
+        }
+        @include breakpoint($breakpoint-md) {
+            top: 8px;
+            .subweb & {
+                padding-top: $gap-half;
+                padding-bottom: $gap-half;
+                top: 7px;
+            }
         }
         &.open {
             .burger {
