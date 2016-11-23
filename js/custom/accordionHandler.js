@@ -1,7 +1,8 @@
 //#region AccordionHandlerZ
 var AccordionHandler = {
     init: function() {
-        var _triggers = document.querySelectorAll('.accordion-trigger');
+        var _accordion = document.querySelectorAll('.accordion');
+        var _triggers = $(_accordion).find('.accordion-trigger');
         if (_triggers === null) return;
 
         $(_triggers).on('click', function(e) {

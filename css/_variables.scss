@@ -5,7 +5,8 @@
 // Brand Colors
 $green: #2ABE52;
 
-// Grays
+// Misc
+$red: #db4437;
 $black: #000;
 $white: #fff;
 
@@ -170,7 +171,7 @@ $button-font-family: $oswald;
 $button-font-size: 12px;
 $button-font-weight: 600;
 $button-line-height: 1;
-$button-hover-color: $button-color;
+$button-hover-color: $light-font-color;
 $button-hover-background-color: $base-brand-color;
 $button-border-color: $base-border-color;
 $button-text-transform: uppercase;
@@ -196,6 +197,7 @@ $link-hover-color: $base-brand-color;
 
 $page-section-padding: $gap-double;
 $page-section-max-width: 1280px;
+$page-section-min-width: 800px;
 
 // =================================================
 // Header
@@ -269,6 +271,11 @@ $accordion-sub-hover-background-color: $accordion-sub-background-color;
 $accordion-padding: $gap-half $gap*2;
 $accordion-sub-indent: $gap*3;
 $accordion-font: 'base';
+$accordion-tabs-padding: $gap-md $gap;
+$accordion-tabs-hover-color: $base-brand-color;
+$accordion-tabs-hover-background-color: $accordion-background-color;
+$accordion-tabs-font: $button-font-name;
+$accordion-tabs-content-background-color: $base-background-color;
 
 
 // =================================================
@@ -352,7 +359,7 @@ $page-image-text-shadow: 2px 4px 3px rgba(0,0,0,0.3);
 // Page body
 // =================================================
 
-$page-body-max-width: 800px;
+$page-body-max-width: $page-section-min-width;
 
 // =================================================
 // Cookie
@@ -371,3 +378,10 @@ $select-background-image: $path-images+'arrow-down.svg';
 $select-text-transform: uppercase;
 $select-border-color: $base-background-color;
 $input-border-radius: 0; 
+
+// =================================================
+// Loader
+// =================================================
+
+$loader-thickness: 2px;
+$loader-color: $base-font-color;

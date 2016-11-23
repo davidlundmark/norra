@@ -1,4 +1,3 @@
-$loader-thickness: 2px;
 .loader,
 .loader:after {
     border-radius: 50%;
@@ -10,34 +9,21 @@ $loader-thickness: 2px;
     //top: -1px;
     position: relative;
     display: inline-block;
-    $loader-border: $loader-thickness solid rgba(255, 255, 255, 0.2);
+    $loader-border: $loader-thickness solid rgba($loader-color, 0.2);
     margin: 0;
     text-indent: -9999em;
     border: $loader-border;
     border-left: $loader-border;
-    border-left-color: $base-font-color;
+    border-left-color: $loader-color;
     transform: translateZ(0);
-    animation: load8 1.1s infinite linear;
+    animation: load 1.1s infinite linear;
 }
 
-@-webkit-keyframes load8 {
+@keyframes load {
     0% {
-        -webkit-transform: rotate(0deg);
         transform: rotate(0deg);
     }
     100% {
-        -webkit-transform: rotate(360deg);
-        transform: rotate(360deg);
-    }
-}
-
-@keyframes load8 {
-    0% {
-        -webkit-transform: rotate(0deg);
-        transform: rotate(0deg);
-    }
-    100% {
-        -webkit-transform: rotate(360deg);
         transform: rotate(360deg);
     }
 }

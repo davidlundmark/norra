@@ -110,6 +110,27 @@
     background-color: $secondary-background-color;
     .load-more {
         margin-top: $gap-double;
+        .loader {
+            display: none;
+        }
+        &.loading {
+            pointer-events: none;
+            .text {
+                display: none;
+            }
+            .loader {
+                display: inline-block;
+            }
+        }
+        @include breakpoint($breakpoint-md) {
+            width: 100%;
+        }
+    }
+    .no-result {
+        display: none;
+        &.show {
+            display: block;
+        }
     }
 }
 
@@ -128,5 +149,92 @@ noscript {
     > div {
         @include centerElement();
         text-align: center;
+    }
+}
+
+.news-admin {
+    &-create-section {
+        #WebSites {
+            label {
+                display: inline-block;
+                margin: 0;
+            }
+            input,
+            label {
+                vertical-align: middle;
+            }
+            display: block;
+        }
+        .form-elements {
+            //margin-bottom: $gap;
+            input[type="submit"] {
+                margin-top: $gap-half;
+                display: block;
+            }
+            textarea {
+                height: 200px;
+            }
+        }
+
+        .validation-error {
+            color: $red;
+        }
+    }
+    &-list-section {
+        background-color: $secondary-background-color;
+        h2 {
+            max-width: $page-section-min-width;
+            padding-left: $page-section-padding;
+            padding-right: $page-section-padding;
+            margin: 0 auto $gap-half;
+        }
+        .even {
+            background-color: $secondary-background-color;
+        }
+        .active {
+            color: $base-brand-color;
+        }
+        .not-active {
+            color: $red;
+        }
+        .settings-link {
+            @include hoverLink();
+            margin-left: $gap-xs;
+            .text {}
+            .icon {
+                position: relative;
+                top: 2px;
+                vertical-align: top;
+            }
+        }
+        .icon {
+            position: relative;
+            vertical-align: middle;
+            top: -1px;
+        }
+        .row {
+            .column {
+                padding: $gap-half;
+                @include oneLine();
+                > h3 {
+                    margin: 0;
+                    @include oneLine();
+                }
+                //padding-left: 0;
+            }
+            &.list-header {
+                padding-bottom: $gap-half;
+            }
+        }
+        .date {
+            text-transform: uppercase;
+        }
+    }
+}
+
+.admin {
+    form {
+        margin: 0;
+        padding: 0;
     }
 }

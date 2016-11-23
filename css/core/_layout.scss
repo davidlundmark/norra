@@ -56,8 +56,14 @@ body {
     position: relative;
     margin: 0 auto;
     width: auto;
-    &:not(.full-width) {
+    &:not(.full-width):not(.min-width) {
         max-width: $page-section-max-width;
         padding: $page-section-padding;
+    }
+    &:not(.full-width) {
+        &.min-width {
+            max-width: $page-section-min-width;
+            padding: $page-section-padding;
+        }
     }
 }

@@ -44,6 +44,20 @@ ol {
         }
     }
     &.news-list {
+        display: none;
+        @include transition(opacity);
+        opacity: 0;
+        will-change: opacity;
+
+        &.show {
+            display: block;
+            opacity: 1;
+        }
+
+        &.loading {
+            opacity: 0.2 !important;
+        }
+
         li {
             .card {
                 margin-bottom: $gap;
@@ -96,5 +110,10 @@ ol {
     select {
         margin-bottom: 0;
         max-width: 300px;
+
+        @include breakpoint($breakpoint-md) {
+            max-width: none;
+            width: 100%;  
+        }
     }
 }

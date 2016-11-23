@@ -138,7 +138,7 @@
 }
 
 @mixin hoverLink($color: $base-font-color, $hover-color: $base-brand-color) {
-    @if color != null {
+    @if color !=null {
         color: $color;
     }
     text-decoration: none;
@@ -153,7 +153,6 @@
 
 @mixin underlineLink() {
     text-decoration: none;
-
     .no-touch & {
         &:hover,
         &.hover &.selected {
@@ -171,8 +170,7 @@
     @if color !=null {
         color: $color;
     }
-    &:before {
-    }
+    &:before {}
     .no-touch & {
         &:before {
             content: '';
@@ -337,4 +335,10 @@
 
 @mixin scale ($factor) {
     transform: scale($factor);
+}
+
+@mixin oneLine() {
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
 }

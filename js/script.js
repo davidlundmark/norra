@@ -23,6 +23,7 @@
     require('./custom/mobilemenuHandler.js');
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
+    require('./custom/accordiontabsHandler.js');
     require('./custom/swipeboxHandler.js');
     require('./custom/backgroundimageHandler.js');
     require('./custom/apiHandler.js');
