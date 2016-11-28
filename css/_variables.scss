@@ -53,6 +53,10 @@ $base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
 
+// Extra Small Text
+$extra-small-font-size: $base-font-size - 4px;
+$extra-small-font-name: 'extra-small';
+
 // Small Text
 $small-font-size: $base-font-size - 2px;
 $small-font-name: 'small';

@@ -45,6 +45,8 @@ ol {
             @include border($accordion-border-color);
             margin-top: -1px;
             display: none;
+            overflow: hidden;
+            overflow-x: auto;
         }
     }
 }

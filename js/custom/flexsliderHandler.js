@@ -1,3 +1,5 @@
+require('../lib/jquery.flexslider.js');
+
 //#region FlexsliderHandler
 var FlexsliderHandler = {
     $pageslider: null,

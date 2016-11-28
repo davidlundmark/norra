@@ -115,6 +115,11 @@ p {
     margin: 0 0 $gap-half;
 }
 
+// a {
+//     border-style:none;
+//     border: 0;
+// }
+
 a,
 .link {
     //@include setFont($link-font-name);
@@ -140,9 +145,14 @@ a,
     }
 }
 
-a.text-link {
-    @extend .medium;
-    @include animateLine();
+a {
+    &.text-link {
+        @extend .medium;
+        @include animateLine();
+    }
+    &.hover-link {
+        @include hoverLink($base-font-color);
+    }
 }
 
 hr {
@@ -180,6 +190,10 @@ hr {
 .link-icon {
     display: inline-block;
     line-height: 1;
+}
+
+.extra-small {
+    @include setFontSize($extra-small-font-size);
 }
 
 .small {
@@ -232,18 +246,28 @@ hr {
     }
 }
 
-.section-title {
-    margin-bottom: $gap-double;
-    padding-bottom: $gap;
-    position: relative;
+.section,
+.article {
+    &-title {
+        margin-bottom: $gap-double;
+        padding-bottom: $gap;
+        position: relative;
+        &:after {
+            content: '';
+            position: absolute;
+            width: 50px;
+            height: 4px;
+            bottom: -2px;
+            left: 0;
+            background-color: $base-font-color;
+        }
+    }
+}
+
+.article-title {
+    margin-bottom: $gap;
     &:after {
-        content: '';
-        position: absolute;
-        width: 50px;
-        height: 4px;
-        bottom: -2px;
-        left: 0;
-        background-color: $base-font-color;
+        width: 40px;
     }
 }
 

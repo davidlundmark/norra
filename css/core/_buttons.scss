@@ -44,3 +44,30 @@ input[type="submit"] {
 .use-button-font {
     @include setFont($button-font-name);
 }
+
+.load-more,
+.show-more {
+    @include breakpoint($breakpoint-md) {
+        width: 100%;
+    }
+}
+
+.load-more {
+    margin-top: $gap-double;
+    .loader {
+        display: none;
+    }
+    &.loading {
+        pointer-events: none;
+        .text {
+            display: none;
+        }
+        .loader {
+            display: inline-block;
+        }
+    }
+}
+
+.show-more {
+    margin-top: $gap;
+}

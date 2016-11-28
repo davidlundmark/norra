@@ -252,7 +252,7 @@
     .no-touch & {
         .background-image {
             @include transition(transform, 0.26s, $easeOutSine);
-            @include forceHarwareAcceleration();
+            //@include forceHarwareAcceleration();
             will-change: transform;
         }
         &.hover {

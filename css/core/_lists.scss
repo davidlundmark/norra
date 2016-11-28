@@ -21,7 +21,8 @@ dd {
 ul,
 ol {
     &.list,
-    &.news-list {
+    &.news-list,
+    &.news-list-latest {
         @include resetList();
     }
     &.list {
@@ -48,53 +49,45 @@ ol {
         @include transition(opacity);
         opacity: 0;
         will-change: opacity;
-
         &.show {
             display: block;
             opacity: 1;
         }
-
-        &.loading {
-            opacity: 0.2 !important;
-        }
-
+    }
+    &.news-list {
         li {
             .card {
                 margin-bottom: $gap;
                 margin-top: $gap;
-                &-date,
-                &-text {
-                    //padding-bottom: $gap;
-                    //@include border($tertiary-font-color, bottom);
-                }
-            }
-            &:first-child {
-                .card {
-                    &-date,
-                    &-text {
-                        //padding-top: $gap;
-                        //@include border($tertiary-font-color, top);
-                    }
-                }
-            }
-            &:last-child {
-                .card {
-                    //margin-bottom: 0;
-                    &-date,
-                    &-text {
-                        //padding-bottom: 0;
-                        //border: none;
-                    }
-                }
-                hr {
-                    //display: none;
-                }
             }
         }
         hr {
             width: calc(#{$card-news-item-date-size + $card-news-item-text-size} - #{$card-news-item-text-padding});
             @include breakpoint($breakpoint-md) {
                 width: 100%;
+            } 
+        }
+        &.loading {
+            opacity: 0.2 !important;
+        }
+    }
+    &.news-list-latest {
+        li {
+            padding-bottom: $gap;
+            margin-bottom: $gap;
+            @include border($dir: bottom);
+            .date {
+                @extend .extra-small;
+                margin-bottom: $gap-xs;
+                .month {
+                    text-transform: uppercase;
+                }
+            }
+            a {
+                @include hoverLink($base-font-color);
+            }
+            &:last-child {
+                margin-bottom: 0;
             }
         }
     }
@@ -102,18 +95,40 @@ ol {
 
 .list-filter {
     margin-bottom: $gap-double;
-
-    label {
-        margin-bottom: $gap; 
+    @include clearfix();
+    &-loader {
+        display: inline-block;
+        opacity: 0;
+        will-change: opacity;
+        @include transition(opacity);
+        margin-left: $gap;
+        height: round(($base-font-size * $base-line-height) + ($gap-half * 2) + ($base-border-thickness*2));
+        > .loader {
+            display: block;
+            top: 50%;
+            margin-top: round(-($base-font-size - $loader-thickness)/2);
+        }
+        &.show {
+            opacity: 1;
+        }
+        @include breakpoint($breakpoint-md) {
+            width: 100%;
+            margin: 0;
+            > .loader {
+                margin: 0 auto;
+            }
+        }
     }
-
+    label {
+        margin-bottom: $gap;
+    }
     select {
         margin-bottom: 0;
         max-width: 300px;
-
+        float: left;
         @include breakpoint($breakpoint-md) {
             max-width: none;
-            width: 100%;  
+            width: 100%;
         }
     }
 }

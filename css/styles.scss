@@ -106,31 +106,19 @@
     }
 }
 
+.latest-news-article {
+    background-color: $tertiary-background-color;
+}
+
 .news-list-section {
     background-color: $secondary-background-color;
-    .load-more {
-        margin-top: $gap-double;
-        .loader {
-            display: none;
-        }
-        &.loading {
-            pointer-events: none;
-            .text {
-                display: none;
-            }
-            .loader {
-                display: inline-block;
-            }
-        }
-        @include breakpoint($breakpoint-md) {
-            width: 100%;
-        }
-    }
-    .no-result {
-        display: none;
-        &.show {
-            display: block;
-        }
+}
+
+.no-result {
+    display: none;
+    margin: 0;
+    &.show {
+        display: block;
     }
 }
 
@@ -175,7 +163,6 @@ noscript {
                 height: 200px;
             }
         }
-
         .validation-error {
             color: $red;
         }
@@ -188,6 +175,12 @@ noscript {
             padding-right: $page-section-padding;
             margin: 0 auto $gap-half;
         }
+        h3 {
+            @extend .large;
+        }
+        .list-wrapper {
+            min-width: 840px;
+        }
         .even {
             background-color: $secondary-background-color;
         }
@@ -199,13 +192,18 @@ noscript {
         }
         .settings-link {
             @include hoverLink();
-            margin-left: $gap-xs;
-            .text {}
+            .text {
+                //display: none;
+            }
             .icon {
                 position: relative;
                 top: 2px;
                 vertical-align: top;
             }
+        }
+        .news-link {
+            @include hoverLink($base-font-color);
+            text-decoration: underline;
         }
         .icon {
             position: relative;
@@ -220,7 +218,9 @@ noscript {
                     margin: 0;
                     @include oneLine();
                 }
-                //padding-left: 0;
+                &:last-child {
+                    text-align: right;
+                }
             }
             &.list-header {
                 padding-bottom: $gap-half;

@@ -3,29 +3,47 @@ NewsHandler = {
     apiUrl: window.location.origin + '/sitecore/api/ssc/norra/',
     newsUrl: 'News/1337/GetNews',
     siteId: null,
-    page: 1,
+    page: 2,
     pageSize: 3,
     $newsList: null,
     $newsItem: null,
     items: [],
     $loadmore: null,
     $filter: null,
+    $filterLoader: null,
     $noResult: null,
-    createNewList: true,
-    init: function(SiteId) {
+    createNewList: false,
+    init: function(SiteId, Id) {
         //get Site ID
         this.siteId = SiteId;
 
         //get DOM template elements
-        this.$newsList = $(document.getElementById('news-list-template'));
-        this.$newsItem = $(document.getElementById('news-item-template'));
+        var _newsList = document.getElementById(Id + '-list-template');
+        var _newsItem = document.getElementById(Id + '-item-template');
+
+        //console.log(_newsItem)
+
+        if (_newsList === null || _newsItem === null) {
+            console.log('Associated DOM elements not found!');
+            return;
+        }
+
+        this.$newsList = $(_newsList);
+        this.$newsItem = $(_newsItem);
 
         //remove ID's
         this.$newsList.removeAttr('id');
         this.$newsItem.removeAttr('id');
 
-        //remoe from DOM
+        //remove from DOM
         this.$newsItem.remove();
+
+        //push all current <li> into items Array
+        var _li = _newsList.querySelectorAll('li');
+        $.each(_li, function(i, item) {
+            this.items.push(item);
+        }.bind(this));
+
 
         //load more button
         var _loadmore = document.querySelector('.load-more');
@@ -35,6 +53,7 @@ NewsHandler = {
                 //if already loading, stop
                 if (this.$loadmore.hasClass('loading')) return false;
 
+                this.createNewList = false;
                 this.$loadmore.height(this.$loadmore.height());
                 this.$loadmore.width(this.$loadmore.width());
                 this.$loadmore.addClass('loading');
@@ -51,6 +70,7 @@ NewsHandler = {
         var _filter = document.getElementById('select_year');
         if (_filter !== null) {
             this.$filter = $(_filter);
+            this.$filterLoader = $(_filter.nextElementSibling);
             this.$filter.on('change', function(e) {
                 //console.log('Selected year: ' + this.value);
                 var year = (this.value == 'All') ? -1 : this.value;
@@ -58,6 +78,7 @@ NewsHandler = {
                 NewsHandler.page = 1;
                 NewsHandler.$newsList.addClass('loading');
                 NewsHandler.$filter.attr('disabled', 'disabled');
+                NewsHandler.$filterLoader.addClass('show');
                 //***********IMPORTANT!*********** remove timeout later, only for visual
                 setTimeout(function() {
                     NewsHandler.getNews(NewsHandler.createNewsItems, year);
@@ -72,9 +93,13 @@ NewsHandler = {
             this.$noResult = $(_noresult);
         }
     },
-    onload: function() {
+    loadNewsList: function() {
         //get news
         this.getNews(this.createNewsItems);
+    },
+    loadNewsLatestList: function() {
+        //get news
+        this.getNews(this.createNewsLatestItems);
     },
     clearNewsList: function() {
         if (NewsHandler.items.length) {
@@ -83,6 +108,38 @@ NewsHandler = {
             });
         }
         NewsHandler.items = [];
+    },
+    createNewsLatestItems: function(data) {
+        if (data.length < NewsHandler.pageSize) {
+
+        }
+
+        //loop thru result and create new <li> DOM elements
+        $.each(data, function(i, item) {
+            var _clone = NewsHandler.$newsItem.clone()[0];
+
+            //Title
+            _clone.querySelector('.title').innerHTML = item.Title;
+
+            //Date
+            var date = new Date(item.Date);
+
+            _clone.querySelector('.day').innerHTML = ('0' + date.getDate()).slice(-2);
+            _clone.querySelector('.month').innerHTML = ('0' + (date.getMonth() + 1)).slice(-2);
+            _clone.querySelector('.year').innerHTML = date.getFullYear();
+
+            //Link
+            _clone.querySelector('.title').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
+
+            NewsHandler.items.push(_clone);
+            NewsHandler.$newsList.append($(_clone));
+        });
+
+        if (NewsHandler.items.length) {
+            if (!NewsHandler.$newsList.hasClass('show')) NewsHandler.$newsList.addClass('show');
+        } else {
+            if (!NewsHandler.$noResult.hasClass('show')) NewsHandler.$noResult.addClass('show');
+        }
     },
     createNewsItems: function(data) {
         if (NewsHandler.createNewList) {
@@ -145,6 +202,7 @@ NewsHandler = {
 
         if (NewsHandler.$filter) {
             NewsHandler.$filter.removeAttr('disabled');
+            NewsHandler.$filterLoader.removeClass('show');
         }
 
         if (NewsHandler.createNewList) {
@@ -156,26 +214,26 @@ NewsHandler = {
         if (NewsHandler.items.length) {
             if (!NewsHandler.$newsList.hasClass('show')) NewsHandler.$newsList.addClass('show');
             if (NewsHandler.$noResult.hasClass('show')) NewsHandler.$noResult.removeClass('show');
-        }
-        else {
+        } else {
             if (NewsHandler.$newsList.hasClass('show')) NewsHandler.$newsList.removeClass('show');
             if (!NewsHandler.$noResult.hasClass('show')) NewsHandler.$noResult.addClass('show');
         }
     },
     patch: function() {
-        var newTitle = Math.random();
+        // var newTitle = Math.random();
 
-        var xhr = new XMLHttpRequest();
-        xhr.open("PATCH", "http://norra.sitecore.teknikhuset.se/sitecore/api/ssc/item/4150975A-8277-4249-862C-FE68251252B4/");
-        xhr.setRequestHeader("Content-Type", "application/json");
-        xhr.onreadystatechange = function() {
-            if (this.readyState == 4) {
-                console.log('Status: ' + this.status + '\nHeaders:' + JSON.stringify(this.getAllResponseHeaders()) + '\nBody: ' + this.responseText);
-            }
-        };
-        xhr.send("{ \"NewsTitle\":\"Sitecore Modified " + newTitle + "\" }");
+        // var xhr = new XMLHttpRequest();
+        // xhr.open("PATCH", "http://norra.sitecore.teknikhuset.se/sitecore/api/ssc/item/4150975A-8277-4249-862C-FE68251252B4/");
+        // xhr.setRequestHeader("Content-Type", "application/json");
+        // xhr.onreadystatechange = function() {
+        //     if (this.readyState == 4) {
+        //         console.log('Status: ' + this.status + '\nHeaders:' + JSON.stringify(this.getAllResponseHeaders()) + '\nBody: ' + this.responseText);
+        //     }
+        // };
+        // xhr.send("{ \"NewsTitle\":\"Sitecore Modified " + newTitle + "\" }");
     },
-    getNews: function(handleData, year = -1) {
+    getNews: function(handleData, year) {
+        if (!year) year = -1;
         $.getJSON({
             type: 'GET',
             dataType: 'json',
@@ -202,8 +260,14 @@ NewsHandler = {
 //#endregion
 
 (function() {
-    if (typeof SiteId !== 'undefined' && typeof useNewsApi !== 'undefined' && useNewsApi) {
-        NewsHandler.init(SiteId);
-        $(window).on('load', NewsHandler.onload());
+    if (typeof SiteId !== 'undefined') {
+        if (typeof useNewsApi !== 'undefined' && useNewsApi) {
+            NewsHandler.init(SiteId, 'news');
+            //$(window).on('load', NewsHandler.loadNewsList());
+        }
+        //if (typeof useNewsLatestApi !== 'undefined' && useNewsLatestApi) {
+        //    NewsHandler.init(SiteId, 'news-latest');
+        //    $(window).on('load', NewsHandler.loadNewsLatestList());
+        //}
     }
 })();
