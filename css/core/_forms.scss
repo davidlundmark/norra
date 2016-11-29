@@ -15,6 +15,7 @@ label {
     display: block;
     //font-weight: 600;
     margin-bottom: $gap-half;
+    @include alignItems();
 }
 
 input,
@@ -22,6 +23,9 @@ select,
 textarea {
     display: block;
     //@include setTextFormat($base-font-family, $base-font-size, $base-font-weight, $base-line-height);
+    &:-webkit-autofill {
+        background-color: $button-background-color !important;
+    }
 }
 
 input[type="color"],

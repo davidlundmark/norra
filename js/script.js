@@ -33,6 +33,7 @@
     require('./custom/cookieHandler.js');
     require('./custom/arrowdownHandler.js');
     require('./custom/matchheightHandler.js');
+    require('./custom/loginHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2.422');
