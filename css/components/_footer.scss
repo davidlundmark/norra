@@ -19,6 +19,20 @@
     // .text {
     //     text-align: center;
     // }
+    .certifications {
+        padding-top: $gap-half;
+        a {
+            display: inline-block;
+            margin-right: $gap-half;
+            &:last-child {
+                margin-right: 0;
+            }
+        }
+        img {
+            height: 40px;
+            width: auto;
+        }
+    }
     .logo {
         display: inline-block;
         > img {

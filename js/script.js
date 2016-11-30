@@ -163,23 +163,27 @@
         //topmenuHandler.init();
 
         //fix for showing menu under sitecore toolbar
-        if (document.documentElement.className == 'sitecore') {
+        if ($('html').hasClass('sitecore')) {
             //if(document.querySelector('.page-slider') === null) $(document.querySelector('.content-wrapper')).css({ 'padding-top': headerHeight });
             var _scRibbon = document.getElementById('scWebEditRibbon');
-            var _height = 0;
-            if (_scRibbon !== null) _height = _scRibbon.offsetHeight;
-            var _timer = setInterval(function() {
-                if (_scRibbon !== null) {
-                    if (_scRibbon.offsetHeight > _height) {
-                        _height = _scRibbon.offsetHeight;
-                        $('.page-header').css({ 'top': _height + 'px' });
-                        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
-                        clearInterval(_timer);
-                    }
-                }
-            }, 200);
-        }
+            if (_scRibbon === null) return;
 
+            var _height = 0;
+
+            fixRibbon();
+
+            function fixRibbon() {
+                if (_scRibbon.offsetHeight != _height) {
+                    //if (_scRibbon.offsetHeight > _height) {
+                        _height = _scRibbon.offsetHeight;
+                        $('.page-header').css({ 'top': _height });
+                        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
+                        $('.page-slider').css({ 'padding-top': _height });
+                    //}
+                }
+                window.setTimeout(fixRibbon, 1000);
+            }
+        }
         //$(window).trigger('resize');
     });
 
