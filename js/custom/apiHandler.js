@@ -1,7 +1,9 @@
 //#region NewsHandler
 NewsHandler = {
+    id: '',
     apiUrl: window.location.origin + '/sitecore/api/ssc/norra/',
     newsUrl: 'News/1337/GetNews',
+    calendarUrl: 'Calendar/1337/GetCalendar',
     siteId: null,
     page: 2,
     pageSize: 3,
@@ -16,6 +18,7 @@ NewsHandler = {
     init: function(SiteId, Id) {
         //get Site ID
         this.siteId = SiteId;
+        this.id = Id;
 
         //get DOM template elements
         var _newsList = document.getElementById(Id + '-list-template');
@@ -162,9 +165,9 @@ NewsHandler = {
 
             //Date
             var date = item.Date.split('-');
-            _clone.querySelector('.day').innerHTML = date[0];
+            _clone.querySelector('.day').innerHTML = date[2];
             _clone.querySelector('.month').innerHTML = date[1];
-            _clone.querySelector('.year').innerHTML = date[2];
+            _clone.querySelector('.year').innerHTML = date[0];
 
             //Summary
             var _summary = _clone.querySelector('.summary');
@@ -175,7 +178,8 @@ NewsHandler = {
             }
 
             //Link
-            _clone.querySelector('.text-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
+            //_clone.querySelector('.text-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
+            _clone.querySelector('.text-link').setAttribute('href', item.Link);
 
             //Background Image
             var _backgroundImage = _clone.querySelector('.background-image');
@@ -234,10 +238,11 @@ NewsHandler = {
     },
     getNews: function(handleData, year) {
         if (!year) year = -1;
+
         $.getJSON({
             type: 'GET',
             dataType: 'json',
-            url: this.apiUrl + this.newsUrl,
+            url: this.apiUrl + ((this.id == 'news') ? this.newsUrl : this.calendarUrl),
             data: {
                 page: this.page,
                 pageSize: this.pageSize,
@@ -253,7 +258,7 @@ NewsHandler = {
             }
         });
 
-        this.page += 1;
+        this.page += 1; 
     }
 
 };
@@ -263,6 +268,10 @@ NewsHandler = {
     if (typeof SiteId !== 'undefined') {
         if (typeof useNewsApi !== 'undefined' && useNewsApi) {
             NewsHandler.init(SiteId, 'news');
+            //$(window).on('load', NewsHandler.loadNewsList());
+        }
+        else if (typeof useCalendarApi !== 'undefined' && useCalendarApi) {
+            NewsHandler.init(SiteId, 'calendar');
             //$(window).on('load', NewsHandler.loadNewsList());
         }
         //if (typeof useNewsLatestApi !== 'undefined' && useNewsLatestApi) {

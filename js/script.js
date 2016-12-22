@@ -34,6 +34,8 @@
     require('./custom/arrowdownHandler.js');
     require('./custom/matchheightHandler.js');
     require('./custom/loginHandler.js');
+    require('./custom/submenuHandler.js');
+    require('./custom/imagemapHandler.js');
     require('./custom/dekai.js');
 
     console.log('deKai v.2.422');
@@ -130,27 +132,6 @@
             });
         }
         */
-
-        if (typeof useSubMenus !== 'undefined' && useSubMenus) {
-            positionSubmenus();
-            $(window).on('resize', positionSubmenus);
-
-            function positionSubmenus() {
-                if (!ScreensizeHandler.isBigScreen) return;
-                //var $subMenus = $('.page-header li.has-child');
-                var _submenus = document.querySelectorAll('.page-header li.has-child');
-                if (_submenus === null) return;
-
-                $(_submenus).each(function() {
-                    var $this = $(this);
-                    var $subMenu = $this.find('.submenu');
-                    var marginLeft = $this.offset().left;
-                    //var marginLeft = $subMenu.width() * 0.5;   
-                    //marginLeft -= $this.width() * 0.5;
-                    $subMenu.css({ 'left': -(marginLeft) });
-                });
-            }
-        }
 
         if (document.querySelector('.page-slider') === null) {
             $('body').css({

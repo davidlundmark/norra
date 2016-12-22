@@ -19,8 +19,10 @@ dd {
 }
 
 ul,
-ol {
+ol { 
     &.list,
+    &.calendar-list,
+    &.calendar-list-latest,
     &.news-list,
     &.news-list-latest {
         @include resetList();
@@ -44,6 +46,7 @@ ol {
             }
         }
     }
+    &.calendar-list,
     &.news-list {
         display: none;
         @include transition(opacity);
@@ -53,8 +56,6 @@ ol {
             display: block;
             opacity: 1;
         }
-    }
-    &.news-list {
         li {
             .card {
                 margin-bottom: $gap;
@@ -65,12 +66,13 @@ ol {
             width: calc(#{$card-news-item-date-size + $card-news-item-text-size} - #{$card-news-item-text-padding});
             @include breakpoint($breakpoint-md) {
                 width: 100%;
-            } 
+            }
         }
         &.loading {
             opacity: 0.2 !important;
         }
     }
+    &.calendar-list-latest,
     &.news-list-latest {
         li {
             padding-bottom: $gap;

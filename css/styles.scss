@@ -44,7 +44,9 @@
 }
 
 .grid-section {
-    background-color: $tertiary-background-color;
+    &:not(.aside-section) {
+        background-color: $tertiary-background-color;
+    }
     + .grid-section {
         > .section-container {
             padding-top: 0;
@@ -54,6 +56,16 @@
         //         padding-top: $page-section-padding;
         //     }
         // }
+    }
+}
+
+.news-grid-section {
+    background-color: $tertiary-background-color;
+}
+
+.aside-section {
+    article + article {
+        margin-top: $gap-double;
     }
 }
 
@@ -92,24 +104,36 @@
     .page {
         &-summary {
             text-align: center;
-            margin-bottom: $gap-double;
+            margin: $gap $gap ($gap-double + $gap);
+            font-family: $base-font-family;
+        }
+        &-text {
+            //margin-bottom: $gap;
         }
         &-date {
             font-size: $small-font-size;
             margin-top: $gap-xl;
             line-height: 1;
+            &.published {
+                margin-right: $gap;
+            }
+            &.published,
+            &.modified {
+                display: inline-block;
+            }
         }
         &-image,
         &-video {
-            margin-bottom: $gap-double;
+            margin-top: $gap-double;
         }
     }
 }
 
 .latest-news-article {
-    background-color: $tertiary-background-color;
+    //background-color: $tertiary-background-color;
 }
 
+.calendar-list-section,
 .news-list-section {
     background-color: $secondary-background-color;
 }
@@ -123,12 +147,15 @@
 }
 
 .sitecore {
-    footer,
-    header,
-    .breadcrumb-section, //.news-list,
-    .page-slider {
-        pointer-events: none !important;
-        user-select: none !important;
+    // footer,
+    // header,
+    // .breadcrumb-section, //.news-list,
+    // .page-slider {
+    //     pointer-events: none !important;
+    //     user-select: none !important;
+    // }
+    .scEmptyImage {
+        width: auto;
     }
 }
 

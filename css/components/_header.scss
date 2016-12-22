@@ -7,7 +7,7 @@
     //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transition: transform 0.4s $easeOutQuad;
     //transform: translateZ(0);
-    //backface-visibility: hidden;
+    backface-visibility: hidden;
     //will-change: auto;
     .logo {
         width: $header-logo-width;
@@ -25,6 +25,11 @@
             //.subweb & {
             &:nth-child(1) {
                 background-color: $header-scrolled-background-color;
+                .no-touch & {
+                    &:hover {
+                        background-color: $header-background-color;
+                    }
+                }
             }
             &:nth-child(2) {
                 background-color: $header-subweb-scrolled-background-color;
@@ -88,7 +93,7 @@
         display: inline-block;
         .rootweb & {
             position: absolute;
-            top: 13px;
+            top: 10px;
             //@include centerVertical();
         }
         //left: $page-section-padding;
@@ -152,7 +157,7 @@
             z-index: -1;
             visibility: hidden;
             &:before {
-                height: $gap-xl;
+                height: $gap-lg;
                 .subweb & {
                     height: $gap;
                 }

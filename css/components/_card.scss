@@ -189,6 +189,31 @@
         }
     }
     &-news-item {
+        > .card {
+            &-date {
+                color: $tertiary-font-color;
+                h4 {
+                    @include border($tertiary-font-color, left, $gap-half);
+                    margin: 0;
+                    padding: $gap 0;
+                }
+            }
+        }
+    }
+    &-calendar-item {
+        > .card {
+            &-date {
+                h4 {
+                    padding: $gap;
+                    color: $light-font-color;
+                    background-color: $quaternary-background-color;
+                    margin: 0;
+                }
+            }
+        }
+    }
+    &-calendar-item,
+    &-news-item {
         .link {
             float: none !important;
         }
@@ -199,7 +224,6 @@
                 .background-image {
                     min-height: $card-news-item-image-min-height;
                 }
-
                 @include breakpoint($breakpoint-md) {
                     display: none;
                 }
@@ -214,34 +238,30 @@
                 p.bottom {
                     @extend .small;
                 }
-
                 @include breakpoint($breakpoint-md) {
                     width: 75%;
                     padding-right: 0;
                 }
             }
             &-date {
-                color: $tertiary-font-color;
+                //color: $tertiary-font-color;
                 width: $card-news-item-date-size;
-                h4 {
-                    @include border($tertiary-font-color, left, $gap-half);
-                    margin: 0;
-                    padding: $gap 0;
-                }
+                // h4 {
+                //     @include border($tertiary-font-color, left, $gap-half);
+                //     margin: 0;
+                //     padding: $gap 0;
+                // }
                 span {
                     display: block;
                     text-align: center;
                     margin-bottom: $gap-xs;
-
                     &:last-child {
                         margin-bottom: 0;
                     }
                 }
-
-                .month {
-                    text-transform: uppercase;
-                }
-
+                // .month {
+                //     text-transform: uppercase;
+                // }
                 @include breakpoint($breakpoint-md) {
                     width: 25%;
                 }
@@ -250,14 +270,16 @@
     }
     // zoom effect on images
     .no-touch & {
-        .background-image {
-            @include transition(transform, 0.26s, $easeOutSine);
-            //@include forceHarwareAcceleration();
-            will-change: transform;
-        }
-        &.hover {
+        &.card-anchor {
             .background-image {
-                @include scale(1.05);
+                @include transition(transform, 0.26s, $easeOutSine);
+                //@include forceHarwareAcceleration();
+                will-change: transform;
+            }
+            &.hover {
+                .background-image {
+                    @include scale(1.05);
+                }
             }
         }
     }

@@ -21,7 +21,10 @@ var CookieHandler = {
                 return false;
             });
         } else {
-            if (!$cookie.hasClass('hide')) $cookie.addClass('hide');
+            if (!$cookie.hasClass('hide')) {
+                $cookie.slideToggle();
+                //$cookie.addClass('hide');
+            }
         }
     },
 

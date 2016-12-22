@@ -41,10 +41,11 @@
     }
 }
 
-.breadcrumb-section {
+.breadcrumb-section { 
     background-color: $breadcrumb-background-color;
     color: $breadcrumb-color;
     .section-container {
-        padding: $breadcrumb-padding;
+        padding-top: $gap-half !important;
+        padding-bottom: $gap-half !important;
     }
 }

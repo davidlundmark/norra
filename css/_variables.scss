@@ -42,13 +42,15 @@ $path-fonts: '../assets/fonts/';
 
 // Font familys
 $oswald: 'Oswald', sans-serif;
-$roboto: 'Roboto', sans-serif;
+// $roboto: 'Roboto', sans-serif;
+$droidsans: 'Droid Sans', sans-serif;
 
 // Text
-$base-font-family: $roboto;
+$base-font-family: $droidsans;
 $base-font-weight: 400;
-$light-font-weight: 300;
-$medium-font-weight: 500;
+// $light-font-weight: 300;
+// $medium-font-weight: 500;
+$bold-font-weight: 700;
 $base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
@@ -66,20 +68,20 @@ $large-font-size: $base-font-size + 2px;
 $large-font-name: 'large';
 
 // Text
-$heading-font-weight: 400;
 $heading-font-family: $oswald;
+$heading-font-weight: 400;
+$heading-light-font-weight: 300;
+// $heading-bold-font-weight: 700;
 $heading-font-size: 26px;
-$heading-line-height: 1.2;
+$heading-line-height: 1.4;
 $heading-text-transform: none;
 $heading-font-name: 'heading';
-$heading-light-font-weight: 300;
-$heading-bold-font-weight: 700;
 
 // h1
 $h1-font-size: 40px;
-$h1-font-size-lg: 38px;
-$h1-font-size-md: 36px;
-$h1-font-size-sm: 34px;
+$h1-font-size-lg: 40px;
+$h1-font-size-md: 40px;
+$h1-font-size-sm: 40px;
 
 // h2
 $h2-font-size: $h1-font-size - 4px;
