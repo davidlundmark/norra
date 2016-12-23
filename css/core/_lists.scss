@@ -87,6 +87,7 @@ ol {
             }
             a {
                 @include hoverLink($base-font-color);
+                @extend .small;
             }
             &:last-child {
                 margin-bottom: 0;

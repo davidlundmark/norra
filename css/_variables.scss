@@ -20,6 +20,7 @@ $light-background-color: $white;
 
 // Brand
 $base-brand-color: $green;
+$base-brand-color-dark: darken($base-brand-color, 8%);
 //$secondary-brand-color: #373b37;
 //$tertiary-brand-color: #e0e0e0;
 
@@ -28,7 +29,7 @@ $base-font-color: #444444;
 $secondary-font-color: #E1E1E1;
 $tertiary-font-color: #BEBEBE;
 
-$light-font-color: #E1E1E1;
+$light-font-color: #FFFFFF;//#E1E1E1;
 
 // =================================================
 // Paths 
@@ -43,13 +44,14 @@ $path-fonts: '../assets/fonts/';
 // Font familys
 $oswald: 'Oswald', sans-serif;
 // $roboto: 'Roboto', sans-serif;
-$droidsans: 'Droid Sans', sans-serif;
+// $droidsans: 'Droid Sans', sans-serif;
+$opensans: 'Open Sans', sans-serif;
 
 // Text
-$base-font-family: $droidsans;
+$base-font-family: $opensans;
 $base-font-weight: 400;
 // $light-font-weight: 300;
-// $medium-font-weight: 500;
+$medium-font-weight: 600;
 $bold-font-weight: 700;
 $base-font-size: 16px;
 $base-line-height: 1.5;
@@ -71,11 +73,12 @@ $large-font-name: 'large';
 $heading-font-family: $oswald;
 $heading-font-weight: 400;
 $heading-light-font-weight: 300;
-// $heading-bold-font-weight: 700;
+$heading-bold-font-weight: 600;
 $heading-font-size: 26px;
-$heading-line-height: 1.4;
+$heading-line-height: 1.5;
 $heading-text-transform: none;
 $heading-font-name: 'heading';
+$heading-letter-spacing: 0;
 
 // h1
 $h1-font-size: 40px;
@@ -175,14 +178,17 @@ $button-background-color: $base-background-color;
 $button-border-radius: $base-border-radius;
 $button-font-family: $oswald;
 $button-font-size: 12px;
-$button-font-weight: 600;
+$button-font-weight: $heading-font-weight;
 $button-line-height: 1;
 $button-hover-color: $light-font-color;
 $button-hover-background-color: $base-brand-color;
 $button-border-color: $base-border-color;
 $button-text-transform: uppercase;
 $button-font-name: 'button';
-
+$button-brand-color: $light-font-color;
+$button-brand-background-color: $base-brand-color;
+$button-brand-hover-color: $light-font-color; 
+$button-brand-hover-background-color: $base-brand-color-dark;
  
 // =================================================
 // Links
@@ -203,7 +209,7 @@ $link-hover-color: $base-brand-color;
 
 $page-section-padding: $gap-double;
 $page-section-max-width: 1280px;
-$page-section-min-width: 800px;
+$page-section-min-width: 700px;
 
 // =================================================
 // Header

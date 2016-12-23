@@ -157,7 +157,7 @@
             z-index: -1;
             visibility: hidden;
             &:before {
-                height: $gap-lg;
+                height: $gap + $gap-half;
                 .subweb & {
                     height: $gap;
                 }

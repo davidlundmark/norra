@@ -27,12 +27,12 @@ body {
 
 .page-section {
     position: relative;
-    background-color: $base-background-color;
+    background-color: $secondary-background-color;
     z-index: 2;
     &.page-body {
         background-color: transparent;
         > .section-container {
-            background-color: $base-background-color;
+            //background-color: $base-background-color;
             //margin-top: -$gap-double;
             @include breakpoint($breakpoint-lg) {
                 margin-top: 0;

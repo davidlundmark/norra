@@ -55,8 +55,11 @@ input[type="submit"] {
     @include setFont($button-font-name);
 }
 
-.load-more,
 .show-more {
+    width: 100%;
+}
+
+.load-more {
     @include breakpoint($breakpoint-md) {
         width: 100%;
     }
@@ -80,4 +83,18 @@ input[type="submit"] {
 
 .show-more {
     margin-top: $gap;
+}
+
+.button {
+    &-brand-color {
+        border: none;
+        color: $button-brand-color;
+        background-color: $button-brand-background-color;
+        .no-touch & {
+            &:hover {
+                color: $button-brand-hover-color;
+                background-color: $button-brand-hover-background-color;
+            }
+        }
+    }
 }

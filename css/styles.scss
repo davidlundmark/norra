@@ -64,6 +64,10 @@
 }
 
 .aside-section {
+    article {
+        background-color: $base-background-color;
+        padding: $gap;
+    }
     article + article {
         margin-top: $gap-double;
     }
@@ -96,6 +100,10 @@
     }
 }
 
+.image-map {
+    background-color: $base-background-color;
+}
+
 .page-body {
     &-wrapper {
         max-width: $page-body-max-width;
@@ -103,9 +111,12 @@
     }
     .page {
         &-summary {
-            text-align: center;
-            margin: $gap $gap ($gap-double + $gap);
-            font-family: $base-font-family;
+            //text-align: center;
+            //margin: $gap $gap ($gap-double + $gap);
+            @include setFont($base-font-name);
+            font-weight: $medium-font-weight;
+            font-size: $large-font-size;
+            margin-bottom: $gap;
         }
         &-text {
             //margin-bottom: $gap;

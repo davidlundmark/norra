@@ -6,6 +6,11 @@ body {
     nav,
     .card {
         @include setTextFormat($heading-font-family, $base-font-size, $heading-font-weight);
+
+        .summary {
+            @include setFont($base-font-name);
+            font-size: $small-font-size;
+        }
     }
     footer {
         @include setTextFormat($heading-font-family, $base-font-size, $heading-light-font-weight);
@@ -149,7 +154,7 @@ a,
 
 a {
     &.text-link {
-        @extend .medium;
+        //@extend .medium;
         @include animateLine();
     }
     &.hover-link {
@@ -218,8 +223,8 @@ hr {
 //     }
 // }
 .medium {
-    //font-weight: $medium-font-weight;
-    font-weight: $base-font-weight;
+    font-weight: $medium-font-weight;
+    //font-weight: $base-font-weight;
 }
 
 .bold {
@@ -229,8 +234,8 @@ hr {
 @include headings {
     &.bold,
     .bold {
-        font-weight: $heading-font-weight;
-        //font-weight: $heading-bold-font-weight;
+        //font-weight: $heading-font-weight;
+        font-weight: $heading-bold-font-weight;
     }
 
     &.light,
