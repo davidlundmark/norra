@@ -95,6 +95,7 @@
         color: $secondary-font-color;
         text-align: center;
         > .page-title {
+            margin-bottom: 0;
             text-shadow: $page-image-text-shadow;
         }
     }

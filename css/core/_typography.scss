@@ -6,7 +6,6 @@ body {
     nav,
     .card {
         @include setTextFormat($heading-font-family, $base-font-size, $heading-font-weight);
-
         .summary {
             @include setFont($base-font-name);
             font-size: $small-font-size;
@@ -126,7 +125,6 @@ p {
 //     border-style:none;
 //     border: 0;
 // }
-
 a,
 .link {
     //@include setFont($link-font-name);
@@ -227,6 +225,8 @@ hr {
     //font-weight: $base-font-weight;
 }
 
+b,
+strong,
 .bold {
     font-weight: $bold-font-weight;
 }
@@ -237,7 +237,6 @@ hr {
         //font-weight: $heading-font-weight;
         font-weight: $heading-bold-font-weight;
     }
-
     &.light,
     .light {
         font-weight: $heading-light-font-weight;

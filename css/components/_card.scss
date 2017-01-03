@@ -268,6 +268,35 @@
             }
         }
     }
+    &-contact-small {
+        padding: $gap;
+        height: auto;
+        @include breakpoint($breakpoint-md, false) {
+            margin-top: -$page-section-padding*2;
+        }
+        @include breakpoint($breakpoint-md) {
+            padding: 0;
+        }
+        .card-image {
+            border-radius: 50%;
+            margin: 0 auto;
+            width: $card-contact-small-image-min-height;
+            .background-image {
+                min-height: $card-contact-small-image-min-height;
+            }
+            @include breakpoint($breakpoint-md, false) {
+                margin: -($card-contact-small-image-min-height/2)-$gap auto 0;
+            }
+        }
+        .card-text {
+            @include setFont($base-font-name);
+            text-align: center;
+            padding-top: $gap;
+            .name {
+                @extend .medium;
+            }
+        }
+    }
     // zoom effect on images
     .no-touch & {
         &.card-anchor {
