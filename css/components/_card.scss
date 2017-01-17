@@ -12,6 +12,7 @@
     position: relative;
     height: 100%;
     background-color: $card-background-color;
+    @include setTextFormat($heading-font-family, $base-font-size, $heading-light-font-weight);
     //@include border();
     &-image {
         overflow: hidden;
@@ -97,6 +98,60 @@
                 }
             }
         }
+    }
+    &-play {
+        &.card-play-featured {
+            .card-image {
+                .background-image {
+                    min-height: $card-play-featured-image-min-height;
+                }
+            }
+        }
+        &.card-overlay {
+            .card-text {
+                //color: $play-background-color;
+                //background-color: rgba($play-color, 0.8) !important;
+                padding: $gap-md $gap;
+                color: $play-color;
+                background-color: rgba($black, $card-overlay-opacity) !important;
+            }
+        }
+        &:not(.card-overlay):not(.card-play-top-item) {
+            .card-image {
+                .background-image {
+                    min-height: $card-play-list-image-min-height;
+                }
+            }
+            .card-text {
+                color: $play-background-color;
+                padding: $gap-md $gap;
+                background-color: $play-color;
+            }
+        }
+        &.card-play-featured,
+        &.card-play-list {
+            .card-text {
+                @include headings {
+                    @include oneLine();
+                }
+            }
+        }
+        .card-text {
+            .icon {
+                padding-right: $gap-xs;
+            }
+            .bottom {
+                padding-top: $gap-xs;
+            }
+        }
+        .video-container {
+            padding-bottom: 56.56%; //should be 56.25%
+        }
+        // .card-text {
+        //     color: $play-color;
+        //     padding: $gap-md $gap;
+        //     background-color: rgba($black, $card-overlay-opacity) !important;
+        // }
     }
     &-lightbox {
         .card-image {
@@ -303,7 +358,7 @@
             .background-image {
                 @include transition(transform, 0.26s, $easeOutSine);
                 //@include forceHarwareAcceleration();
-                will-change: transform;
+                //will-change: transform;
             }
             &.hover {
                 .background-image {

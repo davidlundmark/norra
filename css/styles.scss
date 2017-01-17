@@ -277,3 +277,48 @@ noscript {
         padding: 0;
     }
 }
+
+
+/* NORRA PLAY */
+
+.play-section {
+    @at-root body {
+        background-color: $play-background-color;
+    }
+    background-color: $play-background-color;
+    //&.top-video-item,
+    &.top-video {
+        .section-container {
+            padding-bottom: 0;
+        }
+    }
+    &.featured-videos {
+        .section-container {
+            padding-top: $gap;
+        }
+    }
+    .section-title {
+        color: $play-color;
+        margin-bottom: $gap;
+        padding-bottom: $gap-md;
+        &:after {
+            background-color: $play-color;
+            height: 2px;
+            bottom: -1px;
+        }
+    }
+    &.list-videos {
+        background-color: #363636;
+        //@include border($play-background-color, bottom);
+        .section-container {
+            @include border($play-background-color, bottom);
+            padding-bottom: $gap-half;
+        }
+        &:last-child {
+            @include border($play-background-color, bottom);
+            .section-container {
+                border-bottom: none;
+            }
+        }
+    }
+}

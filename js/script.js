@@ -27,7 +27,7 @@
     require('./custom/swipeboxHandler.js');
     require('./custom/backgroundimageHandler.js');
     require('./custom/apiHandler.js');
-    //require('./custom/carouselHandler.js');
+    require('./custom/carouselHandler.js');
     //require('./custom/expanderHandler.js');
     //require('./custom/informationHandler.js');
     require('./custom/cookieHandler.js');

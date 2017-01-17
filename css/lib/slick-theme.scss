@@ -11,6 +11,14 @@
 .slick-slide {
     margin: 0 $gap;
     outline: none;
+
+    .slick-no-gap & {
+        margin: 0;
+    }
+
+    .slick-small-gap & {
+        margin: $gap-half;
+    }
 }
 
 // Arrows 
@@ -24,6 +32,9 @@
         display: block;
         font-size: $carousel-arrow-size;
         color: $carousel-elements-color;
+        .slick-inverted & {
+            color: $carousel-inverted-elements-color;
+        }
     }
     &.slick-disabled {
         opacity: $carousel-elements-not-active-opacity;
@@ -57,9 +68,7 @@
     }
 }
 
-
 // Dots 
-
 .slick-dotted.slick-slider {
     margin-bottom: $gap-triple;
 }
@@ -86,6 +95,9 @@
         .slick-dot {
             display: block;
             @include createCircle($carousel-elements-color, $carousel-dot-size);
+            .slick-inverted & {
+                @include createCircle($carousel-inverted-elements-color, $carousel-dot-size);
+            }
             position: absolute;
             top: calc(50% - #{$carousel-dot-size/2});
             left: calc(50% - #{$carousel-dot-size/2});

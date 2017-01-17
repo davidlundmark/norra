@@ -13,6 +13,14 @@
     //-ms-touch-action: pan-y;
     touch-action: pan-y;
     -webkit-tap-highlight-color: transparent;
+
+    &.slick-no-gap {
+        padding: 0 $gap;
+    }
+
+    &.slick-small-gap {
+        padding: 0 $gap-half;
+    }
 }
 .slick-list {
     position: relative;

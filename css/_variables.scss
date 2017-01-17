@@ -31,6 +31,9 @@ $tertiary-font-color: #BEBEBE;
 
 $light-font-color: #FFFFFF;//#E1E1E1;
 
+$play-background-color: #282828;
+$play-color: #E1E1E1;
+
 // =================================================
 // Paths 
 // =================================================
@@ -229,6 +232,10 @@ $header-scrolled-background-color: rgba($header-background-color,0.95);
 $header-subweb-scrolled-background-color: rgba($header-subweb-background-color,0.9);
 $header-scrolled-border-bottom: none;
 $header-font-size: 14px;
+$header-inverted-background-color: #363636;
+$header-inverted-scrolled-background-color: rgba($header-inverted-background-color,0.95);
+$header-inverted-color: $play-color;
+$header-inverted-hover-color: $base-brand-color;
 
 // =================================================
 // Footer
@@ -327,15 +334,18 @@ $card-news-item-image-size: 25%;
 $card-news-item-image-min-height: $card-horizontal-image-min-height;
 $card-news-item-text-padding: $gap;
 $card-contact-small-image-min-height: 80px;
+$card-play-featured-image-min-height: 200px;
+$card-play-list-image-min-height: 150px;
 
 // =================================================
 // Carousel
 // =================================================
 
 $carousel-elements-color: $base-font-color;
+$carousel-inverted-elements-color: $play-color;
 $carousel-dot-size: 8px;
 $carousel-arrow-size: $gap;
-$carousel-elements-not-active-opacity: 0.3;
+$carousel-elements-not-active-opacity: 0.1;
 
 // =================================================
 // Slider

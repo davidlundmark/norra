@@ -30,6 +30,14 @@
                         background-color: $header-background-color;
                     }
                 }
+                @at-root .page-header-inverted#{&} {
+                    background-color: $header-inverted-scrolled-background-color;
+                    .no-touch & {
+                        &:hover {
+                            background-color: $header-inverted-background-color;
+                        }
+                    }
+                }
             }
             &:nth-child(2) {
                 background-color: $header-subweb-scrolled-background-color;
@@ -54,6 +62,9 @@
         transition: background-color $base-transition-duration $base-transition-timing;
         &:nth-child(1) {
             background-color: $header-background-color;
+            @at-root .page-header-inverted#{&} {
+                background-color: $header-inverted-background-color;
+            }
         }
         .subweb & {
             &:nth-child(1) {
@@ -112,6 +123,9 @@
         .menu-item {
             .rootweb & {
                 @include animateLine($color: $header-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+                @at-root .page-header-inverted#{&} {
+                    @include animateLine($color: $header-inverted-color, $distance: -51px, $thickness: 3px, $time: 0.3s, $scale: 1.2);
+                }
             }
             position: relative;
             > .text {
@@ -120,6 +134,9 @@
                 display: block;
                 text-decoration: none;
                 user-select: none;
+                @at-root .page-header-inverted#{&} {
+                    color: $header-inverted-color;
+                }
             }
             > span {
                 cursor: default;
@@ -128,6 +145,9 @@
                 > .text {
                     &:hover {
                         color: $header-hover-color;
+                        @at-root .page-header-inverted#{&} {
+                            color: $header-inverted-hover-color;
+                        }
                     }
                 }
             }
@@ -209,6 +229,9 @@
         }
         .burger {
             @include burger($color: $header-color);
+            @at-root .page-header-inverted#{&} {
+                @include burger($color: $header-inverted-color);
+            }
         }
         @include breakpoint($breakpoint-lg) {
             display: block;

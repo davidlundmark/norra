@@ -3,8 +3,7 @@ body {
     @include setFont($base-font-name);
     -webkit-font-smoothing: antialiased;
     header,
-    nav,
-    .card {
+    nav {
         @include setTextFormat($heading-font-family, $base-font-size, $heading-font-weight);
         .summary {
             @include setFont($base-font-name);
