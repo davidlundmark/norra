@@ -115,6 +115,26 @@
                 color: $play-color;
                 background-color: rgba($black, $card-overlay-opacity) !important;
             }
+            &.card-play-category {
+                .card-text {
+                    //@include centerElement();
+                    background-color: transparent;
+                    text-align: center;
+                    > h3 {
+                        text-shadow: $page-image-text-shadow;
+                    }
+                }
+            }
+        }
+        &-top-item {
+            .card-text {
+                background-color: $play-secondary-background-color;
+                color: $play-color;
+
+                .like-link {
+                    @include hoverLink($base-brand-color);
+                }
+            }
         }
         &:not(.card-overlay):not(.card-play-top-item) {
             .card-image {
@@ -123,9 +143,11 @@
                 }
             }
             .card-text {
-                color: $play-background-color;
+                //color: $play-background-color;
                 padding: $gap-md $gap;
-                background-color: $play-color;
+                //background-color: $play-color;
+                background-color: $play-background-color;
+                color: $play-color;
             }
         }
         &.card-play-featured,
@@ -142,10 +164,11 @@
             }
             .bottom {
                 padding-top: $gap-xs;
+                margin-bottom: 0;
             }
         }
         .video-container {
-            padding-bottom: 56.56%; //should be 56.25%
+            padding-bottom: 56.25%;//56.56%; //should be 56.25%
         }
         // .card-text {
         //     color: $play-color;

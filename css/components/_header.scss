@@ -97,6 +97,16 @@
             .label {
                 display: none;
             }
+            .icon-container {
+                @at-root .page-header-inverted#{&} {
+                    color: $header-inverted-color;
+                }
+            }
+            input {
+                @at-root .page-header-inverted#{&} {
+                    color: $header-inverted-color;
+                }
+            }
         }
     }
     #default-menu {

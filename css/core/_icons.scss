@@ -30,6 +30,10 @@
       @include centerElement();
   }
   
+  .icon-heart7:before {
+      content: "\ecef";
+  }
+  
   .icon-clock:before {
       content: "\ea4d";
   }

@@ -152,4 +152,15 @@
         //     position: relative;
         // }
     }
+    .root {
+        text-align: center;
+        margin-top: $gap;
+        .root-link {
+            display: inline-block;
+            text-transform: none;
+            > a {
+                @include animateLine($base-brand-color);
+            }
+        }
+    }
 }

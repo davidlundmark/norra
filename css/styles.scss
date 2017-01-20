@@ -281,10 +281,12 @@ noscript {
 
 /* NORRA PLAY */
 
+.template-play,
+.template-play-item {
+    background-color: $play-background-color;
+}
+
 .play-section {
-    @at-root body {
-        background-color: $play-background-color;
-    }
     background-color: $play-background-color;
     //&.top-video-item,
     &.top-video {
@@ -308,7 +310,7 @@ noscript {
         }
     }
     &.list-videos {
-        background-color: #363636;
+        background-color: $play-secondary-background-color;
         //@include border($play-background-color, bottom);
         .section-container {
             @include border($play-background-color, bottom);
@@ -318,6 +320,31 @@ noscript {
             @include border($play-background-color, bottom);
             .section-container {
                 border-bottom: none;
+            }
+        }
+    }
+    .addthis_toolbox {
+        margin-top: $gap;
+        @include breakpoint($breakpoint-lg, false) {
+            position: absolute;
+            bottom: $gap + 16px; //half icon height
+            right: $gap-double;
+            margin-top: 0;
+        }
+
+        a {
+            line-height: 0;
+            padding: 0;
+            margin: 0;
+            padding-left: $gap-half;
+            &:first-child {
+                padding-left: 0;
+            }
+            > span {
+                border-radius: 50%;
+                > svg {
+                    padding: 4px;
+                }
             }
         }
     }
