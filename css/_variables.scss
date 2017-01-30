@@ -4,6 +4,10 @@
 
 // Brand Colors
 $green: #2ABE52;
+$yellow: #ECBC41;
+$blue: #1976d2;
+$bluegreen: #2ABE9C;
+$lightblue: #C1DEFD;
 
 // Misc
 $red: #db4437;
@@ -337,6 +341,17 @@ $card-news-item-text-padding: $gap;
 $card-contact-small-image-min-height: 80px;
 $card-play-featured-image-min-height: 200px;
 $card-play-list-image-min-height: 150px;
+$card-course-image-min-height: 180px;
+$card-course-category-image-min-height: 250px;
+$card-press-big-image-min-height: 250px;
+$card-press-image-min-height: 180px;
+$card-tag-background-opacity: 0.86;
+$card-press-horizontal-image-size: 50%;
+$card-press-horizontal-text-size: 50%;
+$card-press-horizontal-image-min-height: 180px;
+$card-school-horizontal-image-size: 50%;
+$card-school-horizontal-text-size: 50%;
+$card-school-horizontal-image-min-height: 280px;
 
 // =================================================
 // Carousel
@@ -417,3 +432,11 @@ $loader-color: $base-font-color;
 $login-background-color: $base-background-color;//rgba($base-background-color,0.9);
 $login-logo-width: 350px;
 $login-max-width: 500px;
+
+// =================================================
+// Hero Image
+// =================================================
+
+$hero-image-min-height: 220px;
+$hero-image-color: $light-font-color;
+$hero-image-text-shadow: none;

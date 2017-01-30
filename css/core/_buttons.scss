@@ -97,4 +97,8 @@ input[type="submit"] {
             }
         }
     }
+    &-rounded {
+        border: none;
+        border-radius: $gap;
+    }
 }
