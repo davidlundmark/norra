@@ -37,6 +37,7 @@
     require('./custom/submenuHandler.js');
     require('./custom/imagemapHandler.js');
     require('./custom/dekai.js');
+    require('./custom/vexHandler.js');
 
     console.log('deKai v.2.422');
 
@@ -79,7 +80,7 @@
                 alert('SÖK: ' + $(this).val());
             }
         });
-        
+
 
         $('#mobile-menu .search .icon-container').on('click', function(e) {
             var $this = $(this);
@@ -132,6 +133,16 @@
             });
         }
         */
+        if (typeof useDownloadButton !== 'undefined' && useDownloadButton) {
+            var _courseMaterial = document.querySelector('.course-material');
+            if (_courseMaterial !== null) {
+                $(_courseMaterial).on('click', function(e) {
+                    var $this = $(this);
+                    $this.find('.course-download').fadeToggle();
+                    //console.log('hej')
+                });
+            }
+        }
 
         if (document.querySelector('.page-slider') === null) {
             $('body').css({
@@ -156,10 +167,10 @@
             function fixRibbon() {
                 if (_scRibbon.offsetHeight != _height) {
                     //if (_scRibbon.offsetHeight > _height) {
-                        _height = _scRibbon.offsetHeight;
-                        $('.page-header').css({ 'top': _height });
-                        $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
-                        $('.page-slider').css({ 'padding-top': _height });
+                    _height = _scRibbon.offsetHeight;
+                    $('.page-header').css({ 'top': _height });
+                    $('#mobile-menu .content').css({ 'padding-top': $('.page-header').outerHeight() + _height });
+                    $('.page-slider').css({ 'padding-top': _height });
                     //}
                 }
                 window.setTimeout(fixRibbon, 1000);

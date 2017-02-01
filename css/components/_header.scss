@@ -62,6 +62,7 @@
         transition: background-color $base-transition-duration $base-transition-timing;
         &:nth-child(1) {
             background-color: $header-background-color;
+            padding: 0 $gap-double;
             @at-root .page-header-inverted#{&} {
                 background-color: $header-inverted-background-color;
             }
@@ -83,8 +84,14 @@
         margin-right: $gap;
         position: relative;
         z-index: 1;
+        top: $gap;
         > a {
             display: block;
+        }
+
+        @include breakpoint($breakpoint-lg) {
+            top: 0;
+            padding: $gap 0;
         }
     }
     .search-container {
@@ -109,13 +116,16 @@
             }
         }
     }
-    #default-menu {
+    .default-menu {
         z-index: 1;
         display: inline-block;
         .rootweb & {
-            position: absolute;
-            top: 10px;
+            //position: absolute;
+            //top: 10px;
             //@include centerVertical();
+            &.right-menu {
+                float: right;
+            }
         }
         //left: $page-section-padding;
         .menu {
@@ -128,6 +138,10 @@
                         margin-left: 0;
                     }
                 }
+            }
+            > li {
+                margin-top: $gap-xl;
+                margin-bottom: $gap-xl;
             }
         }
         .menu-item {

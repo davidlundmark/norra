@@ -14,7 +14,7 @@
     if (typeof useSlickSameHeight !== 'undefined' && useSlickSameHeight) {
         var _texts = document.querySelectorAll('.slick-carousel .title.match-height');
         if (_texts !== null) {
-            //$(_texts).matchHeight();
+            $(_texts).matchHeight();
         } 
 
         var _cardTexts = document.querySelectorAll('.slick-carousel .card-text.match-height');

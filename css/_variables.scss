@@ -440,3 +440,21 @@ $login-max-width: 500px;
 $hero-image-min-height: 220px;
 $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
+
+// =================================================
+// Progress bar
+// =================================================
+
+$progress-background: $base-background-color;
+$progress-border: $base-border-color;
+$progress-meter-color: $base-brand-color;
+$progress-meter-border: $base-border-color;
+$progress-color: $light-font-color;
+
+// =================================================
+// Vex
+// =================================================
+
+$vex-content-max-width: 500px;
+$vex-content-background-color: $base-background-color;
+$vex-overlay-background-color: rgba($black, 0.7);

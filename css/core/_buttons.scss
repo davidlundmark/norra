@@ -49,56 +49,54 @@ input[type="submit"] {
             }
         }
     }
+    &.show-more, &.login {
+        width: 100%;
+    }
+    &.load-more {
+        @include breakpoint($breakpoint-md) {
+            width: 100%;
+        }
+    }
+    &.load-more {
+        margin-top: $gap-double;
+        .loader {
+            display: none;
+        }
+        &.loading {
+            pointer-events: none;
+            .text {
+                display: none;
+            }
+            .loader {
+                display: inline-block;
+            }
+        }
+    }
+    &.show-more {
+        margin-top: $gap;
+    }
+    &.login {
+        margin-top: $gap-half;
+    }
+    &.button {
+        &-brand-color {
+            border: none;
+            color: $button-brand-color;
+            background-color: $button-brand-background-color;
+            .no-touch & {
+                &:hover {
+                    color: $button-brand-hover-color;
+                    background-color: $button-brand-hover-background-color;
+                }
+            }
+        }
+        &-rounded {
+            border: none;
+            border-radius: $gap;
+        }
+    }
 }
 
 .use-button-font {
     @include setFont($button-font-name);
-}
-
-.show-more {
-    width: 100%;
-}
-
-.load-more {
-    @include breakpoint($breakpoint-md) {
-        width: 100%;
-    }
-}
-
-.load-more {
-    margin-top: $gap-double;
-    .loader {
-        display: none;
-    }
-    &.loading {
-        pointer-events: none;
-        .text {
-            display: none;
-        }
-        .loader {
-            display: inline-block;
-        }
-    }
-}
-
-.show-more {
-    margin-top: $gap;
-}
-
-.button {
-    &-brand-color {
-        border: none;
-        color: $button-brand-color;
-        background-color: $button-brand-background-color;
-        .no-touch & {
-            &:hover {
-                color: $button-brand-hover-color;
-                background-color: $button-brand-hover-background-color;
-            }
-        }
-    }
-    &-rounded {
-        border: none;
-        border-radius: $gap;
-    }
 }

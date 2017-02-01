@@ -87,6 +87,15 @@ module.exports = {
             precss
         ];
     },
+    resolve: {
+        extensions: ['', '.js', '.json'],
+        root: [path.join(__dirname, "node_modules")],
+        modulesDirectories: ['node_modules'],
+        alias: {
+            "vex": 'vex-js/src/vex.js',
+            "vex-dialog": 'vex-js/node_modules/vex-dialog/src/vex.dialog.js',
+        }
+    },
     sassLoader: {
         includePaths: [].concat('client/style')
     }

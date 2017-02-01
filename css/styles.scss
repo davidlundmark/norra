@@ -408,6 +408,11 @@
                 bottom: -1px;
             }
         }
+        .aside-section {
+            .column.col-3 {
+                overflow: visible;
+            }
+        }
         .button.level {
             &-1,
             &-2,
@@ -433,7 +438,7 @@
             @include clearfix();
             background-color: transparent;
             padding: 0;
-            margin-bottom: $gap;
+            margin-bottom: $gap-double;
             > .card {
                 height: auto;
                 background-color: transparent;
@@ -456,6 +461,45 @@
                 }
                 &:last-child {
                     float: right;
+                }
+            }
+            .course-download {
+                display: none;
+                position: absolute;
+                top: 0;
+                left: 50%;
+                @include translate(-50%, -100%);
+                padding-bottom: $gap-half;
+                .download-links {
+                    background-color: $base-background-color;
+                    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+                }
+                p {
+                    @include oneLine();
+                    margin: 0;
+                    @include border($dir: bottom);
+                    a.download-link {
+                        display: block;
+                        padding: $gap-half $gap;
+                        color: $base-font-color;
+                        text-decoration: none;
+                        @at-root .no-touch#{&} {
+                            @include transition();
+                            &:hover {
+                                color: $base-brand-color;
+                            }
+                        }
+
+                        .icon {
+                            margin-left: $gap-half;
+                        }
+                    }
+                }
+                &:after {
+                    content: '';
+                    @include centerHorizontal();
+                    @include createTriangle('down', $color: $base-background-color);
+                    bottom: 1px;
                 }
             }
         }

@@ -204,6 +204,11 @@
                 padding-bottom: $gap-lg;
                 @include setFont($base-font-name);
                 font-weight: $light-font-weight !important;
+
+                .finished {
+                    @extend .small;
+                    margin-bottom: $gap-xs;
+                }
             }
             &-price {
                 position: absolute;
