@@ -445,10 +445,10 @@ $hero-image-text-shadow: none;
 // Progress bar
 // =================================================
 
-$progress-background: $base-background-color;
-$progress-border: $base-border-color;
+$progress-background: $tertiary-background-color;//$base-background-color;
+$progress-border: none;//1px solid $tertiary-background-color;
 $progress-meter-color: $base-brand-color;
-$progress-meter-border: $base-border-color;
+$progress-meter-border: none;
 $progress-color: $light-font-color;
 
 // =================================================
