@@ -525,6 +525,17 @@
             }
         }
     }
+
+    .login-modal {
+        .login-loader {
+            border: none;
+            margin: 0;
+            margin-top: $gap;
+            padding-top: 11px;
+            display: none;
+            pointer-events: none;
+        }
+    }
     
     .share.addthis_toolbox {
         // @include breakpoint($breakpoint-lg, false) {
@@ -561,3 +572,11 @@
             }
         }
     }
+
+#play {
+    background-color: $play-background-color;
+
+    .page-header .logo-container {
+        top: 25px;
+    }
+}

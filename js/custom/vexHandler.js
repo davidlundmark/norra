@@ -3,7 +3,8 @@ var Handlebars = null;
 
 //#region VexHandler
 var VexHandler = {
-    openVex: function(contentEl, setHeight = false) {
+    id: null,
+    openVex: function(contentEl, setHeight) {
         var marginTop = Math.round(contentEl.offsetHeight / 2);
         contentEl.style.marginTop = -(marginTop + 40) + 'px';
         contentEl.style.marginLeft = -(Math.round(contentEl.offsetWidth / 2)) + 'px';
@@ -13,6 +14,10 @@ var VexHandler = {
             contentEl.style.height = contentEl.offsetHeight + 'px';
             contentEl.style.width = contentEl.offsetWidth + 'px';
             contentEl.className += contentEl.className ? ' open' : 'open';
+        }
+
+        if (this.id == 'login') {
+            $('#login-loader').height($('#login-button').height());
         }
 
         var _this = this;
@@ -27,25 +32,28 @@ var VexHandler = {
         $(contentEl).animate({ 'marginTop': marginTop + 'px' }, 500);
     },
     setupModal: function(id) {
-        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="'+id+'"]');
+        this.id = id;
+        var _triggers = document.querySelectorAll('.modal-trigger[data-modal-template="' + id + '"]');
         if (_triggers === null) return;
 
         var _this = this;
 
-        var template = document.querySelector('.'+id+'-modal');
+        var template = document.querySelector('.' + id + '-modal');
+
         template.remove();
         $(template).removeClass('hide');
 
         $(_triggers).on('click', function(e) {
             var $this = $(this);
 
-            vex.defaultOptions.className = 'modal-'+id+'';
+            vex.defaultOptions.className = 'modal-' + id + '';
 
             vex.dialog.defaultOptions.buttons = [];
             vex.dialog.confirm({
                 unsafeMessage: template,
                 afterOpen: function() {
-                    _this.openVex(this.contentEl, true);
+                    //_this.openVex(this.contentEl, true);
+                    _this.openVex(this.contentEl);
                 },
                 beforeClose: function() {
                     _this.closeVex(this.contentEl);
@@ -73,11 +81,13 @@ var VexHandler = {
         vex.dialog.defaultOptions.showCloseButton = true;
 
         if (typeof useModalLogin !== 'undefined' && useModalLogin) {
-            VexHandler.setupModal('login');
+            var loginVexHandler = $.extend({}, VexHandler);
+            loginVexHandler.setupModal('login');
         }
 
         if (typeof useModalAccount !== 'undefined' && useModalAccount) {
-            VexHandler.setupModal('account');
+            var accountVexHandler = $.extend({}, VexHandler);
+            accountVexHandler.setupModal('account');
         }
     }
 })();

@@ -158,6 +158,7 @@
                 display: block;
                 text-decoration: none;
                 user-select: none;
+                letter-spacing: 1px;
                 @at-root .page-header-inverted#{&} {
                     color: $header-inverted-color;
                 }
