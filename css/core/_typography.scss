@@ -219,6 +219,10 @@ hr {
 //         font-weight: $heading-bold-font-weight;
 //     }
 // }
+.normal {
+    font-weight: $base-font-weight;
+}
+
 .medium {
     font-weight: $medium-font-weight;
     //font-weight: $base-font-weight;

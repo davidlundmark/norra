@@ -525,7 +525,7 @@
             }
         }
     }
-
+    
     .login-modal {
         .login-loader {
             border: none;
@@ -563,7 +563,7 @@
             }
         }
     }
-
+    
     article.course-share {
         .article-title {
             text-align: center;
@@ -572,11 +572,32 @@
             }
         }
     }
+    
+    #play {
+        background-color: $play-background-color;
+        .page-header .logo-container {
+            top: 25px;
+            width: 246px;
 
-#play {
-    background-color: $play-background-color;
+            .logo {
+                width: 100%;
+            }
 
-    .page-header .logo-container {
-        top: 25px;
+            @include breakpoint($breakpoint-lg) {
+                 top: 0;
+            }
+        }
     }
-}
+    
+    #skogsskolan {
+        .news-grid-section {
+            > .section-container {
+                border-bottom: $base-border;
+            }
+            &:nth-child(2) {
+                > .section-container {
+                    border-bottom: none;
+                }
+            }
+        }
+    }

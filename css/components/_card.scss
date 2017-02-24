@@ -101,10 +101,16 @@
         }
     }
     &-play {
+        background-color: $play-background-color;
         &.card-play-featured {
             .card-image {
                 .background-image {
                     min-height: $card-play-featured-image-min-height;
+                }
+            }
+            .card-text {
+                h3 {
+                    letter-spacing: 1px;
                 }
             }
         }
@@ -132,12 +138,46 @@
             .card-text {
                 background-color: $play-secondary-background-color;
                 color: $play-color;
+                @include breakpoint($breakpoint-lg, false) {
+                    padding-right: 200px;
+                }
                 .like-link {
                     @include hoverLink($base-brand-color);
                 }
+                .title {
+                    @extend .h4;
+                    letter-spacing: 1px;
+                    margin-bottom: $gap-md;
+                }
+                .summary {
+                    @include setFont($base-font-name);
+                    margin-bottom: $gap-md;
+                    font-size: $large-font-size;
+                }
+                .text {
+                    @include setFont($base-font-name);
+                    font-weight: $light-font-weight !important;
+                    margin-bottom: $gap-double;
+                }
+                .bottom {
+                    letter-spacing: 1px;
+                }
             }
         }
-        &:not(.card-overlay):not(.card-play-top-item) {
+        &-top {
+            .card-image {
+                .background-image {
+                    min-height: $card-play-top-image-min-height;
+                    padding-bottom: 47%;
+                }
+            }
+            .card-text {
+                h3 {
+                    letter-spacing: 1px;
+                }
+            }
+        }
+        &:not(.card-overlay):not(.card-play-top-item):not(.card-play-top) {
             .card-image {
                 .background-image {
                     min-height: $card-play-list-image-min-height;
@@ -339,9 +379,11 @@
             width: 100%;
             background-color: rgba($card-background-color, $card-overlay-opacity);
             @include breakpoint($breakpoint-md) {
-                background-color: $card-background-color;
-                position: relative;
-                bottom: auto;
+                &:not(.keep-style) {
+                    background-color: $card-background-color;
+                    position: relative;
+                    bottom: auto;
+                }
             }
         }
     }

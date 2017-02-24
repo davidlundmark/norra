@@ -341,6 +341,7 @@ $card-news-item-text-padding: $gap;
 $card-contact-small-image-min-height: 80px;
 $card-play-featured-image-min-height: 200px;
 $card-play-list-image-min-height: 150px;
+$card-play-top-image-min-height: 400px;
 $card-course-image-min-height: 180px;
 $card-course-category-image-min-height: 250px;
 $card-press-big-image-min-height: 250px;
@@ -360,7 +361,7 @@ $card-school-horizontal-image-min-height: 280px;
 $carousel-elements-color: $base-font-color;
 $carousel-inverted-elements-color: $play-color;
 $carousel-dot-size: 8px;
-$carousel-arrow-size: $gap;
+$carousel-arrow-size: 24px;//$gap;
 $carousel-elements-not-active-opacity: 0.1;
 
 // =================================================

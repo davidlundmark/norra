@@ -42,7 +42,7 @@
           "name": "home5",
           "id": 4,
           "code": 59652,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -878,13 +878,13 @@
           "id": 123
         },
         {
-          "order": 1011,
+          "order": 0,
           "prevSize": 32,
           "ligatures": "connection, wifi",
           "name": "connection",
           "id": 124,
           "code": 59772,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -2160,7 +2160,7 @@
           "name": "envelop3",
           "id": 306,
           "code": 59954,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -2345,11 +2345,13 @@
           "id": 332
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1035,
+          "prevSize": 32,
           "ligatures": "clock, time2",
           "name": "clock",
-          "id": 333
+          "id": 333,
+          "code": 59981,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -2478,11 +2480,13 @@
           "id": 351
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1036,
+          "prevSize": 32,
           "ligatures": "calendar2, date2",
           "name": "calendar2",
-          "id": 352
+          "id": 352,
+          "code": 60000,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -3395,7 +3399,7 @@
           "id": 482
         },
         {
-          "order": 1031,
+          "order": 0,
           "prevSize": 32,
           "ligatures": "bubble-smiley, bubble22",
           "name": "bubble-smiley",
@@ -6315,7 +6319,7 @@
           "name": "download4",
           "id": 899,
           "code": 60547,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -7067,11 +7071,13 @@
           "id": 1006
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1037,
+          "prevSize": 32,
           "ligatures": "heart9, like7",
           "name": "heart7",
-          "id": 1007
+          "id": 1007,
+          "code": 60655,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -7886,11 +7892,13 @@
           "id": 1123
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1040,
+          "prevSize": 32,
           "ligatures": "info2, information2",
           "name": "info2",
-          "id": 1124
+          "id": 1124,
+          "code": 60772,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8072,11 +8080,13 @@
           "id": 1149
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1039,
+          "prevSize": 32,
           "ligatures": "play3, player",
-          "name": "play3",
-          "id": 1150
+          "name": "play32",
+          "id": 1150,
+          "code": 60798,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8530,7 +8540,7 @@
           "name": "arrow-right4",
           "id": 1214,
           "code": 60862,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1022,
@@ -8539,7 +8549,7 @@
           "name": "arrow-down",
           "id": 1215,
           "code": 60863,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1018,
@@ -8548,7 +8558,7 @@
           "name": "arrow-down22",
           "id": 1216,
           "code": 60864,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1019,
@@ -8557,7 +8567,7 @@
           "name": "arrow-down3",
           "id": 1217,
           "code": 60865,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1020,
@@ -8566,7 +8576,7 @@
           "name": "arrow-down4",
           "id": 1218,
           "code": 60866,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8598,7 +8608,7 @@
           "name": "arrow-left4",
           "id": 1222,
           "code": 60870,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -9637,13 +9647,13 @@
           "id": 1370
         },
         {
-          "order": 1016,
+          "order": 0,
           "prevSize": 32,
           "ligatures": "battery-charging, battery8",
           "name": "battery-charging",
           "id": 1371,
           "code": 61019,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -11238,11 +11248,13 @@
           "id": 1597
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1038,
+          "prevSize": 32,
           "ligatures": "file-pdf, file41",
           "name": "file-pdf",
-          "id": 1598
+          "id": 1598,
+          "code": 61246,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -43463,10 +43475,10 @@
         {
           "name": "bluetooth-b",
           "id": 603,
-          "order": 1012,
+          "order": 0,
           "prevSize": 28,
           "code": 62100,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "percent",
@@ -53398,11 +53410,11 @@
         {
           "ligatures": "music, song",
           "name": "music",
-          "order": 1013,
+          "order": 0,
           "id": 18,
           "prevSize": 32,
           "code": 59665,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "play, video",

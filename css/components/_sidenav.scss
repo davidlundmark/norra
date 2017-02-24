@@ -10,8 +10,10 @@
         display: block;
     }
     max-height: 100%;
+    //@include translateX($sidenav-width);
     @include translateX(100%);
-    @include transition(all, 0.4s, $easeOutCubic);
+    // @include transition(all, 0.4s, $easeOutCubic);
+    @include transition(all, 0.4s, $easeOutSine);
     &.open {
         @include translateX(0);
     }

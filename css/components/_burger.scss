@@ -37,7 +37,7 @@
         background-color: $color;
     }
     & {
-        background-color: transparent;
+        background-color: transparent !important;
     }
     &:before {
         transform: translateY($gutter + $height) rotate(45deg);

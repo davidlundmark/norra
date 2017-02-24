@@ -59,6 +59,10 @@ body {
     &:not(.full-width):not(.min-width) {
         max-width: $page-section-max-width;
         padding: $page-section-padding;
+
+        @include breakpoint($breakpoint-lg) {
+            padding: $page-section-padding/2;
+        }
     }
     &:not(.full-width) {
         &.min-width {

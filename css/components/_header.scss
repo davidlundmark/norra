@@ -66,6 +66,11 @@
             @at-root .page-header-inverted#{&} {
                 background-color: $header-inverted-background-color;
             }
+            #play & {
+                @include breakpoint($breakpoint-lg) {
+                    padding: 0 $gap;
+                }
+            }
         }
         .subweb & {
             &:nth-child(1) {
@@ -88,7 +93,6 @@
         > a {
             display: block;
         }
-
         @include breakpoint($breakpoint-lg) {
             top: 0;
             padding: $gap 0;
@@ -249,6 +253,11 @@
         padding: $gap;
         padding-right: 0;
         top: 12px;
+        #play & {
+            @include breakpoint($breakpoint-lg) {
+                top: 4px;
+            }
+        }
         .subweb & {
             top: 2px;
         }
@@ -272,16 +281,27 @@
         &.open {
             .burger {
                 @include burger-to-cross();
+                @at-root .page-header-inverted#{&} {
+                    @include burger($color: $header-inverted-color);
+                }
             }
         }
     }
 }
 
 #mobile-menu {
+    &.mobile-menu-inverted {
+        .menu-item a {
+            color: $header-inverted-color !important;
+        }
+    }
     .accordion {
         //padding: 0 $gap;
         border: none;
         @include border($base-font-color, top, 3px);
+        @at-root .mobile-menu-inverted#{&} {
+            border-color: $header-inverted-color;
+        }
         .menu-item > * {
             border: none;
             background-color: rgba($white, 0);
@@ -322,6 +342,9 @@
         right: 0;
         width: $sidenav-width;
         cursor: pointer;
+        @at-root .mobile-menu-inverted#{&} {
+            background-color: $header-inverted-background-color;
+        }
     }
     .blocker {
         position: absolute;
@@ -335,6 +358,9 @@
         padding: 0 $page-section-padding $gap;
         a {
             color: $base-font-color;
+            @at-root .mobile-menu-inverted#{&} {
+                color: $header-inverted-color;
+            }
             text-decoration: none;
             .no-touch & {
                 @include transition(color);

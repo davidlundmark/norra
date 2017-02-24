@@ -29,12 +29,11 @@
   .icon-center {
       @include centerElement();
   }
+
+/********************************/
   
-  .icon-home5:before {
+ .icon-home5:before {
   content: "\e904";
-}
-.icon-connection:before {
-  content: "\e97c";
 }
 .icon-envelop3:before {
   content: "\ea32";
@@ -45,14 +44,17 @@
 .icon-calendar2:before {
   content: "\ea60";
 }
-.icon-bubble-smiley:before {
-  content: "\eae3";
-}
 .icon-download4:before {
   content: "\ec83";
 }
 .icon-heart7:before {
   content: "\ecef";
+}
+.icon-info:before {
+  content: "\ed63";
+}
+.icon-info2:before {
+  content: "\ed64";
 }
 .icon-cross2:before {
   content: "\ed6d";
@@ -81,9 +83,6 @@
 .icon-arrow-left4:before {
   content: "\edc6";
 }
-.icon-battery-charging:before {
-  content: "\ee5b";
-}
 .icon-radio-checked2:before {
   content: "\ee72";
 }
@@ -92,9 +91,6 @@
 }
 .icon-file-pdf:before {
   content: "\ef3e";
-}
-.icon-music:before {
-  content: "\e911";
 }
 .icon-lifebuoy:before {
   content: "\e941";
@@ -147,7 +143,3 @@
 .icon-question:before {
   content: "\f128";
 }
-.icon-bluetooth-b:before {
-  content: "\f294";
-}
-

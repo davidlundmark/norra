@@ -113,6 +113,17 @@
         });
         */
 
+        if (typeof usePictureChange !== 'undefined' && usePictureChange) {
+            var _pictures = document.querySelectorAll('picture.change-source');
+            $(_pictures).each(function() {
+                var $this = $(this);
+                var $image = $this.find('img');
+                var src = $image.prop('currentSrc') || $image.prop('src');
+                $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
+                $this.remove();
+            });
+        }
+
     })();
 
     $(window).on('load', function() {
