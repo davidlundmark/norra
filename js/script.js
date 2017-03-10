@@ -145,12 +145,12 @@
         }
         */
         if (typeof useDownloadButton !== 'undefined' && useDownloadButton) {
-            var _courseMaterial = document.querySelector('.course-material');
+            var _courseMaterial = document.querySelectorAll('.course-material .link');
             if (_courseMaterial !== null) {
                 $(_courseMaterial).on('click', function(e) {
-                    var $this = $(this);
+                    var $this = $(this).parent();
                     $this.find('.course-download').fadeToggle();
-                    //console.log('hej')
+                    return false;
                 });
             }
         }

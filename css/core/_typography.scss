@@ -152,7 +152,8 @@ a,
 a {
     &.text-link {
         //@extend .medium;
-        @include animateLine();
+        //@include animateLine();
+        @include hoverLink($base-brand-color, $base-brand-color-dark);
     }
     &.hover-link {
         @include hoverLink($base-font-color);
@@ -211,6 +212,10 @@ hr {
 .light {
     //font-weight: $base-font-weight;
     font-weight: $light-font-weight;
+}
+
+.color-light {
+    color: $light-font-color;
 }
 
 // @include headings {

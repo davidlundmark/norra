@@ -11,6 +11,9 @@
     //will-change: auto;
     .logo {
         width: $header-logo-width;
+        #skogsskolan & {
+            width: $header-skogsskolan-logo-width;
+        }
         @include breakpoint($breakpoint-md) {
             width: $header-logo-width-md;
         }
@@ -21,6 +24,9 @@
     &.scrolled:not(.menu-open) {
         //background-color: $header-scrolled-background-color;
         border-bottom: $header-scrolled-border-bottom;
+        @at-root .page-header-inverted#{&} {
+            border-bottom-color: $play-background-color;
+        }
         .section-container {
             //.subweb & {
             &:nth-child(1) {
@@ -66,10 +72,13 @@
             @at-root .page-header-inverted#{&} {
                 background-color: $header-inverted-background-color;
             }
-            #play & {
-                @include breakpoint($breakpoint-lg) {
-                    padding: 0 $gap;
-                }
+            // #play & {
+            //     @include breakpoint($breakpoint-lg) {
+            //         padding: 0 $gap;
+            //     }
+            // }
+            @include breakpoint($breakpoint-lg) {
+                padding: 0 $gap;
             }
         }
         .subweb & {
@@ -85,6 +94,9 @@
     }
     .logo-container {
         width: $header-logo-width;
+        #skogsskolan & {
+            width: $header-skogsskolan-logo-width;
+        }
         float: left;
         margin-right: $gap;
         position: relative;
@@ -96,6 +108,9 @@
         @include breakpoint($breakpoint-lg) {
             top: 0;
             padding: $gap 0;
+            #skogsskolan & {
+                padding: $gap-half 0;
+            }
         }
     }
     .search-container {
@@ -252,7 +267,10 @@
         right: $page-section-padding;
         padding: $gap;
         padding-right: 0;
-        top: 12px;
+        top: 0;//12px;
+        @include breakpoint($breakpoint-lg) {
+            right: $gap;
+        }
         #play & {
             @include breakpoint($breakpoint-lg) {
                 top: 4px;
@@ -271,7 +289,7 @@
             display: block;
         }
         @include breakpoint($breakpoint-md) {
-            top: 8px;
+            //top: 8px;
             .subweb & {
                 padding-top: $gap-half;
                 padding-bottom: $gap-half;

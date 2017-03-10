@@ -167,6 +167,18 @@
     }
 }
 
+@mixin lineBefore($color: $base-border-color) {
+    &:before {
+        content: '';
+        position: absolute;
+        width: calc(100% - #{$page-section-padding*2});
+        height: $base-border-thickness;
+        top: 0;
+        left: $page-section-padding;
+        background-color: $color;
+    }
+}
+
 @mixin animateLine($color: $link-color, $hover-color: null, $line-color: $link-color, $distance: -1px, $time: $base-transition-duration, $thickness: 1px, $scale:1) {
     position: relative;
     text-decoration: none;
@@ -199,7 +211,7 @@
         &.selected:before,
         &:hover:before,
         &.hover:before {
-            will-change: auto;
+            //will-change: auto;
             visibility: visible;
             //@include scaleX($scale);
             transform: scaleX(1) translate3d(0, 0, 0);

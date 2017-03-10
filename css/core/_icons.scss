@@ -31,9 +31,14 @@
   }
 
 /********************************/
-  
+  .icon-pencil7:before {
+  content: "\e914";
+}
  .icon-home5:before {
   content: "\e904";
+}
+.icon-cart5:before {
+  content: "\ea02";
 }
 .icon-envelop3:before {
   content: "\ea32";
@@ -143,3 +148,4 @@
 .icon-question:before {
   content: "\f128";
 }
+

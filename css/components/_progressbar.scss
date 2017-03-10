@@ -1,6 +1,7 @@
 .course-progress {
-    margin-top: $gap;
+    margin-top: $gap-md;
     .finished {
+        letter-spacing: 1px;
         @extend .small;
         margin-bottom: $gap-xs;
     }
@@ -18,12 +19,14 @@
             border-bottom-right-radius: 0;
         }
         .percent {
-            color: $progress-color;
             line-height: 1;
             margin: 0;
             padding: $gap-xs $gap-half;
             @extend .small;
             letter-spacing: 1px;
+            &.active {
+                color: $progress-color;
+            }
         }
     }
 }

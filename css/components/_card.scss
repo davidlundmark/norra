@@ -217,6 +217,7 @@
         //     background-color: rgba($black, $card-overlay-opacity) !important;
         // }
     }
+    &-document,
     &-course {
         > .card {
             &-image {
@@ -224,6 +225,7 @@
                     min-height: $card-course-image-min-height;
                 }
                 .card-tag {
+                    font-size: $small-font-size;
                     letter-spacing: 1px;
                     &.level {
                         &-1 {
@@ -240,8 +242,9 @@
                 }
             }
             &-text {
-                padding: $gap;
-                padding-bottom: $gap-lg;
+                padding: $gap-md $gap $gap;
+                //padding: $gap;
+                //padding-bottom: $gap-lg;
                 @include setFont($base-font-name);
                 font-weight: $light-font-weight !important;
             }
@@ -266,6 +269,9 @@
                 padding: $gap-md $gap;
                 color: $light-font-color;
                 background-color: rgba($black, $card-overlay-opacity) !important;
+                @include breakpoint($breakpoint-md) {
+                    background-color: $quaternary-background-color !important;
+                }
             }
             &.card-course-category {
                 .card-text {
@@ -274,6 +280,9 @@
                     > h3 {
                         letter-spacing: 1px;
                         text-shadow: $page-image-text-shadow;
+                        @include breakpoint($breakpoint-md) {
+                            text-shadow: none;
+                        }
                     }
                 }
                 .card-image {

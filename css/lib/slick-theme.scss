@@ -11,11 +11,9 @@
 .slick-slide {
     margin: 0 $gap;
     outline: none;
-
     .slick-no-gap & {
         margin: 0;
     }
-
     .slick-small-gap & {
         margin: $gap-half;
     }
@@ -75,8 +73,15 @@
 }
 
 // Dots 
-.slick-dotted.slick-slider {
-    margin-bottom: $gap-triple;
+.slick-slider {
+    &.slick-dotted {
+        margin-bottom: $gap-triple;
+    }
+    #play & {
+        &:not(.slick-dotted) {
+            margin-bottom: $page-section-padding;
+        }
+    }
 }
 
 .slick-dots {

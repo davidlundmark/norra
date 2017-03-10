@@ -5,7 +5,7 @@
     @include fixedOverlay($z-index: 999);
     background-color: rgba($white, 0);
     //@include border($sidenav-border-color, left);
-    will-change: transform;
+    //will-change: transform;
     @include breakpoint($breakpoint-lg) {
         display: block;
     }

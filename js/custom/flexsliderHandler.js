@@ -20,9 +20,19 @@ var FlexsliderHandler = {
 
         this.$pageslider.find('.slides > li').each(function() {
             var $slide = $(this);
-            var $image = $slide.find('img');
-            var src = $image.prop('currentSrc') || $image.prop('src');
-            $slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
+            var $image = $(this.querySelector('img'));
+            //var $image = $slide.find('img');
+            //var src = $image.prop('currentSrc') || $image.prop('src');
+            var src = ""; //$image.prop('currentSrc') || $image.prop('src');
+            if ($image.prop('currentSrc')) src = $image.prop('currentSrc');
+            else src = $image.prop('src');
+            //$slide.find('.flexslider-image').css('background-image', 'url(' + src + ')');
+            //$slide.find('picture').remove();
+            var $flexsliderImage = $(this.querySelector('.flexslider-image'));
+            $flexsliderImage.css('background-image', 'url(' + src + ')');
+            if ($image.hasClass('use-gradient')) {
+                $flexsliderImage.css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(' + src + ')');
+            }
             $slide.find('picture').remove();
         });
 

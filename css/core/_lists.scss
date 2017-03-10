@@ -51,7 +51,7 @@ ol {
         display: none;
         @include transition(opacity);
         opacity: 0;
-        will-change: opacity;
+        //will-change: opacity;
         &.show {
             display: block;
             opacity: 1;
@@ -102,7 +102,7 @@ ol {
     &-loader {
         display: inline-block;
         opacity: 0;
-        will-change: opacity;
+        //will-change: opacity;
         @include transition(opacity);
         margin-left: $gap;
         height: round(($base-font-size * $base-line-height) + ($gap-half * 2) + ($base-border-thickness*2));

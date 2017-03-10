@@ -10,8 +10,13 @@
 @import "colors";
 @import "images";
 @import "alerts";
+body {
+    overflow-x: hidden;
+}
+
 .body {
     position: relative;
+    overflow-x: hidden;
 }
 
 .clearfix {
@@ -24,6 +29,10 @@
 
 .visibility-hidden {
     visibility: hidden;
+}
+
+.overflow-visible {
+    overflow: visible !important;
 }
 
 .no-scroll {
@@ -48,6 +57,59 @@
     @include breakpoint($breakpoint-sm) {
         &-sm {
             display: none !important;
+        }
+    }
+    &-bigger {
+        @include breakpoint($breakpoint-lg, false) {
+            &-lg {
+                display: none !important;
+            }
+        }
+        @include breakpoint($breakpoint-md, false) {
+            &-md {
+                display: none !important;
+            }
+        }
+        @include breakpoint($breakpoint-sm, false) {
+            &-sm {
+                display: none !important;
+            }
+        }
+    }
+}
+
+.show {
+    display: none !important;
+    @include breakpoint($breakpoint-lg) {
+        &-lg {
+            display: auto !important;
+        }
+    }
+    @include breakpoint($breakpoint-md) {
+        &-md {
+            display: auto !important;
+        }
+    }
+    @include breakpoint($breakpoint-sm) {
+        &-sm {
+            display: auto !important;
+        }
+    }
+    &-bigger {
+        @include breakpoint($breakpoint-lg, false) {
+            &-lg {
+                display: auto !important;
+            }
+        }
+        @include breakpoint($breakpoint-md, false) {
+            &-md {
+                display: auto !important;
+            }
+        }
+        @include breakpoint($breakpoint-sm, false) {
+            &-sm {
+                display: auto !important;
+            }
         }
     }
 }

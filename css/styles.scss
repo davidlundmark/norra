@@ -12,7 +12,7 @@
         position: fixed;
         left: 50%;
         text-align: center;
-        will-change: auto;
+        //will-change: auto;
         @include translateX(-50%);
         .icon {
             color: $base-brand-color;
@@ -59,6 +59,7 @@
         }
     }
     
+    .documents-section,
     .press-section,
     .news-grid-section {
         background-color: $tertiary-background-color;
@@ -93,11 +94,15 @@
         }
         &-text-overlay {
             @include centerElement();
-            color: $secondary-font-color;
+            //color: $secondary-font-color;
+            color: $light-font-color;
             text-align: center;
             > .page-title {
                 margin-bottom: 0;
                 text-shadow: $page-image-text-shadow;
+            }
+            @include breakpoint($breakpoint-md) {
+                width: calc(100% - #{$gap * 2});
             }
         }
     }
@@ -312,7 +317,8 @@
             background-color: $play-secondary-background-color;
             //@include border($play-background-color, bottom);
             .section-container {
-                @include border($play-background-color, bottom);
+                //@include border($play-background-color, bottom);
+                @include lineBefore($play-background-color);
                 padding-bottom: $gap-half;
             }
             &:last-child {
@@ -391,6 +397,38 @@
     }
     
     #skogsskolan {
+        .profile-section {
+            .user-info {
+                .summary {
+                    margin-bottom: $gap;
+                }
+                label {
+                    margin-bottom: $gap-xs;
+                    @extend .medium;
+                }
+                p {
+                    margin-bottom: $gap-md;
+                }
+            }
+        }
+        .news-grid-section + .news-grid-section {
+            > .section-container {
+                @include lineBefore();
+                //@include border($dir: top);
+                //border-width: calc(100% - #{$page-section-padding*2});
+            }
+            // &:nth-child(2) {
+            //     > .section-container {
+            //         border-bottom: none;
+            //     }
+            // }
+        }
+        .forgot-password {
+            padding-top: $gap;
+        }
+        .cancel {
+            margin-top: $gap-half;
+        }
         .slick-dotted.slick-slider {
             margin-bottom: $gap-xl;
         }
@@ -442,11 +480,17 @@
             background-color: transparent;
             padding: 0;
             margin-bottom: $gap-double;
+            text-align: center;
             > .card {
+                display: inline-block;
                 height: auto;
                 background-color: transparent;
-                width: 50%;
+                // width: 50%;
+                // @include breakpoint($breakpoint-lg) {
+                //     width: 100%;
+                // }
                 text-align: center;
+                margin: 0 auto;
                 > h1,
                 > p {
                     margin-bottom: 0;
@@ -459,11 +503,9 @@
                         color: $base-brand-color !important;
                     }
                 }
-                &:first-child {
-                    float: left;
-                }
+                margin-right: $gap; 
                 &:last-child {
-                    float: right;
+                    margin-right: 0;
                 }
             }
             .course-download {
@@ -505,6 +547,13 @@
                 }
             }
         }
+        .course-description-textfield {
+            @include headings {
+                @include setFont($base-font-name);
+                font-weight: $bold-font-weight !important;
+                font-size: $large-font-size !important;
+            }
+        }
         .course-info {
             p {
                 margin-bottom: $gap-xs;
@@ -521,6 +570,7 @@
                 &.price {
                     opacity: 0.6;
                     margin-bottom: 0;
+                    margin-top: $gap-half;
                 }
             }
         }
@@ -565,6 +615,9 @@
     }
     
     article.course-share {
+        @include breakpoint($breakpoint-lg) {
+            margin-top: 0 !important;
+        }
         .article-title {
             text-align: center;
             &:after {
@@ -578,26 +631,11 @@
         .page-header .logo-container {
             top: 25px;
             width: 246px;
-
             .logo {
                 width: 100%;
             }
-
             @include breakpoint($breakpoint-lg) {
-                 top: 0;
-            }
-        }
-    }
-    
-    #skogsskolan {
-        .news-grid-section {
-            > .section-container {
-                border-bottom: $base-border;
-            }
-            &:nth-child(2) {
-                > .section-container {
-                    border-bottom: none;
-                }
+                top: 0;
             }
         }
     }

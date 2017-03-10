@@ -77,6 +77,13 @@ input[type="submit"] {
     }
     &.login {
         margin-top: $gap-half;
+        &.login-loader {
+            margin-bottom: 0;
+
+            .loader {
+                position: absolute;
+            }
+        }
     }
     &.button {
         &-brand-color {
