@@ -359,7 +359,16 @@
     
     .hero-image {
         .background-image {
+            @at-root .courses-all-section#{&} {
+                min-height: $hero-courses-all-min-height;
+                @include breakpoint($breakpoint-lg) {
+                    min-height: $hero-courses-all-min-height-md;
+                }
+            }
             min-height: $hero-image-min-height;
+            @include breakpoint($breakpoint-md) {
+                min-height: $hero-image-min-height-md;
+            }
         }
         .text {
             letter-spacing: 1px;
@@ -509,7 +518,7 @@
                         color: $base-brand-color !important;
                     }
                 }
-                margin-right: $gap; 
+                margin-right: $gap;
                 &:last-child {
                     margin-right: 0;
                 }
