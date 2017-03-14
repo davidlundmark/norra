@@ -29,7 +29,7 @@
             @include forceHarwareAcceleration();
             //}
         }
-        @include breakpoint($breakpoint-lg) {
+        @include breakpoint($breakpoint-lg, false) {
             display: none;
         }
     }
@@ -79,18 +79,21 @@
         .section-container {
             height: 30vh;
             overflow: hidden;
+            // @include breakpoint($breakpoint-lg) {
+            //     height: auto;
+            //     overflow: visible;
+            // }
             @include breakpoint($breakpoint-lg) {
-                height: auto;
-                overflow: visible;
+                height: 35vh;
             }
         }
         picture {
             @include centerVertical();
-            @include breakpoint($breakpoint-lg) {
-                position: relative;
-                top: auto;
-                transform: none;
-            }
+            // @include breakpoint($breakpoint-lg) {
+            //     position: relative;
+            //     top: auto;
+            //     transform: none;
+            // }
         }
         &-text-overlay {
             @include centerElement();
@@ -431,6 +434,9 @@
         }
         .slick-dotted.slick-slider {
             margin-bottom: $gap-xl;
+            @include breakpoint($breakpoint-lg) {
+                margin-bottom: $gap-xl + $gap;
+            }
         }
         .flexslider {
             .logo {

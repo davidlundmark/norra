@@ -11,7 +11,6 @@
 
         $(_arrowdown).on('click', function(e) {
             hideArrow();
-            console.log('apa')
             $('html, body').animate({
                 scrollTop: $('.content-wrapper').offset().top
             }, 1000);

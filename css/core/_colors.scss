@@ -1,15 +1,22 @@
-.primary-background-color, .bg-primary {
-	background-color: $base-background-color !important;
+.primary-background-color,
+.bg-primary {
+    background-color: $base-background-color !important;
 }
 
-.secondary-background-color, .bg-secondary {
-	background-color: $secondary-background-color !important;
+.secondary-background-color,
+.bg-secondary {
+    background-color: $secondary-background-color !important;
 }
 
-.tertiary-background-color, .bg-tertiary {
-	background-color: $tertiary-background-color !important;
+.tertiary-background-color,
+.bg-tertiary {
+    background-color: $tertiary-background-color !important;
 }
 
 .primary-color {
-	color: $base-brand-color !important;
+    color: $base-brand-color !important;
+}
+
+.brand-color {
+    color: $base-brand-color;
 }

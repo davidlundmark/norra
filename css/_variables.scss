@@ -34,6 +34,7 @@ $secondary-font-color: #E1E1E1;
 $tertiary-font-color: #BEBEBE;
 
 $light-font-color: #FFFFFF;//#E1E1E1;
+$grey-font-color: #7F7F7F;
 
 $play-background-color: #282828;
 $play-secondary-background-color: #363636;
@@ -252,7 +253,7 @@ $footer-background-color: $quaternary-background-color;
 $footer-logo-width: 400px;
 $footer-top-border: none; 
 $footer-color: $light-font-color;
-$footer-copyright-color: #7F7F7F;
+$footer-copyright-color: $grey-font-color;
 //$header-hover-color: $base-brand-color;
 //$footer-text-transform: uppercase;
 
@@ -272,6 +273,7 @@ $breadcrumb-color: $light-font-color;
 $text-input-background-color: $base-background-color;
 $text-input-border: $base-border;
 $text-input-padding: $gap-sm $gap;
+$text-input-color: $grey-font-color;
 
 // =================================================
 // Side nav

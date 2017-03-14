@@ -52,6 +52,8 @@ select {
     appearance: none;
     //box-shadow: none;
     margin-bottom: $gap-half;
+    color: $grey-font-color;
+    -webkit-text-fill-color: $grey-font-color;
     @include transition(border-color);
     width: 100%;
     &:focus {

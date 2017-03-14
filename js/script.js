@@ -39,7 +39,7 @@
     require('./custom/dekai.js');
     require('./custom/vexHandler.js');
 
-    console.log('deKai v.2.422');
+    //console.log('deKai v.2.422');
 
     (function() {
 
@@ -68,6 +68,7 @@
             }
         }
 
+        /*
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
             $this.siblings('.label').fadeToggle(200, function() {
@@ -92,6 +93,7 @@
                 alert('SÖK: ' + $(this).val());
             }
         });
+        */
 
         // if (document.querySelector('.page-image') !== null) {
         //     $('body').css({
@@ -113,16 +115,16 @@
         });
         */
 
-        if (typeof usePictureChange !== 'undefined' && usePictureChange) {
-            var _pictures = document.querySelectorAll('picture.change-source');
-            $(_pictures).each(function() {
-                var $this = $(this);
-                var $image = $this.find('img');
-                var src = $image.prop('currentSrc') || $image.prop('src');
-                $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
-                $this.remove();
-            });
-        }
+        // if (typeof usePictureChange !== 'undefined' && usePictureChange) {
+        //     var _pictures = document.querySelectorAll('picture.change-source');
+        //     $(_pictures).each(function() {
+        //         var $this = $(this);
+        //         var $image = $this.find('img');
+        //         var src = $image.prop('currentSrc') || $image.prop('src');
+        //         $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
+        //         $this.remove();
+        //     });
+        // }
 
     })();
 

@@ -157,16 +157,19 @@ NewsHandler = {
         }
 
         //loop thru result and create new <li> DOM elements
+        var _language = Language.toLowerCase();
         $.each(data, function(i, item) {
             var _clone = NewsHandler.$newsItem.clone()[0];
 
             //Title
             _clone.querySelector('.title').innerHTML = item.Title;
 
+            var monthName = new Date(item.Date).toLocaleString(Language, { month: 'long' });
+
             //Date
             var date = item.Date.split('-');
             _clone.querySelector('.day').innerHTML = date[2];
-            _clone.querySelector('.month').innerHTML = date[1];
+            _clone.querySelector('.month').innerHTML = monthName;//date[1];
             _clone.querySelector('.year').innerHTML = date[0];
 
             //Summary
@@ -258,7 +261,7 @@ NewsHandler = {
             }
         });
 
-        this.page += 1; 
+        this.page += 1;
     }
 
 };
@@ -269,8 +272,7 @@ NewsHandler = {
         if (typeof useNewsApi !== 'undefined' && useNewsApi) {
             NewsHandler.init(SiteId, 'news');
             //$(window).on('load', NewsHandler.loadNewsList());
-        }
-        else if (typeof useCalendarApi !== 'undefined' && useCalendarApi) {
+        } else if (typeof useCalendarApi !== 'undefined' && useCalendarApi) {
             NewsHandler.init(SiteId, 'calendar');
             //$(window).on('load', NewsHandler.loadNewsList());
         }

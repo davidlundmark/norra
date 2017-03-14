@@ -217,6 +217,20 @@
         //     background-color: rgba($black, $card-overlay-opacity) !important;
         // }
     }
+    &-document {
+        > .card {
+            &-text {
+                @include transition();
+            }
+        }
+        &:hover {
+            > .card {
+                &-text {
+                    color: $base-brand-color;
+                }
+            }
+        }
+    }
     &-document,
     &-course {
         > .card {
@@ -481,6 +495,23 @@
                     color: $light-font-color;
                     background-color: $quaternary-background-color;
                     margin: 0;
+                    @include breakpoint($breakpoint-md) {
+                        padding-top: $gap-half;
+                        padding-bottom: $gap-half;
+                        span {
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+            &-text {
+                @include breakpoint($breakpoint-md) {
+                    text-align: left !important;
+                }
+            }
+            &-image {
+                @include breakpoint($breakpoint-md) {
+                    display: none !important;
                 }
             }
         }
@@ -502,15 +533,16 @@
                 }
             }
             &-text {
+                @include setFont($base-font-name);
                 padding: $card-news-item-text-padding;
                 width: $card-news-item-text-size;
                 //vertical-align: top;
                 // p {
                 //     margin-bottom: 0;
                 // }
-                p.bottom {
-                    @extend .small;
-                }
+                // p.bottom {
+                //     @extend .small;
+                // }
                 @include breakpoint($breakpoint-md) {
                     width: 75%;
                     padding-right: 0;
