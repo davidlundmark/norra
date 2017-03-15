@@ -13,6 +13,8 @@ body {
     footer {
         @include setTextFormat($heading-font-family, $base-font-size, $heading-light-font-weight);
     }
+    text-size-adjust: 100%;
+    text-rendering: optimizeLegibility;
 }
 
 h1,

@@ -181,6 +181,9 @@
                 @at-root .page-header-inverted#{&} {
                     color: $header-inverted-color;
                 }
+                &.selected {
+                    color: $base-brand-color;
+                }
             }
             > span {
                 cursor: default;

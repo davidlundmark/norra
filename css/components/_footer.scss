@@ -49,6 +49,7 @@
     @include headings,
     p {
         color: $footer-color;
+        margin-bottom: $gap-xs;
     }
     a {
         text-decoration: none;
@@ -156,11 +157,15 @@
         text-align: center;
         margin-top: $gap;
         .root-link {
+            margin-bottom: 0;
             display: inline-block;
             text-transform: none;
-            > a {
-                @include animateLine($base-brand-color);
+            a {
+                @include hoverLink($base-brand-color,$base-brand-color-dark);
             }
+            // > a {
+            //     @include animateLine($base-brand-color);
+            // }
         }
     }
 }

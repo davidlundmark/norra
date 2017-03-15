@@ -61,7 +61,7 @@ $base-font-family: $opensans;
 $base-font-weight: 400;
 $light-font-weight: 300;
 $medium-font-weight: 600;
-$bold-font-weight: 700;
+$bold-font-weight: 600; //not using bold
 $base-font-size: 16px;
 $base-line-height: 1.5;
 $base-font-name: 'base';
@@ -96,10 +96,10 @@ $h1-font-size-md: 40px;
 $h1-font-size-sm: 40px;
 
 // h2
-$h2-font-size: $h1-font-size - 4px;
-$h2-font-size-lg: $h1-font-size-lg - 4px;
-$h2-font-size-md: $h1-font-size-md - 4px;
-$h2-font-size-sm: $h1-font-size-sm - 4px;
+$h2-font-size: 36px;
+$h2-font-size-lg: $h2-font-size;
+$h2-font-size-md: $h2-font-size-lg;
+$h2-font-size-sm: $h2-font-size-md;
 
 // h3
 $h3-font-size: $h1-font-size - 8px;
@@ -448,8 +448,8 @@ $hero-image-min-height: 220px;
 $hero-image-min-height-md: 220px;
 $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
-$hero-courses-all-min-height: 200px;
-$hero-courses-all-min-height-md: 180px;
+$hero-courses-all-min-height: 160px;
+$hero-courses-all-min-height-md: 120px;
 
 // =================================================
 // Progress bar

@@ -568,6 +568,9 @@
                 font-weight: $bold-font-weight !important;
                 font-size: $large-font-size !important;
             }
+            strong {
+                @extend .medium;
+            }
         }
         .course-info {
             p {

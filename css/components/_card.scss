@@ -332,10 +332,14 @@
                 font-weight: $light-font-weight;
                 @include breakpoint($breakpoint-md) {
                     background: none !important;
-                    padding: $gap-double !important;
+                    padding: $gap-double $gap !important;
                 }
                 .title {
                     color: $blue;
+                    line-height: 1.3;
+                    // @include breakpoint($breakpoint-md) {
+                    //     font-size: $h3-font-size;
+                    // }
                 }
             }
         }
