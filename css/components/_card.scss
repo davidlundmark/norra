@@ -327,7 +327,7 @@
                 background-repeat: no-repeat;
                 background-position: right top;
                 width: $card-school-horizontal-text-size;
-                padding-right: 20%;
+                padding-right: 24%;
                 @include setFont($base-font-name);
                 font-weight: $light-font-weight;
                 @include breakpoint($breakpoint-md) {

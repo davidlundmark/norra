@@ -78,8 +78,11 @@
         margin-bottom: $gap-triple;
     }
     #play & {
+        &.slick-dotted {
+            margin-bottom: $gap;
+        }
         &:not(.slick-dotted) {
-            margin-bottom: $page-section-padding;
+            //margin-bottom: $page-section-padding;
         }
     }
 }
@@ -95,6 +98,9 @@
     width: 100%;
     vertical-align: middle;
     line-height: 0;
+    #play & {
+        bottom: -$gap-xl;
+    }
     li {
         position: relative;
         display: inline-block;

@@ -46,7 +46,10 @@
         margin-bottom: $gap;
         @extend .light;
     }
-    @include headings,
+    @include headings {
+        color: $footer-color;
+        margin-bottom: $gap-xs;
+    }
     p {
         color: $footer-color;
         margin-bottom: $gap-xs;
@@ -161,7 +164,7 @@
             display: inline-block;
             text-transform: none;
             a {
-                @include hoverLink($base-brand-color,$base-brand-color-dark);
+                @include hoverLink($base-brand-color, $base-brand-color-dark);
             }
             // > a {
             //     @include animateLine($base-brand-color);

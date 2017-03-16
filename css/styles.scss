@@ -322,7 +322,9 @@
             .section-container {
                 //@include border($play-background-color, bottom);
                 @include lineBefore($play-background-color);
-                padding-bottom: $gap-half;
+                //padding-bottom: $gap-half;
+                padding-top: $gap-xl;
+                padding-bottom: $gap-xl;
             }
             &:last-child {
                 @include border($play-background-color, bottom);

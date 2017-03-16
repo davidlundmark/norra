@@ -14,7 +14,7 @@ var BackgroundImageHandler = {
             $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
             if ($image.hasClass('use-gradient')) {
                 //$slide.find('.flexslider-image')
-                 $this.siblings('.background-image').css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(' + src + ')');
+                 $this.siblings('.background-image').css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.27), rgba(0, 0, 0, 0.27)), url(' + src + ')');
             }
             $this.remove();
         });
