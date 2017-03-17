@@ -4,7 +4,8 @@
 // generates .corner-ribbon--#{ $id }-[left|right]-[top|bottom] modifier classes
 // i.e. .corner-ribbon--default-left-top
 $corner-ribbon-sizes: (
-    default: (100px, 30px)
+    default: (100px, 30px),
+    article: (100px, 30px)
 ) !default;
 
 $corner-ribbon-success: $base-brand-color !default;

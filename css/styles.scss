@@ -130,6 +130,9 @@
             }
             &-text {
                 //margin-bottom: $gap;
+                a {
+                    @include hoverLink($base-brand-color, $base-brand-color-dark);
+                }
             }
             &-date {
                 font-size: $small-font-size;
@@ -573,8 +576,19 @@
             strong {
                 @extend .medium;
             }
+            a {
+                @include hoverLink($base-brand-color, $base-brand-color-dark);
+            }
         }
         .course-info {
+            &.has-ribbon {
+                position: relative;
+                overflow: hidden;
+
+                .article-title {
+                    margin-right: $gap;
+                }
+            }
             p {
                 margin-bottom: $gap-xs;
                 @extend .small;

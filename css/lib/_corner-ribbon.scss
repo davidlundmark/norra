@@ -16,8 +16,8 @@
     height: $height;
     width: $width;
     transform: rotateZ($rotate);
-    padding-right: ceil($height * tan($rotate));
-    padding-left: ceil($height / tan($rotate));
+    //padding-right: ceil($height * tan($rotate));
+    //padding-left: ceil($height / tan($rotate));
     line-height: $height;
     #{ $directionX }: floor(cos($rotate) * $width) - $width;
     #{ $directionY }: -$height;
@@ -31,6 +31,8 @@
     overflow: hidden;
     //font-weight: 500;
     box-sizing: border-box;
+    @include setFont($heading-font-name);
+    @extend .light;
 }
 
 @each $index in map-keys($corner-ribbon-sizes) {
@@ -60,7 +62,7 @@
         color: $light-font-color;
         background-color: $color;
         letter-spacing: 1px;
-        backface-visibility: hidden;
+        //backface-visibility: hidden;
         font-size: 13px;
     }
 }
