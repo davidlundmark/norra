@@ -243,14 +243,13 @@
                     letter-spacing: 1px;
                     &.level {
                         &-1 {
-                            background-color: rgba(#2ABE9C, $card-tag-background-opacity);
+                            background-color: rgba($bluegreen, $card-tag-background-opacity);
                         }
                         &-2 {
-                            background-color: rgba(#ECBC41, $card-tag-background-opacity);
+                            background-color: rgba($yellow, $card-tag-background-opacity);
                         }
                         &-3 {
-                            //background-color: #2ABE9C;
-                            background-color: rgba(#1E90FF, $card-tag-background-opacity);
+                            background-color: rgba($blue, $card-tag-background-opacity);
                         }
                     }
                 }

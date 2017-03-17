@@ -58,6 +58,13 @@
             // }
         }
     }
+
+    .page-error {
+        .section-container {
+            padding-top: $page-section-padding * 2;
+            padding-bottom: $page-section-padding * 2;
+        }
+    }
     
     .documents-section,
     .press-section,
@@ -485,13 +492,12 @@
                 pointer-events: none;
             }
             &-1 {
-                background-color: rgba($yellow, $card-tag-background-opacity);
-            }
-            &-2 {
                 background-color: rgba($bluegreen, $card-tag-background-opacity);
             }
+            &-2 {
+                background-color: rgba($yellow, $card-tag-background-opacity);
+            }
             &-3 {
-                //background-color: #2ABE9C;
                 background-color: rgba($blue, $card-tag-background-opacity);
             }
         }
