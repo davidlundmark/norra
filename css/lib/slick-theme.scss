@@ -32,6 +32,7 @@
         color: $carousel-elements-color;
         .slick-inverted & {
             color: $carousel-inverted-elements-color;
+            background-color: $play-background-color;
         }
     }
     &.slick-disabled {
@@ -47,6 +48,12 @@
             }
         }
     }
+    @include breakpoint($breakpoint-lg) {
+        > .icon {
+            @include centerFlex();
+            @include createCircle($base-background-color);
+        }
+    }
 }
 
 .slick-prev {
@@ -58,7 +65,8 @@
         left: -($carousel-arrow-size + $gap-half);
     }
     @include breakpoint($breakpoint-lg) {
-        left: -($carousel-arrow-size - 2px);
+        //left: -($carousel-arrow-size - 2px);
+        left: -$gap-double/2 + 2px;
     }
 }
 
@@ -68,7 +76,8 @@
         right: -($carousel-arrow-size + $gap-half);
     }
     @include breakpoint($breakpoint-lg) {
-        right: -($carousel-arrow-size - 2px);
+        //right: -($carousel-arrow-size - 2px);
+        right: -$gap-double/2 + 2px;
     }
 }
 
