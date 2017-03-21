@@ -32,7 +32,6 @@
         color: $carousel-elements-color;
         .slick-inverted & {
             color: $carousel-inverted-elements-color;
-            background-color: $play-background-color;
         }
     }
     &.slick-disabled {
@@ -52,6 +51,9 @@
         > .icon {
             @include centerFlex();
             @include createCircle($base-background-color);
+            .slick-inverted & {
+                background-color: $play-background-color;
+            }
         }
     }
 }
