@@ -58,7 +58,7 @@
             // }
         }
     }
-
+    
     .page-error {
         .section-container {
             padding-top: $page-section-padding * 2;
@@ -421,6 +421,9 @@
     }
     
     #skogsskolan {
+        &.template-form-page .default-section {
+            background-color: $tertiary-background-color;
+        }
         .profile-section {
             .user-info {
                 .summary {
@@ -590,7 +593,6 @@
             &.has-ribbon {
                 position: relative;
                 overflow: hidden;
-
                 .article-title {
                     margin-right: $gap;
                 }
@@ -669,13 +671,40 @@
     #play {
         background-color: $play-background-color;
         .page-header .logo-container {
-            top: 25px;
-            width: 246px;
+            //top: 25px;
+            //width: 246px;
             .logo {
                 width: 100%;
             }
             @include breakpoint($breakpoint-lg) {
                 top: 0;
+                padding-top: $gap-md;
+                padding-bottom: $gap-md;
             }
+        }
+    }
+    
+    .sc-tempstartpage {
+        .logo-container {
+            margin-bottom: $gap;
+            .logo {
+                width: 200px;
+            }
+        }
+        .info {
+            margin-bottom: $gap;
+        }
+        .link-icon {
+            line-height: 0;
+            display: block;
+            text-align: center;
+            .footer-icon {
+                display: inline-block;
+                @include createCircle($background-color: #3B5998, $color: $white, $border: none);
+                margin: 0;
+            }
+        }
+        .link {
+            @include coverAll();
         }
     }

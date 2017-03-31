@@ -31,7 +31,7 @@ var FlexsliderHandler = {
             var $flexsliderImage = $(this.querySelector('.flexslider-image'));
             $flexsliderImage.css('background-image', 'url(' + src + ')');
             if ($image.hasClass('use-gradient')) {
-                $flexsliderImage.css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.35), rgba(0, 0, 0, 0.35)), url(' + src + ')');
+                $flexsliderImage.css('background-image', 'linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)), url(' + src + ')');
             }
             $slide.find('picture').remove();
         });

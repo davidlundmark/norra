@@ -101,6 +101,10 @@ input[type="submit"] {
             border: none;
             border-radius: $gap;
         }
+        &-small {
+            border: none;
+            padding: $gap-half $gap-md;
+        }
     }
 }
 

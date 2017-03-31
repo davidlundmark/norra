@@ -14,6 +14,7 @@
             padding: $page-section-padding;
             color: $base-font-color;
             max-width: $login-max-width;
+            width: calc(100% - #{$gap * 2});
         }
     }
     .logo-container {
@@ -359,7 +360,7 @@
 }
 
 .scMessageBar.scWarning .scMessageBarIcon {
-    background-image: url(/sitecore/shell/themes/standard/Images/warning_yellow.png);
+    background-image: url($path-images + 'warning_yellow.png');
     background-color: #E0B406;
 }
 
@@ -369,7 +370,7 @@
 }
 
 .scMessageBar.scInformation .scMessageBarIcon {
-    background-image: url(/sitecore/shell/themes/standard/Images/information_blue.png);
+    background-image: url($path-images + 'information_blue.png');
     background-color: #2694C0;
 }
 
@@ -379,7 +380,7 @@
 }
 
 .scMessageBar.scError .scMessageBarIcon {
-    background-image: url(/sitecore/shell/themes/standard/Images/error_red.png);
+    background-image: url($path-images + 'error_red.png');
     background-color: #A21D16;
 }
 
