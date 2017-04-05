@@ -5,6 +5,30 @@
     @import './components/base';
     //@import './pages/base';
     //
+    .like-link {
+        &:not(.liked) {
+            @include hoverLink($base-brand-color);
+        }
+        &.liked {
+            pointer-events: none;
+            cursor: pointer;
+            text-decoration: none;
+            color: $base-font-color;
+            #play & {
+                color: $play-color;
+            }
+        }
+        .no-touch & {
+            &:hover,
+            &.liked {
+                .icon {
+                    @include transition();
+                    color: #d9534f;
+                }
+            }
+        }
+    }
+    
     .arrow-down {
         z-index: 3;
         bottom: $gap-double;
@@ -29,7 +53,7 @@
             @include forceHarwareAcceleration();
             //}
         }
-        @include breakpoint($breakpoint-lg, false) {
+        @include breakpoint($breakpoint-lg+1px, false) {
             display: none;
         }
     }
@@ -66,6 +90,7 @@
         }
     }
     
+    .course-categories,
     .documents-section,
     .press-section,
     .news-grid-section {

@@ -19,6 +19,10 @@ body {
     overflow-x: hidden;
 }
 
+.no-margin {
+    margin: 0;
+}
+
 .clearfix {
     @include clearfix();
 }
@@ -47,36 +51,35 @@ body {
     text-shadow: $page-image-text-shadow;
 }
 
-
 .hide {
     display: none !important;
-    @include breakpoint($breakpoint-lg) {
+    @include breakpoint($breakpoint-lg+1px) {
         &-lg {
             display: none !important;
         }
     }
-    @include breakpoint($breakpoint-md) {
+    @include breakpoint($breakpoint-md+1px) {
         &-md {
             display: none !important;
         }
     }
-    @include breakpoint($breakpoint-sm) {
+    @include breakpoint($breakpoint-sm+1px) {
         &-sm {
             display: none !important;
         }
     }
     &-bigger {
-        @include breakpoint($breakpoint-lg, false) {
+        @include breakpoint($breakpoint-lg+1px, false) {
             &-lg {
                 display: none !important;
             }
         }
-        @include breakpoint($breakpoint-md, false) {
+        @include breakpoint($breakpoint-md+1px, false) {
             &-md {
                 display: none !important;
             }
         }
-        @include breakpoint($breakpoint-sm, false) {
+        @include breakpoint($breakpoint-sm+1px, false) {
             &-sm {
                 display: none !important;
             }

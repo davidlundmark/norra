@@ -7,6 +7,7 @@ ScreensizeHandler = {
     isSmallScreen: false,
     isLgOrSmaller: false,
     isMdOrSmaller: false,
+    isPhOrSmaller: false,
     isSmOrSmaller: false,
     init: function() {
         this.stateIndicator = document.createElement('div');
@@ -29,7 +30,8 @@ ScreensizeHandler = {
             2: 'xl',
             3: 'lg',
             4: 'md',
-            5: 'sm'
+            5: 'ph',
+            6: 'sm'
         };
 
         var state = states[index];
@@ -39,6 +41,7 @@ ScreensizeHandler = {
         this.isSmallScreen = false;
         this.isLgOrSmaller = false;
         this.isMdOrSmaller = false;
+        this.isPhOrSmaller = false;
         this.isSmOrSmaler = false;
 
         switch (state) {
@@ -58,9 +61,16 @@ ScreensizeHandler = {
                 this.isMdOrSmaller = true;
                 this.isSmallScreen = true;
                 break;
+            case 'ph':
+                this.isLgOrSmaller = true;
+                this.isMdOrSmaller = true;
+                this.isPhOrSmaller = true;
+                this.isSmallScreen = true;
+                break;
             case 'sm':
                 this.isLgOrSmaller = true;
                 this.isMdOrSmaller = true;
+                this.isPhOrSmaller = true;
                 this.isSmOrSmaller = true;
                 this.isSmallScreen = true;
                 break;

@@ -71,7 +71,7 @@
         }
     }
     .left {
-        @include breakpoint($breakpoint-md) {
+        @include breakpoint($breakpoint-ph) {
             text-align: center;
         }
     }
@@ -134,7 +134,7 @@
         @include breakpoint($breakpoint-lg) {
             margin-bottom: $gap-double;
         }
-        @include breakpoint($breakpoint-md) {
+        @include breakpoint($breakpoint-ph) {
             text-align: center;
         }
     }

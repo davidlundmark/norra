@@ -141,9 +141,6 @@
                 @include breakpoint($breakpoint-lg, false) {
                     padding-right: 200px;
                 }
-                .like-link {
-                    @include hoverLink($base-brand-color);
-                }
                 .title {
                     @extend .h4;
                     letter-spacing: 1px;
@@ -283,7 +280,9 @@
                 color: $light-font-color;
                 background-color: rgba($black, $card-overlay-opacity) !important;
                 @include breakpoint($breakpoint-md) {
-                    background-color: $quaternary-background-color !important;
+                    &:not(.keep-style) {
+                        background-color: $quaternary-background-color !important;
+                    }
                 }
             }
             &.card-course-category {
@@ -293,9 +292,9 @@
                     > h3 {
                         letter-spacing: 1px;
                         text-shadow: $page-image-text-shadow;
-                        @include breakpoint($breakpoint-md) {
-                            text-shadow: none;
-                        }
+                        // @include breakpoint($breakpoint-md) {
+                        //     text-shadow: none;
+                        // }
                     }
                 }
                 .card-image {

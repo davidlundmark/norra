@@ -12,13 +12,14 @@ var MenuScrollHandler = {
     $rootMenu: null,
     $subwebMenu: null,
     rootMenuHidden: false,
+    scrollDisabled: false,
     init: function() {
         var _pageheader = document.querySelector('.page-header');
         if (_pageheader === null) return;
 
         this.$pageheader = $(_pageheader);
 
-        this.$subwebMenu = $(_pageheader.querySelector('.subweb-menu'));//this.$pageheader.find('.subweb-menu');
+        this.$subwebMenu = $(_pageheader.querySelector('.subweb-menu')); //this.$pageheader.find('.subweb-menu');
         if (this.$subwebMenu.length) this.$rootMenu = $(_pageheader.querySelector('.rootweb-menu')); //this.$pageheader.find('.rootweb-menu');
 
         //console.log(ScreensizeHandler.isBigScreen)
@@ -27,21 +28,25 @@ var MenuScrollHandler = {
             //if (window.ScreensizeHandler.isBigScreen && $('.flexslider').length) {
             this.offsetTop = 168;
         } else {
-            this.offsetTop = this.$pageheader.outerHeight();
+            //this.offsetTop = this.$pageheader.outerHeight();
+            this.offsetTop = 168;
         }
 
         $(window).scroll(function() {
             this.handleTopMenu();
         }.bind(this));
 
-        if (this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
+        //this.handleTopMenu();
+
+        //if (this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
     },
     handleTopMenu: function() {
-        if (this.$pageheader.hasClass('menu-open')) return;
+        if (this.$pageheader.hasClass('menu-open') || this.scrollDisabled) return;
 
         var scrollTop = $(window).scrollTop();
-
-        //console.log(this.offsetTop, scrollTop)
+        //console.log('handleTopMenu')
+        if (scrollTop < 0) scrollTop = 0;
+        //console.log(this.offsetTop, scrollTop, this.prevScrollTop)
 
         //change bg color
         if (scrollTop >= this.offsetTop) {
@@ -62,21 +67,28 @@ var MenuScrollHandler = {
                 if (!this.hidden) {
                     this.hidden = true;
                     this.$pageheader.addClass(this.hideClass);
+                    //this.disableScroll();
+                    //console.log('hide 1', (scrollTop - this.senseSpeed), this.prevScrollTop);
                 }
             } else if (scrollTop + this.senseSpeed < this.prevScrollTop) {
                 if (this.hidden) {
                     this.hidden = false;
                     this.$pageheader.removeClass(this.hideClass);
+                    //this.disableScroll();
+                    //console.log('show 2', (scrollTop + this.senseSpeed), this.prevScrollTop);
                 }
             }
         } else {
             if (this.hidden) {
                 this.hidden = false;
                 this.$pageheader.removeClass(this.hideClass);
+                //this.disableScroll();
+                //console.log('show');
             }
         }
         this.prevScrollTop = scrollTop;
 
+        /*
         if (!this.$subwebMenu.length) return;
 
         if (scrollTop <= 0) {
@@ -84,6 +96,13 @@ var MenuScrollHandler = {
         } else {
             this.hideRootMenu();
         }
+        */
+    },
+    disableScroll: function() {
+        this.scrollDisabled = true;
+        setTimeout(function() {
+            this.scrollDisabled = false;
+        }.bind(this), 1000);
     },
     hideRootMenu: function() {
         if (!ScreensizeHandler.isBigScreen || this.rootMenuHidden) return;
