@@ -27,6 +27,9 @@
                 }
             }
         }
+        .icon {
+            padding-right: $gap-xs;
+        }
     }
     
     .arrow-down {
@@ -682,7 +685,7 @@
     }
     
     article.course-share {
-        @include breakpoint($breakpoint-lg) {
+        @include breakpoint($breakpoint-md) {
             margin-top: 0 !important;
         }
         .article-title {
