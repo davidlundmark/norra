@@ -132,6 +132,9 @@
                         text-shadow: $page-image-text-shadow;
                     }
                 }
+                .background-image {
+                    width: 100.2%;
+                }
             }
         }
         &-top-item {
@@ -154,7 +157,7 @@
                 .text {
                     @include setFont($base-font-name);
                     font-weight: $light-font-weight !important;
-                    margin-bottom: $gap-double;
+                    margin-bottom: $gap-lg;
                 }
                 .bottom {
                     letter-spacing: 1px;

@@ -63,18 +63,28 @@ var MenuScrollHandler = {
 
         //hide show menu
         if (scrollTop >= this.offsetTop) {
-            if (scrollTop - this.senseSpeed > this.prevScrollTop) {
+            var bottomPos = scrollTop;
+            if(ScreensizeHandler.isBigScreen) {
+                bottomPos = scrollTop - this.senseSpeed;
+            }
+            var topPos = scrollTop;
+            if(ScreensizeHandler.isBigScreen) {
+                topPos = scrollTop + this.senseSpeed;
+            }
+            //if (scrollTop - this.senseSpeed > this.prevScrollTop) {
+            if (bottomPos > this.prevScrollTop) {
                 if (!this.hidden) {
                     this.hidden = true;
                     this.$pageheader.addClass(this.hideClass);
-                    //this.disableScroll();
+                    this.disableScroll();
                     //console.log('hide 1', (scrollTop - this.senseSpeed), this.prevScrollTop);
                 }
-            } else if (scrollTop + this.senseSpeed < this.prevScrollTop) {
+            // } else if (scrollTop + this.senseSpeed < this.prevScrollTop) {
+            } else if (topPos < this.prevScrollTop) {
                 if (this.hidden) {
                     this.hidden = false;
                     this.$pageheader.removeClass(this.hideClass);
-                    //this.disableScroll();
+                    this.disableScroll();
                     //console.log('show 2', (scrollTop + this.senseSpeed), this.prevScrollTop);
                 }
             }
@@ -102,7 +112,7 @@ var MenuScrollHandler = {
         this.scrollDisabled = true;
         setTimeout(function() {
             this.scrollDisabled = false;
-        }.bind(this), 1000);
+        }.bind(this), 400);
     },
     hideRootMenu: function() {
         if (!ScreensizeHandler.isBigScreen || this.rootMenuHidden) return;

@@ -6,6 +6,11 @@
     //@import './pages/base';
     //
     .like-link {
+        #skogsskolan & {
+            display: flex;
+            line-height: 1;
+            margin-top: $gap-half;
+        }
         &:not(.liked) {
             @include hoverLink($base-brand-color);
         }
@@ -373,7 +378,7 @@
         }
         .addthis_toolbox {
             margin-top: $gap;
-            @include breakpoint($breakpoint-lg, false) {
+            @include breakpoint($breakpoint-ph, false) {
                 position: absolute;
                 bottom: $gap + 16px; //half icon height
                 right: $gap-double;
