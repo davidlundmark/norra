@@ -38,12 +38,21 @@ var MenuScrollHandler = {
 
         //this.handleTopMenu();
 
-        //if (this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
+        if (this.$subwebMenu.length) this.timer = setTimeout(this.hideRootMenu.bind(this), 3000);
     },
     handleTopMenu: function() {
-        if (this.$pageheader.hasClass('menu-open') || this.scrollDisabled) return;
-
         var scrollTop = $(window).scrollTop();
+        
+        if (this.$subwebMenu.length) {
+            if (scrollTop <= 0) {
+                this.showRootMenu();
+            } else {
+                this.hideRootMenu();
+            }
+        }
+        if (this.$pageheader.hasClass('menu-open') || (this.scrollDisabled && scrollTop > 168)) return;
+
+        
         //console.log('handleTopMenu')
         if (scrollTop < 0) scrollTop = 0;
         //console.log(this.offsetTop, scrollTop, this.prevScrollTop)
@@ -62,13 +71,13 @@ var MenuScrollHandler = {
         }
 
         //hide show menu
-        if (scrollTop >= this.offsetTop) {
+        if (scrollTop > 168 && scrollTop >= this.offsetTop) {
             var bottomPos = scrollTop;
-            if(ScreensizeHandler.isBigScreen) {
+            if (ScreensizeHandler.isBigScreen) {
                 bottomPos = scrollTop - this.senseSpeed;
             }
             var topPos = scrollTop;
-            if(ScreensizeHandler.isBigScreen) {
+            if (ScreensizeHandler.isBigScreen) {
                 topPos = scrollTop + this.senseSpeed;
             }
             //if (scrollTop - this.senseSpeed > this.prevScrollTop) {
@@ -79,7 +88,7 @@ var MenuScrollHandler = {
                     this.disableScroll();
                     //console.log('hide 1', (scrollTop - this.senseSpeed), this.prevScrollTop);
                 }
-            // } else if (scrollTop + this.senseSpeed < this.prevScrollTop) {
+                // } else if (scrollTop + this.senseSpeed < this.prevScrollTop) {
             } else if (topPos < this.prevScrollTop) {
                 if (this.hidden) {
                     this.hidden = false;
@@ -97,16 +106,6 @@ var MenuScrollHandler = {
             }
         }
         this.prevScrollTop = scrollTop;
-
-        /*
-        if (!this.$subwebMenu.length) return;
-
-        if (scrollTop <= 0) {
-            this.showRootMenu();
-        } else {
-            this.hideRootMenu();
-        }
-        */
     },
     disableScroll: function() {
         this.scrollDisabled = true;

@@ -32,7 +32,7 @@ var CarouselHandler = {
             //easing: 'easeOutQuad',
             cssEsae: 'ease-out',
             useTransform: true,
-            lazyLoad: 'progressive', //'ondemand',
+            lazyLoad: 'progressive',//'progressive', //'ondemand',
             responsive: [{
                     breakpoint: 1024,
                     settings: {

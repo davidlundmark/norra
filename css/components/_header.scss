@@ -101,12 +101,16 @@
         margin-right: $gap;
         position: relative;
         z-index: 1;
-        top: $gap;
+        .rootweb & {
+            top: $gap;
+        }
         > a {
             display: block;
         }
         @include breakpoint($breakpoint-lg) {
-            top: 0;
+            .rootweb & {
+                top: 0;
+            }
             padding: $gap 0;
             #skogsskolan & {
                 padding: $gap-half 0;
@@ -223,30 +227,42 @@
             opacity: 0;
             z-index: -1;
             visibility: hidden;
+            border-bottom: $header-bottom-border;
             &:before {
                 height: $gap + $gap-half;
-                .subweb & {
-                    height: $gap;
-                }
+                // .subweb & {
+                //     height: $gap;
+                // }
                 display: block;
                 content: '';
                 background-color: transparent;
             }
             &-container {
-                background-color: $header-background-color;
+                //background-color: $header-background-color;
+                background-color: $header-subweb-background-color;
                 .subweb & {
-                    background-color: $header-subweb-background-color;
+                    background-color: $header-background-color;
                 }
             }
             &-content {
                 //max-width: $page-section-max-width;
+                display: inline-block;
                 margin: 0 auto;
-                padding: $page-section-padding/2 0 $page-section-padding;
+                //padding: $page-section-padding/2 0 $page-section-padding;
+                padding: $gap 0 $gap-lg;
             }
             &-item {
                 display: inline-block;
-                margin-left: $page-section-padding;
+                margin-right: $page-section-padding;
                 vertical-align: top;
+                &:last-child {
+                    margin-right: 0;
+                }
+                p {
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
             }
             a {
                 color: $header-color;
@@ -270,7 +286,7 @@
         right: $page-section-padding;
         padding: $gap;
         padding-right: 0;
-        top: 0;//12px;
+        top: 0; //12px;
         @include breakpoint($breakpoint-lg) {
             right: $gap;
         }

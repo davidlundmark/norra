@@ -68,7 +68,6 @@
             }
         }
 
-        /*
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
             $this.siblings('.label').fadeToggle(200, function() {
@@ -93,7 +92,6 @@
                 alert('SÖK: ' + $(this).val());
             }
         });
-        */
 
         // if (document.querySelector('.page-image') !== null) {
         //     $('body').css({

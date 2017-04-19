@@ -70,6 +70,9 @@
             .button {
                 margin-top: $gap-half;
             }
+            .logo {
+                max-width: 380px;
+            }
         }
         /*
         @include breakpoint($breakpoint-lg) {
@@ -122,7 +125,7 @@
 
 .flex-prev {
     padding-left: 7px;
-    left: 0;// ($carousel-arrow-size + $gap);
+    left: 0; // ($carousel-arrow-size + $gap);
     > .icon {
         transform: rotate(180deg);
     }
@@ -130,7 +133,7 @@
 
 .flex-next {
     padding-right: 7px;
-    right: 0;// ($carousel-arrow-size + $gap);
+    right: 0; // ($carousel-arrow-size + $gap);
 }
 
 .flexslider:hover {

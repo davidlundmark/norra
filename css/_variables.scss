@@ -232,7 +232,7 @@ $header-logo-width: 200px;
 $header-skogsskolan-logo-width: 146px;
 $header-logo-width-md: 160px;
 $header-logo-small-width: 30px;
-$header-bottom-border: none;
+$header-bottom-border: $base-border;
 $header-color: $base-font-color;
 $header-hover-color: $base-brand-color;
 $header-submenu-hover-color: $base-brand-color;

@@ -273,17 +273,25 @@ strong,
 .section,
 .article {
     &-title {
-        margin-bottom: $gap-double;
-        padding-bottom: $gap;
+        // margin-bottom: $gap-double;
+        // padding-bottom: $gap;
+        margin-bottom: $gap;
+        padding-bottom: $gap-md;
         position: relative;
         &:after {
             content: '';
             position: absolute;
             width: 50px;
-            height: 4px;
-            bottom: -2px;
+            // height: 4px;
+            // bottom: -2px;
             left: 0;
             background-color: $base-font-color;
+            height: 2px;
+            bottom: -1px;
+        }
+
+        &.extra-margin {
+            margin-bottom: $gap-double;
         }
     }
 }

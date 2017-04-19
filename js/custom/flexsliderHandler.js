@@ -88,15 +88,16 @@ var FlexsliderHandler = {
         }
         */
 
-        if(document.getElementById('skogsskolan') !== null && ScreensizeHandler.isBigScreen) {
-            this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
-        }
-        else if(document.getElementById('skogsskolan') !== null && !ScreensizeHandler.isPhOrSmaller) {
-            this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
-        }
-        else {
-            this.sliderHeight = $(window).height() - this.menuHeight;
-        }
+        // if(document.getElementById('skogsskolan') !== null && ScreensizeHandler.isBigScreen) {
+        //     this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
+        // }
+        // else if(document.getElementById('skogsskolan') !== null && !ScreensizeHandler.isPhOrSmaller) {
+        //     this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
+        // }
+        // else {
+        //     this.sliderHeight = $(window).height() - this.menuHeight;
+        // }
+        this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight

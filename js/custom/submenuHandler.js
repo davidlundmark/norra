@@ -19,6 +19,11 @@ var SubMenuHandler = {
             var $subMenu = $(this.querySelector('.submenu'));
             var marginLeft = $this.offset().left;
             $subMenu.css({ 'left': -(marginLeft) });
+            var $subMenuContent = $(this.querySelector('.submenu-content'));
+            var contentMargin = (marginLeft) + ($this.width() / 2) - ($subMenuContent.width() / 2);
+            if(contentMargin < 40) contentMargin = 40;
+            $subMenuContent.css({ 'margin-left': contentMargin });
+
         });
     }
 };

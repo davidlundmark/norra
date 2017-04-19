@@ -351,12 +351,12 @@
         }
         .section-title {
             color: $play-color;
-            margin-bottom: $gap;
-            padding-bottom: $gap-md;
+            // margin-bottom: $gap;
+            // padding-bottom: $gap-md;
             &:after {
                 background-color: $play-color;
-                height: 2px;
-                bottom: -1px;
+                // height: 2px;
+                // bottom: -1px;
             }
         }
         &.list-videos {
@@ -451,6 +451,16 @@
                 width: calc(100% - #{$page-section-padding} - #{$gap * 2});
             }
         }
+
+        + .hero-image {
+            .section-container {
+                padding-top: 0;
+
+                .card {
+                    margin-top: 0;
+                }
+            }
+        }
     }
     
     #skogsskolan {
@@ -503,15 +513,15 @@
                 //text-shadow: 0px 0px 15px #000000;
             }
         }
-        .section-title,
-        .article-title {
-            margin-bottom: $gap;
-            padding-bottom: $gap-md;
-            &:after {
-                height: 2px;
-                bottom: -1px;
-            }
-        }
+        // .section-title,
+        // .article-title {
+        //     margin-bottom: $gap;
+        //     padding-bottom: $gap-md;
+        //     &:after {
+        //         height: 2px;
+        //         bottom: -1px;
+        //     }
+        // }
         .aside-section {
             .column.col-3 {
                 overflow: visible;
