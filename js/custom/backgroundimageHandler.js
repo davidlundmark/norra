@@ -24,7 +24,7 @@ var BackgroundImageHandler = {
 //#endregion
 
 (function () {
-    if (typeof useBackgroundImageSwapper !== 'undefined' && useBackgroundImageSwapper) {
+    //if (typeof useBackgroundImageSwapper !== 'undefined' && useBackgroundImageSwapper) {
         BackgroundImageHandler.init();
-    }
+    //}
 })();

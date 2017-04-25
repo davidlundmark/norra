@@ -68,6 +68,12 @@
             }
         }
 
+        //Top border  
+        if (typeof useTopBorder !== 'undefined' && useTopBorder) {
+            var _pageSection = document.querySelector('.content-wrapper > .page-section:first-child');
+            $(_pageSection).addClass('top-border');
+        }
+
         $('.page-header .search .icon-container').on('click', function(e) {
             var $this = $(this);
             $this.siblings('.label').fadeToggle(200, function() {

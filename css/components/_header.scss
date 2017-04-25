@@ -47,6 +47,12 @@
             }
             &:nth-child(2) {
                 background-color: $header-subweb-scrolled-background-color;
+
+                .no-touch & {
+                    &:hover {
+                        background-color: $header-subweb-background-color;
+                    }
+                }
             }
             //}
             @include clearfix();
@@ -58,6 +64,9 @@
     }
     &.page-section {
         border-bottom: $header-bottom-border;
+        #play & {
+            border-bottom: none;
+        }
     }
     ul,
     ol {
@@ -229,7 +238,7 @@
             visibility: hidden;
             border-bottom: $header-bottom-border;
             &:before {
-                height: $gap + $gap-half;
+                height: $gap + $gap-half + 1px;
                 // .subweb & {
                 //     height: $gap;
                 // }

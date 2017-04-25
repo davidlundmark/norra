@@ -22,6 +22,7 @@ var SubMenuHandler = {
             var $subMenuContent = $(this.querySelector('.submenu-content'));
             var contentMargin = (marginLeft) + ($this.width() / 2) - ($subMenuContent.width() / 2);
             if(contentMargin < 40) contentMargin = 40;
+            else if(contentMargin + $subMenuContent.width() > $(window).width()) contentMargin = $(window).width() - $subMenuContent.width() - 40;
             $subMenuContent.css({ 'margin-left': contentMargin });
 
         });

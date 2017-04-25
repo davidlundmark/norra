@@ -37,6 +37,10 @@
         }
     }
     
+    .top-border {
+        border-top: $gap-sm solid $base-brand-color;
+    }
+    
     .arrow-down {
         z-index: 3;
         bottom: $gap-double;
@@ -98,11 +102,75 @@
         }
     }
     
+    .map-section,
     .course-categories,
     .documents-section,
     .press-section,
     .news-grid-section {
         background-color: $tertiary-background-color;
+    }
+    
+    .office-section,
+    .contacts-grid {
+        background-color: $secondary-background-color;
+    }
+
+    .contacts-grid + .map-section {
+        background-color: $secondary-background-color;
+    }
+    
+    .office-section {
+        text-align: center;
+        span {
+            @extend .medium;
+        }
+    }
+    
+    .map-section {
+        .map {
+            .map-container {
+                position: relative;
+                width: 100%;
+                padding-bottom: 56.25%;
+                /* Ratio 16:9 ( 100%/16*9 = 56.25% ) */
+                .map-canvas {
+                    position: absolute;
+                    top: 0;
+                    right: 0;
+                    bottom: 0;
+                    left: 0;
+                    margin: 0;
+                    padding: 0;
+
+                    .gm-style, .gm-style .gm-style-iw {
+                        @include setFont($base-font-name);
+                        @include setFontSize($small-font-size);
+                    }
+
+                    .div-main-infoWindow {
+                        .link {
+                            margin-bottom: 0;
+                        }
+                        span {
+                            @extend .medium;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .article-image-text-teaser {
+        padding: 0 !important;
+        .text {
+            padding: $gap;
+        }
+
+        p {
+            &:last-child {
+                margin-bottom: 0;
+            }
+        }
     }
     
     .aside-section {
@@ -404,23 +472,33 @@
     
     .hero-image {
         .background-image {
-            @at-root .courses-all-section#{&} {
-                min-height: $hero-courses-all-min-height;
-                @include breakpoint($breakpoint-lg) {
-                    min-height: $hero-courses-all-min-height-md;
+            &:not(.use-percent) {
+                @at-root .courses-all-section#{&} {
+                    min-height: $hero-courses-all-min-height;
+                    @include breakpoint($breakpoint-lg) {
+                        min-height: $hero-courses-all-min-height-md;
+                    }
+                }
+                min-height: $hero-image-min-height;
+                @include breakpoint($breakpoint-md) {
+                    min-height: $hero-image-min-height-md;
                 }
             }
-            min-height: $hero-image-min-height;
-            @include breakpoint($breakpoint-md) {
-                min-height: $hero-image-min-height-md;
+            &.use-percent {
+                min-height: 0;
+                padding-bottom: $hero-image-padding;
+                @include breakpoint($breakpoint-lg) {
+                    min-height: $hero-image-padding-lg;
+                }
             }
         }
         .text {
-            letter-spacing: 1px;
+            width: 60%;
+            //letter-spacing: 1px;
             color: $hero-image-color;
             text-shadow: $hero-image-text-shadow;
             @include centerElement();
-            @include sharpen();
+            //@include sharpen();
             text-align: center;
             a {
                 @include hoverLink($light-font-color, $base-brand-color);
@@ -440,22 +518,23 @@
                     @include transition();
                 }
             }
-        }
-        .text {
-            width: 60%;
             //text-transform: $hero-image-text-transform;
             > *:last-child {
                 margin-bottom: 0;
             }
-            @include breakpoint($breakpoint-md) {
+            @include breakpoint($breakpoint-lg) {
+                width: calc(80% - #{$page-section-padding} - #{$gap * 2});
+            }
+            @include breakpoint($breakpoint-ph) {
                 width: calc(100% - #{$page-section-padding} - #{$gap * 2});
             }
+            .button {
+                margin-top: $gap;
+            }
         }
-
         + .hero-image {
             .section-container {
                 padding-top: 0;
-
                 .card {
                     margin-top: 0;
                 }
@@ -505,14 +584,14 @@
                 margin-bottom: $gap-xl + $gap;
             }
         }
-        .flexslider {
-            .logo {
-                max-width: 380px;
-            }
-            .title {
-                //text-shadow: 0px 0px 15px #000000;
-            }
-        }
+        // .flexslider {
+        //     .logo {
+        //         max-width: 380px;
+        //     }
+        //     .title {
+        //         //text-shadow: 0px 0px 15px #000000;
+        //     }
+        // }
         // .section-title,
         // .article-title {
         //     margin-bottom: $gap;

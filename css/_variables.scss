@@ -338,11 +338,16 @@ $card-list-item-image-size: $card-horizontal-image-size;
 $card-list-item-text-size: $card-horizontal-text-size;
 $card-list-item-image-min-height: $card-horizontal-image-min-height;
 $card-list-item-text-padding: $gap;
+$card-youtube-video-size: 50%;
+$card-youtube-text-size: 50%;
 $card-news-item-date-size: 10%;
 $card-news-item-text-size: 65%;
 $card-news-item-image-size: 25%;
 $card-news-item-image-min-height: $card-horizontal-image-min-height;
 $card-news-item-text-padding: $gap;
+$card-contact-image-size: 20%;
+$card-contact-text-size: 80%;
+$card-contact-image-min-height: 40px;
 $card-contact-small-image-min-height: 80px;
 $card-play-featured-image-min-height: 200px;
 $card-play-list-image-min-height: 150px;
@@ -451,6 +456,8 @@ $hero-image-color: $light-font-color;
 $hero-image-text-shadow: none;
 $hero-courses-all-min-height: 160px;
 $hero-courses-all-min-height-md: 120px;
+$hero-image-padding: 30%;
+$hero-image-padding-lg: 56.25%;
 
 // =================================================
 // Progress bar

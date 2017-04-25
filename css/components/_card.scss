@@ -433,6 +433,7 @@
         table-layout: fixed;
         position: relative;
         > .card {
+            &-video,
             &-date,
             &-image,
             &-text {
@@ -442,6 +443,7 @@
                 vertical-align: middle;
                 text-align: left;
             }
+            &-video,
             &-image {
                 width: $card-horizontal-image-size;
                 .background-image {
@@ -468,6 +470,22 @@
                 @include breakpoint($breakpoint-sm) {
                     @include breakTable();
                 }
+            }
+        }
+    }
+    &-youtube {
+        > .card {
+            &-video {
+                width: $card-youtube-video-size;
+                // .background-image {
+                //     height: $card-support-form-image-height;
+                // }
+            }
+            &-text {
+                //vertical-align: top;
+                width: $card-youtube-text-size;
+                background-color: $quaternary-background-color;
+                color: $light-font-color;
             }
         }
     }
@@ -617,6 +635,38 @@
             padding-top: $gap;
             .name {
                 @extend .medium;
+            }
+        }
+    }
+    &-contact {
+        background-color: $base-background-color;
+        padding: $gap;
+        border-bottom: $gap-sm solid $base-border-color;
+        > .card {
+            &-image {
+                vertical-align: top;
+                width: $card-contact-image-size;
+                img {
+                    max-width: 100%;
+                }
+                // .background-image {
+                //     min-height: $card-contact-image-min-height;
+                // }
+            }
+            &-text {
+                @include setFont($base-font-name);
+                padding: 0 0 0 $gap;
+                width: $card-contact-text-size;
+                p {
+                    @extend .small;
+                    margin-bottom: $gap-xs;
+                    &:last-child {
+                        margin-bottom: 0;
+                    }
+                }
+                .title {
+                    margin-top: -$gap-xs;//align fix
+                }
             }
         }
     }
