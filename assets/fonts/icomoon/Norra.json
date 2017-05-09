@@ -8002,11 +8002,13 @@
           "id": 848
         },
         {
-          "order": 0,
-          "prevSize": 16,
+          "order": 1046,
+          "prevSize": 32,
           "ligatures": "clipboard2, board2",
           "name": "clipboard2",
-          "id": 849
+          "id": 849,
+          "code": 60497,
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -8358,7 +8360,7 @@
           "name": "download4",
           "id": 899,
           "code": 60547,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -9116,7 +9118,7 @@
           "name": "heart7",
           "id": 1007,
           "code": 60655,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -9930,7 +9932,7 @@
           "name": "info",
           "id": 1123,
           "code": 60771,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1040,
@@ -9939,7 +9941,7 @@
           "name": "info2",
           "id": 1124,
           "code": 60772,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10004,7 +10006,7 @@
           "name": "cross2",
           "id": 1133,
           "code": 60781,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10034,7 +10036,7 @@
           "name": "checkmark3",
           "id": 1137,
           "code": 60785,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10127,7 +10129,7 @@
           "name": "play32",
           "id": 1150,
           "code": 60798,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10581,7 +10583,7 @@
           "name": "arrow-right4",
           "id": 1214,
           "code": 60862,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1022,
@@ -10590,7 +10592,7 @@
           "name": "arrow-down",
           "id": 1215,
           "code": 60863,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1018,
@@ -10599,7 +10601,7 @@
           "name": "arrow-down22",
           "id": 1216,
           "code": 60864,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1019,
@@ -10608,7 +10610,7 @@
           "name": "arrow-down3",
           "id": 1217,
           "code": 60865,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 1020,
@@ -10617,7 +10619,7 @@
           "name": "arrow-down4",
           "id": 1218,
           "code": 60866,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -10649,7 +10651,7 @@
           "name": "arrow-left4",
           "id": 1222,
           "code": 60870,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -11857,7 +11859,7 @@
           "name": "radio-checked2",
           "id": 1394,
           "code": 61042,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -11908,7 +11910,7 @@
           "name": "circles",
           "id": 1401,
           "code": 61049,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -13295,7 +13297,7 @@
           "name": "file-pdf",
           "id": 1598,
           "code": 61246,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "order": 0,
@@ -42588,7 +42590,7 @@
           "order": 1024,
           "prevSize": 28,
           "code": 61459,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "trash-o",
@@ -42821,7 +42823,7 @@
           "order": 1044,
           "prevSize": 28,
           "code": 61508,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "share-square-o",
@@ -43824,7 +43826,7 @@
           "order": 1030,
           "prevSize": 28,
           "code": 61736,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "info",
@@ -55890,7 +55892,7 @@
           "id": 66,
           "prevSize": 32,
           "code": 59713,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "phone, telephone",
@@ -55899,7 +55901,7 @@
           "id": 67,
           "prevSize": 32,
           "code": 59714,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "phone-hang-up, telephone2",
@@ -56511,7 +56513,7 @@
           "id": 135,
           "prevSize": 32,
           "code": 59782,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "zoom-in, magnifier2",
@@ -56556,7 +56558,7 @@
           "id": 140,
           "prevSize": 32,
           "code": 59787,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "shrink2, collapse2",
@@ -57132,7 +57134,7 @@
           "id": 204,
           "prevSize": 32,
           "code": 59851,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "flag, report",
@@ -57861,7 +57863,7 @@
           "id": 285,
           "prevSize": 32,
           "code": 59932,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "pause2, player9",
@@ -57951,7 +57953,7 @@
           "id": 295,
           "prevSize": 32,
           "code": 59942,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "volume-medium, volume2",
@@ -57987,7 +57989,7 @@
           "id": 299,
           "prevSize": 32,
           "code": 59946,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "volume-increase, volume6",
@@ -58131,7 +58133,7 @@
           "id": 315,
           "prevSize": 32,
           "code": 59962,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "arrow-up-right2, up-right2",
@@ -58167,7 +58169,7 @@
           "id": 319,
           "prevSize": 32,
           "code": 59966,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "arrow-down-left2, down-left2",
@@ -58761,7 +58763,7 @@
           "id": 385,
           "prevSize": 32,
           "code": 60032,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "terminal, console",
@@ -58905,7 +58907,7 @@
           "id": 401,
           "prevSize": 32,
           "code": 60048,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "ligatures": "facebook2, brand11",
@@ -58923,7 +58925,7 @@
           "id": 403,
           "prevSize": 32,
           "code": 60050,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "whatsapp",
@@ -58959,7 +58961,7 @@
           "id": 407,
           "prevSize": 32,
           "code": 60054,
-          "tempChar": ""
+          "tempChar": ""
         },
         {
           "name": "vine",

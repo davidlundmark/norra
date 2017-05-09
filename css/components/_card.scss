@@ -46,6 +46,24 @@
         > *:last-child {
             margin-bottom: 0;
         }
+        &-inverted {
+            background-color: $quaternary-background-color;
+            color: $light-font-color;
+        }
+    }
+    &-tag {
+        z-index: 3;
+        pointer-events: none;
+        position: absolute;
+        padding: $gap-half $gap;
+        //background-color: $base-brand-color;
+        background-color: rgba($base-brand-color, $card-tag-background-opacity);
+        color: $card-secondary-color;
+        bottom: 0;
+        left: 0;
+        text-transform: uppercase;
+        font-size: $small-font-size;
+        letter-spacing: 1px;
     }
     &-anchor,
     &-lightbox {
@@ -64,20 +82,6 @@
                     float: right;
                     @include animateLine($time: 0.3s);
                 }
-            }
-            &-tag {
-                z-index: 3;
-                pointer-events: none;
-                position: absolute;
-                padding: $gap-half $gap;
-                //background-color: $base-brand-color;
-                background-color: rgba($base-brand-color, $card-tag-background-opacity);
-                color: $card-secondary-color;
-                bottom: 0;
-                left: 0;
-                text-transform: uppercase;
-                font-size: $small-font-size;
-                letter-spacing: 1px;
             }
             &-image-overlay {
                 //z-index: 2;
@@ -314,7 +318,7 @@
                 }
                 .card-image {
                     .background-image {
-                        min-height: $card-course-category-image-min-height
+                        min-height: $card-course-category-image-min-height;
                     }
                 }
             }
@@ -412,6 +416,23 @@
             }
         }
     }
+    &-related-item {
+        .card-text {
+            padding: $gap-md $gap;
+            color: $light-font-color;
+            background-color: rgba($black, $card-overlay-opacity) !important;
+            @include breakpoint($breakpoint-md) {
+                &:not(.keep-style) {
+                    background-color: $quaternary-background-color !important;
+                }
+            }
+        }
+        .card-image {
+            .background-image {
+                min-height: $card-related-item-image-min-height;
+            }
+        }
+    }
     &-overlay {
         .card-text {
             position: absolute;
@@ -470,6 +491,21 @@
                 @include breakpoint($breakpoint-sm) {
                     @include breakTable();
                 }
+            }
+        }
+    }
+    &-image-left {
+        > .card {
+            &-image {
+                width: $card-image-left-image-size;
+                .background-image {
+                    //min-height: $card-image-left-image-min-height;
+                    min-height: 0;
+                    padding-bottom: $card-image-left-image-min-height;
+                }
+            }
+            &-text {
+                width: $card-image-left-text-size;
             }
         }
     }
@@ -608,6 +644,16 @@
             }
         }
     }
+    &-press-item {
+        > .card {
+            &-text {
+                width: $card-press-item-text-size;
+            }
+            &-date {
+                width: $card-press-item-date-size;
+            }
+        }
+    }
     &-contact-small {
         background-color: $base-background-color;
         padding: $gap;
@@ -665,7 +711,7 @@
                     }
                 }
                 .title {
-                    margin-top: -$gap-xs;//align fix
+                    margin-top: -$gap-xs; //align fix
                 }
             }
         }

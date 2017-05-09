@@ -38,7 +38,7 @@
     }
     
     .top-border {
-        border-top: $gap-sm solid $base-brand-color;
+        border-top: 2px solid $base-brand-color;
     }
     
     .arrow-down {
@@ -102,10 +102,18 @@
         }
     }
     
+    .iframe-section {
+        .section-container {
+            text-align: center;
+        }
+    }
+    
+    .related-items,
     .map-section,
     .course-categories,
     .documents-section,
     .press-section,
+    .calendar-grid-section,
     .news-grid-section {
         background-color: $tertiary-background-color;
     }
@@ -114,9 +122,15 @@
     .contacts-grid {
         background-color: $secondary-background-color;
     }
-
+    
     .contacts-grid + .map-section {
         background-color: $secondary-background-color;
+    }
+    
+    .news-grid-section + .calendar-grid-section {
+        > .section-container {
+            padding-top: 0;
+        }
     }
     
     .office-section {
@@ -141,12 +155,11 @@
                     left: 0;
                     margin: 0;
                     padding: 0;
-
-                    .gm-style, .gm-style .gm-style-iw {
+                    .gm-style,
+                    .gm-style .gm-style-iw {
                         @include setFont($base-font-name);
                         @include setFontSize($small-font-size);
                     }
-
                     .div-main-infoWindow {
                         .link {
                             margin-bottom: 0;
@@ -159,13 +172,12 @@
             }
         }
     }
-
+    
     .article-image-text-teaser {
         padding: 0 !important;
         .text {
             padding: $gap;
         }
-
         p {
             &:last-child {
                 margin-bottom: 0;
@@ -244,8 +256,8 @@
             }
             &-date {
                 font-size: $small-font-size;
-                margin-top: $gap-xl;
-                line-height: 1;
+                //margin-top: $gap-xl;
+                //line-height: 1;
                 &.published {
                     margin-right: $gap;
                 }
@@ -254,6 +266,8 @@
                     display: inline-block;
                 }
             }
+            &-contact {}
+            &-subtitle,
             &-image,
             &-video {
                 margin-top: $gap-double;
@@ -488,7 +502,10 @@
                 min-height: 0;
                 padding-bottom: $hero-image-padding;
                 @include breakpoint($breakpoint-lg) {
-                    min-height: $hero-image-padding-lg;
+                    padding-bottom: $hero-image-padding-lg;
+                }
+                @include breakpoint($breakpoint-ph) {
+                    padding-bottom: $hero-image-padding-ph;
                 }
             }
         }
@@ -500,14 +517,16 @@
             @include centerElement();
             //@include sharpen();
             text-align: center;
-            a {
-                @include hoverLink($light-font-color, $base-brand-color);
-                .no-touch & {
-                    &:hover {
-                        .icon {
-                            margin-left: $gap-half;
+            @at-root .courses-all-section#{&} {
+                a {
+                    @include hoverLink($light-font-color, $base-brand-color);
+                    .no-touch & {
+                        &:hover {
+                            .icon {
+                                margin-left: $gap-half;
+                            }
                         }
-                    }
+                    } 
                 }
             }
             .icon {
@@ -529,20 +548,23 @@
                 width: calc(100% - #{$page-section-padding} - #{$gap * 2});
             }
             .button {
+                text-shadow: none;
                 margin-top: $gap;
-            }
-        }
-        + .hero-image {
-            .section-container {
-                padding-top: 0;
-                .card {
-                    margin-top: 0;
-                }
             }
         }
     }
     
     #skogsskolan {
+        .hero-image {
+            + .hero-image {
+                .section-container {
+                    padding-top: 0;
+                    .card {
+                        margin-top: 0;
+                    }
+                }
+            }
+        }
         &.template-form-page .default-section {
             background-color: $tertiary-background-color;
         }

@@ -6,9 +6,7 @@
     background-color: transparent;
     //transition: background-color $base-transition-duration $base-transition-timing, transform 0.4s $easeOutQuad;
     transition: transform 0.4s $easeOutQuad;
-    //transform: translateZ(0);
     backface-visibility: hidden;
-    //will-change: auto;
     .logo {
         width: $header-logo-width;
         #skogsskolan & {
@@ -47,7 +45,6 @@
             }
             &:nth-child(2) {
                 background-color: $header-subweb-scrolled-background-color;
-
                 .no-touch & {
                     &:hover {
                         background-color: $header-subweb-background-color;
@@ -66,6 +63,10 @@
         border-bottom: $header-bottom-border;
         #play & {
             border-bottom: none;
+        }
+        &.brand-border {
+            border-color: $base-brand-color;
+            //border-bottom-width: 2px;
         }
     }
     ul,
@@ -126,24 +127,67 @@
             }
         }
     }
+    // .search-container {
+    //     display: inline-block;
+    //     @include centerVertical();
+    //     right: $page-section-padding;
+    //     width: 20%;
+    //     .search {
+    //         float: right;
+    //         .label {
+    //             display: none;
+    //         }
+    //         .icon-container {
+    //             @at-root .page-header-inverted#{&} {
+    //                 color: $header-inverted-color;
+    //             }
+    //         }
+    //         input {
+    //             @at-root .page-header-inverted#{&} {
+    //                 color: $header-inverted-color;
+    //             }
+    //         }
+    //     }
+    // }
     .search-container {
+        margin-top: $gap-xl;
+        margin-bottom: $gap-xl;
+        float: right;
         display: inline-block;
-        @include centerVertical();
-        right: $page-section-padding;
-        width: 20%;
+        @include transition();
         .search {
             float: right;
+        }
+        .label-with-icon {
             .label {
-                display: none;
+                width: 0;
+                margin: 0;
+                padding: 0;
+                margin-left: 0;
+                border-radius: 0;
+                @extend .small;
+                background-color: transparent;
+                border: none;
+                @include border($dir: bottom, $thickness: 1px);
+                @include transition($transition-timing: $easeOutSine);
             }
             .icon-container {
-                @at-root .page-header-inverted#{&} {
-                    color: $header-inverted-color;
+                padding-left: $gap;
+                color: $base-font-color;
+                // .no-touch & {
+                @include transition(color);
+                &:hover {
+                    color: $header-submenu-hover-color;
                 }
+                // }
             }
-            input {
-                @at-root .page-header-inverted#{&} {
-                    color: $header-inverted-color;
+        }
+        &.open {
+            .label-with-icon {
+                .label {
+                    padding: 0 $gap-xs;
+                    margin-left: $gap;
+                    width: 200px;
                 }
             }
         }
@@ -196,6 +240,7 @@
                 }
                 &.selected {
                     color: $base-brand-color;
+                    @include animateLine($line-color: $base-brand-color, $thickness: 2px, $scale: 1, $distance: -$gap-xl, $top: true);
                 }
             }
             > span {
@@ -231,12 +276,10 @@
             width: 100vw;
             display: block;
             position: absolute;
-            //@include transition(all, 0.2s, linear);
-            //transition: all $base-transition-duration $base-transition-timing $base-transition-duration*2;
             opacity: 0;
             z-index: -1;
             visibility: hidden;
-            border-bottom: $header-bottom-border;
+            border-bottom: $header-scrolled-border-bottom;
             &:before {
                 height: $gap + $gap-half + 1px;
                 // .subweb & {
@@ -247,17 +290,14 @@
                 background-color: transparent;
             }
             &-container {
-                //background-color: $header-background-color;
                 background-color: $header-subweb-background-color;
                 .subweb & {
                     background-color: $header-background-color;
                 }
             }
             &-content {
-                //max-width: $page-section-max-width;
                 display: inline-block;
                 margin: 0 auto;
-                //padding: $page-section-padding/2 0 $page-section-padding;
                 padding: $gap 0 $gap-lg;
             }
             &-item {

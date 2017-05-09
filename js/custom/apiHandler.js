@@ -4,6 +4,7 @@ NewsHandler = {
     apiUrl: window.location.origin + '/sitecore/api/ssc/norra/',
     newsUrl: 'News/1337/GetNews',
     calendarUrl: 'Calendar/1337/GetCalendar',
+    pressUrl: 'News/1337/GetPress',
     siteId: null,
     page: 2,
     pageSize: 3,
@@ -15,10 +16,12 @@ NewsHandler = {
     $filterLoader: null,
     $noResult: null,
     createNewList: false,
-    init: function(SiteId, Id) {
+    usePress: false,
+    init: function(SiteId, Id, usePress) {
         //get Site ID
         this.siteId = SiteId;
         this.id = Id;
+        this.usePress = usePress
 
         //get DOM template elements
         var _newsList = document.getElementById(Id + '-list-template');
@@ -169,7 +172,7 @@ NewsHandler = {
             //Date
             var date = item.Date.split('-');
             _clone.querySelector('.day').innerHTML = date[2];
-            _clone.querySelector('.month').innerHTML = monthName;//date[1];
+            _clone.querySelector('.month').innerHTML = monthName; //date[1];
             _clone.querySelector('.year').innerHTML = date[0];
 
             //Summary
@@ -193,8 +196,8 @@ NewsHandler = {
                 _backgroundImage.style.backgroundImage = item.Image.replace('"', '');
             }
 
-            if (!NewsHandler.items.length) {
-                $(_clone.querySelector('hr.minimal')).first().removeClass('hide');
+            if (NewsHandler.items.length == 0) {
+                //$(_clone.querySelector('hr.minimal')).first().removeClass('hide');
             }
 
             NewsHandler.items.push(_clone);
@@ -242,10 +245,16 @@ NewsHandler = {
     getNews: function(handleData, year) {
         if (!year) year = -1;
 
+        var apiFunction;
+
+        if(this.usePress) apiFunction = this.pressUrl;
+        else if(this.id == 'news') apiFunction = this.newsUrl;
+        else apiFunction = this.calendarUrl;
+
         $.getJSON({
             type: 'GET',
             dataType: 'json',
-            url: this.apiUrl + ((this.id == 'news') ? this.newsUrl : this.calendarUrl),
+            url: this.apiUrl + apiFunction,//((this.id == 'news') ? this.newsUrl : this.calendarUrl),
             data: {
                 page: this.page,
                 pageSize: this.pageSize,
@@ -270,10 +279,13 @@ NewsHandler = {
 (function() {
     if (typeof SiteId !== 'undefined') {
         if (typeof useNewsApi !== 'undefined' && useNewsApi) {
-            NewsHandler.init(SiteId, 'news');
+            NewsHandler.init(SiteId, 'news', false);
             //$(window).on('load', NewsHandler.loadNewsList());
         } else if (typeof useCalendarApi !== 'undefined' && useCalendarApi) {
-            NewsHandler.init(SiteId, 'calendar');
+            NewsHandler.init(SiteId, 'calendar', false);
+            //$(window).on('load', NewsHandler.loadNewsList());
+        } else if (typeof usePressApi !== 'undefined' && usePressApi) {
+            NewsHandler.init(SiteId, 'news', true);
             //$(window).on('load', NewsHandler.loadNewsList());
         }
         //if (typeof useNewsLatestApi !== 'undefined' && useNewsLatestApi) {

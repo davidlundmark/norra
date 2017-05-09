@@ -70,34 +70,62 @@
 
         //Top border  
         if (typeof useTopBorder !== 'undefined' && useTopBorder) {
-            var _pageSection = document.querySelector('.content-wrapper > .page-section:first-child');
-            $(_pageSection).addClass('top-border');
+            // var _pageSection = document.querySelector('.content-wrapper > .page-section:first-child');
+            // $(_pageSection).addClass('top-border');
+            var _header = document.querySelector('.page-header');
+            $(_header).addClass('brand-border');
         }
 
-        $('.page-header .search .icon-container').on('click', function(e) {
+        var _searchButtons = document.querySelectorAll('.page-header .search .icon-container');
+        $(_searchButtons).on('click triggered-click', function(e) {
+            //console.log('yeah')
             var $this = $(this);
-            $this.siblings('.label').fadeToggle(200, function() {
-                $(this).focus();
-            });
-        });
+            var $searchcontainer = $this.closest('.search-container');
+            $searchcontainer.toggleClass('open');
+            
+            if ($searchcontainer.hasClass('open')) {
+                $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
+                    $(this).focus();
+                });
+            }
 
-        $('.page-header .search .label').keypress(function(e) {
-            if (e.which == 13) {
-                alert('SÖK: ' + $(this).val());
+            if (ScreensizeHandler.isBigScreen) return;
+
+            $(document.querySelector('.page-header .logo-container')).toggleClass('no-opacity');
+
+            if (e.type == 'triggered-click') return;
+
+            var _mobilemenu = document.getElementById('mobile-menu');
+            if ($(_mobilemenu).hasClass('open')) {
+                var _menutoggle = document.querySelector('.menu-toggle');
+                $(_menutoggle).trigger('triggered-click', new CustomEvent('triggered-click'));
             }
         });
 
+        // $('.page-header .search .icon-container').on('click', function(e) {
+        //     var $this = $(this);
+        //     $this.siblings('.label').fadeToggle(200, function() {
+        //         $(this).focus();
+        //     });
+        // });
 
-        $('#mobile-menu .search .icon-container').on('click', function(e) {
-            var $this = $(this);
-            alert('SÖK: ' + $this.parent().find('.label').val());
-        });
+        // $('.page-header .search .label').keypress(function(e) {
+        //     if (e.which == 13) {
+        //         alert('SÖK: ' + $(this).val());
+        //     }
+        // });
 
-        $('#mobile-menu .search .label').keypress(function(e) {
-            if (e.which == 13) {
-                alert('SÖK: ' + $(this).val());
-            }
-        });
+
+        // $('#mobile-menu .search .icon-container').on('click', function(e) {
+        //     var $this = $(this);
+        //     alert('SÖK: ' + $this.parent().find('.label').val());
+        // });
+
+        // $('#mobile-menu .search .label').keypress(function(e) {
+        //     if (e.which == 13) {
+        //         alert('SÖK: ' + $(this).val());
+        //     }
+        // });
 
         // if (document.querySelector('.page-image') !== null) {
         //     $('body').css({

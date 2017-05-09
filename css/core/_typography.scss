@@ -276,7 +276,7 @@ strong,
         // margin-bottom: $gap-double;
         // padding-bottom: $gap;
         margin-bottom: $gap;
-        padding-bottom: $gap-md;
+        padding-bottom: $gap-sm;//$gap-md;
         position: relative;
         &:after {
             content: '';

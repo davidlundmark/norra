@@ -36,6 +36,9 @@ $tertiary-font-color: #BEBEBE;
 $light-font-color: #FFFFFF;//#E1E1E1;
 $grey-font-color: #7F7F7F;
 
+//Text shadow
+$base-text-shadow: 0px 0px 15px #000000;//2px 4px 3px rgba(0,0,0,0.3);
+
 $play-background-color: #282828;
 $play-secondary-background-color: #363636;
 $play-color: #E1E1E1;
@@ -338,8 +341,13 @@ $card-list-item-image-size: $card-horizontal-image-size;
 $card-list-item-text-size: $card-horizontal-text-size;
 $card-list-item-image-min-height: $card-horizontal-image-min-height;
 $card-list-item-text-padding: $gap;
+$card-image-left-image-size: 50%;
+$card-image-left-text-size: 50%;
+$card-image-left-image-min-height: 56.25%;
 $card-youtube-video-size: 50%;
 $card-youtube-text-size: 50%;
+$card-press-item-date-size: 10%;
+$card-press-item-text-size: 65%;
 $card-news-item-date-size: 10%;
 $card-news-item-text-size: 65%;
 $card-news-item-image-size: 25%;
@@ -352,6 +360,7 @@ $card-contact-small-image-min-height: 80px;
 $card-play-featured-image-min-height: 200px;
 $card-play-list-image-min-height: 150px;
 $card-play-top-image-min-height: 400px;
+$card-related-item-image-min-height: 180px;
 $card-course-image-min-height: 180px;
 $card-course-category-image-min-height: 250px;
 $card-press-big-image-min-height: 250px;
@@ -453,11 +462,12 @@ $login-max-width: 500px;
 $hero-image-min-height: 220px;
 $hero-image-min-height-md: 220px;
 $hero-image-color: $light-font-color;
-$hero-image-text-shadow: none;
+$hero-image-text-shadow: $base-text-shadow;
 $hero-courses-all-min-height: 160px;
 $hero-courses-all-min-height-md: 120px;
 $hero-image-padding: 30%;
 $hero-image-padding-lg: 56.25%;
+$hero-image-padding-ph: 500px;
 
 // =================================================
 // Progress bar
