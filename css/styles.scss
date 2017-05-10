@@ -37,6 +37,13 @@
         }
     }
     
+    .text-wrapper {
+        line-height: 1.7;
+        display: inline;
+        box-shadow: $gap-half 0 0 rgba($black, $card-overlay-opacity), -$gap-half 0 0 rgba($black, $card-overlay-opacity);
+        background-color: rgba($black, $card-overlay-opacity);
+    }
+    
     .top-border {
         border-top: 2px solid $base-brand-color;
     }
@@ -108,6 +115,10 @@
         }
     }
     
+    .search-header-section {
+        background-color: $base-background-color;
+    }
+    
     .related-items,
     .map-section,
     .course-categories,
@@ -164,8 +175,11 @@
                         .link {
                             margin-bottom: 0;
                         }
-                        span {
+                        strong {
                             @extend .medium;
+                        }
+                        p {
+                            margin-bottom: $gap-xs;
                         }
                     }
                 }
@@ -220,13 +234,23 @@
             //color: $secondary-font-color;
             color: $light-font-color;
             text-align: center;
-            > .page-title {
-                margin-bottom: 0;
-                text-shadow: $page-image-text-shadow;
+            // .page-title {
+            //     margin-bottom: 0;
+            //     //text-shadow: $page-image-text-shadow;
+            //     background-color: rgba($black, $card-overlay-opacity);
+            //     padding: $gap-xs $gap-half;
+            // }
+            .text-content {
+                margin-left: $gap-half;
             }
-            @include breakpoint($breakpoint-md) {
-                width: calc(100% - #{$gap * 2});
+            .page-title {
+                @extend .text-wrapper;
+                padding-bottom: $gap-xs;
+                line-height: 1.8;
             }
+            // @include breakpoint($breakpoint-md) {
+            //     width: calc(100% - #{$gap * 2});
+            // }
         }
     }
     
@@ -526,7 +550,7 @@
                                 margin-left: $gap-half;
                             }
                         }
-                    } 
+                    }
                 }
             }
             .icon {

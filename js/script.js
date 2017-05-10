@@ -68,6 +68,24 @@
             }
         }
 
+        if (typeof useSkogsskolanHero !== 'undefined' && useSkogsskolanHero) {
+            var _skogsskolanhero = document.querySelector('.hero-text-image-summary');
+            if (_skogsskolanhero !== null) {
+                $(_skogsskolanhero).each(function() {
+                    $(this.querySelector('.background-image')).css('padding-bottom', $(this.querySelector('.text')).height() + 80);
+                });
+            }
+        }
+
+        if (typeof useSearchCount !== 'undefined' && useSearchCount) {
+            var _counter = document.querySelector('.search-section .search-count');
+            if (_counter !== null) {
+                $(_counter).text(function() {
+                    return $(this).text().replace('[x]', '' + document.querySelectorAll('.search-item ').length);
+                });
+            }
+        }
+
         //Top border  
         if (typeof useTopBorder !== 'undefined' && useTopBorder) {
             // var _pageSection = document.querySelector('.content-wrapper > .page-section:first-child');
@@ -82,7 +100,7 @@
             var $this = $(this);
             var $searchcontainer = $this.closest('.search-container');
             $searchcontainer.toggleClass('open');
-            
+
             if ($searchcontainer.hasClass('open')) {
                 $this.siblings('.label').one('webkitTransitionEnd otransitionend oTransitionEnd msTransitionEnd transitionend', function(e) {
                     $(this).focus();

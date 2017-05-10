@@ -50,13 +50,13 @@
         @include centeredContainer(800px);
         padding: 0 $page-section-padding;
         height: 0;
-        @extend .text-shadow;
-        //will-change: opacity;
+        //@extend .text-shadow;
         .content {
             max-width: calc(100% - #{$page-section-padding * 2});
             @include translateY(-50%);
             position: absolute;
             color: $slider-figcaption-color;
+            //white-space: pre-line;
             > img {
                 margin-bottom: $gap;
             }
@@ -71,7 +71,29 @@
                 margin-top: $gap-half;
             }
             .logo {
-                max-width: 380px;
+                max-width: $slider-logo-width;
+                @include breakpoint($breakpoint-lg) {
+                    max-width: $slider-logo-width-lg;
+                }
+                @include breakpoint($breakpoint-lg) {
+                    max-width: $slider-logo-width-lg;
+                }
+                @include breakpoint($breakpoint-md) {
+                    max-width: $slider-logo-width-md;
+                }
+                @include breakpoint($breakpoint-ph) {
+                    max-width: $slider-logo-width-ph;
+                }
+                @include breakpoint($breakpoint-sm) {
+                    max-width: $slider-logo-width-sm;
+                }
+            }
+            .text-content {
+                margin-left: $gap-half;
+            }
+            .title,
+            a {
+                @extend .text-wrapper;
             }
         }
         /*

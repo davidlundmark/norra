@@ -95,8 +95,8 @@ $heading-letter-spacing: 0;
 // h1
 $h1-font-size: 40px;
 $h1-font-size-lg: 40px;
-$h1-font-size-md: 40px;
-$h1-font-size-sm: 40px;
+$h1-font-size-md: 38px;
+$h1-font-size-sm: 38px;
 
 // h2
 $h2-font-size: 36px;
@@ -394,6 +394,11 @@ $slider-elements-not-active-opacity: 0.5;
 $slider-figcaption-background-color: $base-brand-color;
 $slider-figcaption-color: $white;
 $slider-figcaption-text-transform: uppercase;
+$slider-logo-width: 380px;
+$slider-logo-width-lg: 360px;
+$slider-logo-width-md: 340px;
+$slider-logo-width-ph: 300px;
+$slider-logo-width-sm: 280px;
 
 // =================================================
 // Lightbox

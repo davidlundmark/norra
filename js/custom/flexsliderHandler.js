@@ -97,7 +97,8 @@ var FlexsliderHandler = {
         // else {
         //     this.sliderHeight = $(window).height() - this.menuHeight;
         // }
-        this.sliderHeight = ($(window).height()/1.5) - this.menuHeight;
+        this.sliderHeight = ($(window).height()/1.2) - this.menuHeight;
+        if(this.sliderHeight < 400) this.sliderHeight = 400;
 
         $('body').css({
             'padding-top': this.sliderHeight + this.menuHeight

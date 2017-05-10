@@ -11,6 +11,7 @@ var BackgroundImageHandler = {
             var src = ""; //$image.prop('currentSrc') || $image.prop('src');
             if ($image.prop('currentSrc')) src = $image.prop('currentSrc');
             else src = $image.prop('src');
+            
             $this.siblings('.background-image').css('background-image', 'url(' + src + ')');
             if ($image.hasClass('use-gradient')) {
                 //$slide.find('.flexslider-image')
