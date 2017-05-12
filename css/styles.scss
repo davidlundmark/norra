@@ -579,7 +579,15 @@
     }
     
     #skogsskolan {
-        .hero-image {
+        .hero-text-image-summary {
+            .text {
+                text-shadow: none;
+                > *:last-child {
+                    margin-bottom: $gap;
+                }
+            }
+        }
+        .hero-image:not(.hero-text-image-summary) {
             + .hero-image {
                 .section-container {
                     padding-top: 0;
