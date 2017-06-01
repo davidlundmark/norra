@@ -42,6 +42,14 @@
         display: inline;
         box-shadow: $gap-half 0 0 rgba($black, $card-overlay-opacity), -$gap-half 0 0 rgba($black, $card-overlay-opacity);
         background-color: rgba($black, $card-overlay-opacity);
+        -webkit-box-decoration-break: clone;
+        // &:after,&:before {
+        //     content: "..";
+        //     opacity: 0;
+        //     //width: $gap-half;
+        //     //background-color: rgba($black, $card-overlay-opacity);
+        //     display: inline;
+        // }
     }
     
     .top-border {
@@ -115,6 +123,40 @@
         }
     }
     
+    .search {
+        &-header-section {}
+        &-count-section {
+            &:not(.no-results) {
+                > .section-container {
+                    padding-bottom: $page-section-padding / 2;
+                }
+            }
+            .section-title {
+                margin-bottom: 0;
+            }
+        }
+        &-result-section {
+            > .section-container {
+                padding-top: 0;
+            }
+            .search-item {
+                padding: $gap-md 0;
+                @include border($dir: top);
+                p:last-child {
+                    margin-bottom: 0;
+                }
+                &:first-child {
+                    border-top: none;
+                }
+            }
+            .button {
+                margin-top: $gap;
+            }
+        }
+    }
+    
+    .careers-info-section,
+    .pressphotos-grid,
     .search-header-section {
         background-color: $base-background-color;
     }
@@ -129,6 +171,8 @@
         background-color: $tertiary-background-color;
     }
     
+    .careers-apply-section,
+    .careers-section,
     .office-section,
     .contacts-grid {
         background-color: $secondary-background-color;
@@ -144,10 +188,42 @@
         }
     }
     
+    .news-grid-section {
+        .row > .column {
+            background-color: $card-background-color;
+        }
+    }
+
     .office-section {
         text-align: center;
         span {
             @extend .medium;
+        }
+    }
+
+    .interest-section,
+    .careers-apply-section {
+        .file {
+            &:first-child {
+                margin-top: $gap-half;
+            }
+            margin-bottom: $gap;
+        }
+    }
+    
+    .careers-section {
+        .career-item {
+            padding-bottom: $gap-md;
+            margin-bottom: $gap-md;
+            @include border($dir: bottom);
+            &:first-child {
+                margin-top: $gap-xs;
+            }
+            &:last-child {
+                margin-bottom: 0;
+                padding-bottom: 0;
+                border-bottom: none;
+            }
         }
     }
     
@@ -580,10 +656,11 @@
     
     #skogsskolan {
         .hero-text-image-summary {
+            background-color: $quaternary-background-color;
             .text {
                 text-shadow: none;
                 > *:last-child {
-                    margin-bottom: $gap;
+                    margin-bottom: $gap-half;
                 }
             }
         }

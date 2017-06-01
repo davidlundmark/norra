@@ -1,4 +1,4 @@
-//#region MenuScrollHandler
+    //#region MenuScrollHandler
 var MenuScrollHandler = {
     $pageheader: null,
     scrolledClass: 'scrolled',

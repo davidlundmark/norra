@@ -2,9 +2,13 @@
     > div {
         display: block !important;
         width: 100% !important;
-        padding-right: 0 !important;
-        padding-left: 0 !important;
         text-align: center !important;
+    }
+    &:not(.card-youtube) {
+        > div {
+            padding-right: 0 !important;
+            padding-left: 0 !important;
+        }
     }
 }
 
@@ -108,6 +112,18 @@
                 }
             }
         }
+    }
+    &-pressphoto {
+        background-color: $secondary-background-color;
+        .card-text {
+            padding: $gap-md $gap;
+            .download {
+                float: right;
+            }
+        }
+    }
+    &-video {
+        background-color: $black;
     }
     &-news {
         .card-text {
@@ -224,9 +240,9 @@
                 margin-bottom: 0;
             }
         }
-        .video-container {
-            padding-bottom: 56.25%; //56.56%; //should be 56.25%
-        }
+        // .video-container {
+        //     padding-bottom: 56.25%; //56.56%; //should be 56.25%
+        // }
         // .card-text {
         //     color: $play-color;
         //     padding: $gap-md $gap;
@@ -243,6 +259,25 @@
             > .card {
                 &-text {
                     color: $base-brand-color;
+                }
+            }
+        }
+    }
+    &-pressphoto {
+        > .card {
+            &-text {
+                .download {
+                    @include transition();
+                    color: $base-brand-color;
+                }
+            }
+        }
+        &.hover {
+            > .card {
+                &-text {
+                    .download {
+                        color: $base-brand-color-dark;
+                    }
                 }
             }
         }
@@ -506,6 +541,7 @@
             }
             &-text {
                 width: $card-image-left-text-size;
+                padding: $gap-double $gap !important;
             }
         }
     }

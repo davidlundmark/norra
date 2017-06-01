@@ -2,12 +2,12 @@
 var AccordionHandler = {
     init: function() {
         var _accordion = document.querySelectorAll('.accordion');
-        var _triggers = $(_accordion).find('.accordion-trigger');
+        var _triggers = $(_accordion).find('.accordion-trigger > .icon-container');
         if (_triggers === null) return;
 
         $(_triggers).on('click', function(e) {
-            var $this = $(this);
-            var $parent = $(this).parent();
+            var $this = $(this).parent();
+            var $parent = $this.parent();
             var $submenu = $parent.find('> .submenu');
             $this.trigger('resize-start');
             $parent.toggleClass('is-expanded');

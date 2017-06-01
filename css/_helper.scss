@@ -333,6 +333,11 @@
     //@include sharpen();
 }
 
+@mixin translate3d($x, $y, $z) {
+    transform: translate3d($x, $y, $z);
+    //@include sharpen();
+}
+
 @mixin translateY($y) {
     transform: translateY($y);
 }

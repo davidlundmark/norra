@@ -146,7 +146,7 @@
 }
 
 .flex-prev {
-    padding-left: 7px;
+    padding-left: 8px;
     left: 0; // ($carousel-arrow-size + $gap);
     > .icon {
         transform: rotate(180deg);
@@ -154,17 +154,19 @@
 }
 
 .flex-next {
-    padding-right: 7px;
+    padding-right: 8px;
     right: 0; // ($carousel-arrow-size + $gap);
 }
 
 .flexslider:hover {
     .flex-next,
     .flex-prev {
-        opacity: 0.8;
-        background-color: transparent;
+        //opacity: 0.8;
+        //background-color: transparent;
+        opacity: 1;
+        background-color: rgba(10, 10, 10, 0.6);
         &:hover {
-            background-color: rgba(10, 10, 10, 0.5);
+            background-color: rgba(10, 10, 10, 0.8);
             opacity: 1;
         }
     }

@@ -12,6 +12,10 @@
         #skogsskolan & {
             width: $header-skogsskolan-logo-width;
         }
+        .subweb & {
+            backface-visibility: hidden;
+            //width: $header-logo-width-subweb;
+        }
         @include breakpoint($breakpoint-md) {
             width: $header-logo-width-md;
         }
@@ -94,6 +98,9 @@
         .subweb & {
             &:nth-child(1) {
                 padding: $gap-half $page-section-padding;
+                @include breakpoint($breakpoint-lg) {
+                    padding: 0 $gap-double;
+                }
             }
             &:nth-child(2) {
                 padding: 0 $page-section-padding;
@@ -121,7 +128,7 @@
             .rootweb & {
                 top: 0;
             }
-            padding: $gap 0;
+            padding: $gap-md 0;
             #skogsskolan & {
                 padding: $gap-half 0;
             }
@@ -333,7 +340,7 @@
         //@include centerVertical();
         position: absolute;
         right: $page-section-padding;
-        padding: $gap;
+        padding: 23px;
         padding-right: 0;
         top: 0; //12px;
         @include breakpoint($breakpoint-lg) {
@@ -345,7 +352,7 @@
             }
         }
         .subweb & {
-            top: 2px;
+            //top: 2px;
         }
         .burger {
             @include burger($color: $header-color);
@@ -388,16 +395,21 @@
         @at-root .mobile-menu-inverted#{&} {
             border-color: $header-inverted-color;
         }
-        .menu-item > * {
-            border: none;
-            background-color: rgba($white, 0);
+        .menu-item {
+            position: relative;
+            > * {
+                //border: none;
+                background-color: rgba($white, 0);
+            }
         }
         > li {
             &:first-child {
-                padding-top: $gap;
+                //padding-top: $gap-half;
             }
             &:last-child {
-                padding-bottom: $gap;
+                //padding-bottom: $gap;
+                margin-bottom: $gap;
+                @include border($accordion-border-color, bottom);
             }
         }
     }
@@ -405,21 +417,33 @@
         background-color: $secondary-background-color !important;
         &.level-2 {
             > li {
+                padding: 0;
                 &:first-child {
-                    padding-top: $gap;
+                    //padding-top: $gap-half;// $gap;
                 }
                 &:last-child {
-                    padding-bottom: $gap;
+                    //padding-bottom: $gap-half;// $gap;
                 }
             }
         }
+        &.level-3 {
+            background-color: $tertiary-background-color !important;
+        }
     }
-    a {
+    .accordion-trigger {
         pointer-events: auto;
         text-transform: uppercase;
         > span {
-            touch-action: none;
-            pointer-events: none;
+            //touch-action: none;
+            //pointer-events: none;
+            &.icon-container {
+                //float: right;
+                //margin-top: 3px;
+                position: absolute;
+                right: 0;
+                top: 0;
+                padding: $gap;
+            }
         }
     }
     .content {

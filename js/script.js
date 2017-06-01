@@ -24,7 +24,7 @@
     require('./custom/flexsliderHandler.js');
     require('./custom/accordionHandler.js');
     require('./custom/accordiontabsHandler.js');
-    require('./custom/swipeboxHandler.js');
+    //require('./custom/swipeboxHandler.js');
     require('./custom/backgroundimageHandler.js');
     require('./custom/apiHandler.js');
     require('./custom/carouselHandler.js');
@@ -38,6 +38,7 @@
     require('./custom/imagemapHandler.js');
     require('./custom/dekai.js');
     require('./custom/vexHandler.js');
+    require('./custom/youtubeHandler.js');
 
     //console.log('deKai v.2.422');
 
@@ -46,24 +47,33 @@
         //Anchor card   
         if (typeof useAnchorCard !== 'undefined' && useAnchorCard) {
             if (!deKai.isMobile) {
-                var _cards = document.querySelectorAll('.card');
+                // var _cards = document.querySelectorAll('.card');
+                var _cards = document.querySelectorAll('.card.card-anchor');
                 if (_cards !== null) {
-                    $(_cards).filter('.card-anchor').hover(function() {
-                        var $this = $(this);
+                    var $cardLinks = $(_cards).find('.card-link');
+                    $cardLinks.off('mouseenter mouseleave');
+                    $cardLinks.hover(function() {
+                        var $this = $(this).closest('.card');
                         $this.toggleClass('hover');
                         $this.find('.link').toggleClass('hover');
                         $this.find('.card-image-overlay').toggleClass('hover');
                     });
-                    $(_cards).filter('.card-lightbox').find('.card-image').hover(function() {
-                        var $this = $(this);
-                        $this.find('.card-image-overlay').toggleClass('hover');
-                    });
-                    $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
-                        var $this = $(this);
-                        var $card = $this.closest('.card');
-                        $card.toggleClass('hover');
-                        $card.find('.link').toggleClass('hover');
-                    });
+                    // $(_cards).filter('.card-anchor').hover(function() {
+                    //     var $this = $(this);
+                    //     $this.toggleClass('hover');
+                    //     $this.find('.link').toggleClass('hover');
+                    //     $this.find('.card-image-overlay').toggleClass('hover');
+                    // });
+                    // $(_cards).filter('.card-lightbox').find('.card-image').hover(function() {
+                    //     var $this = $(this);
+                    //     $this.find('.card-image-overlay').toggleClass('hover');
+                    // });
+                    // $(_cards).filter('.card-lightbox').find('.card-link').hover(function() {
+                    //     var $this = $(this);
+                    //     var $card = $this.closest('.card');
+                    //     $card.toggleClass('hover');
+                    //     $card.find('.link').toggleClass('hover');
+                    // });
                 }
             }
         }
@@ -71,17 +81,42 @@
         if (typeof useSkogsskolanHero !== 'undefined' && useSkogsskolanHero) {
             var _skogsskolanhero = document.querySelector('.hero-text-image-summary');
             if (_skogsskolanhero !== null) {
-                $(_skogsskolanhero).each(function() {
-                    $(this.querySelector('.background-image')).css('padding-bottom', $(this.querySelector('.text')).height() + 80);
+                fixHeight();
+
+                $(window).resize(function() {
+                    fixHeight();
                 });
+
+                function fixHeight() {
+                    $(_skogsskolanhero).each(function() {
+                        $(this.querySelector('.background-image')).css('padding-bottom', $(this.querySelector('.text')).height());
+                    });
+                }
             }
         }
 
         if (typeof useSearchCount !== 'undefined' && useSearchCount) {
-            var _counter = document.querySelector('.search-section .search-count');
+            var _counter = document.querySelector('.search-count-section .search-count');
             if (_counter !== null) {
                 $(_counter).text(function() {
-                    return $(this).text().replace('[x]', '' + document.querySelectorAll('.search-item ').length);
+                    var _searchresults = document.querySelectorAll('.search-item').length;
+                    if (_searchresults <= 0) {
+                        $(document.querySelector('.search-count-section')).addClass('no-results');
+                    }
+                    return $(this).text().replace('[x]', '' + _searchresults);
+                });
+            }
+        }
+
+        if (typeof useSearchLoadMore !== 'undefined' && useSearchLoadMore) {
+            var _loadmore = document.querySelectorAll('.search-result-section .load-more');
+            if (_loadmore !== null) {
+                $(_loadmore).on('click', function(e) {
+                    var $this = $(this);
+                    var $parent = $this.parent();
+                    $parent.find('.search-item.hide').slice(0, 3).removeClass('hide');
+                    if (!$parent.find('.search-item.hide').length) $this.hide();
+                    return false;
                 });
             }
         }
@@ -119,6 +154,24 @@
                 $(_menutoggle).trigger('triggered-click', new CustomEvent('triggered-click'));
             }
         });
+
+        var _pageImageTexts = document.querySelector('.page-image-text-overlay');
+        if (_pageImageTexts !== null) {
+            fixTextWidth();
+
+            $(window).resize(function() {
+                fixTextWidth();
+            });
+
+            function fixTextWidth() {
+                var _textContet = _pageImageTexts.querySelector('.text-content');
+                //var _title = _textContet.querySelector('.page-title');
+                //var _width = $(_title).width();
+                //_width = Math.round(_width);
+                var _width = window.innerWidth - 40;
+                $(_textContet).width(_width + (_width % 2));
+            }
+        }
 
         // $('.page-header .search .icon-container').on('click', function(e) {
         //     var $this = $(this);
@@ -208,9 +261,17 @@
         }
 
         if (document.querySelector('.page-slider') === null) {
-            $('body').css({
-                'padding-top': $('.page-header').outerHeight()
+            fixBodyPadding();
+
+            $(window).resize(function() {
+                fixBodyPadding();
             });
+
+            function fixBodyPadding() {
+                $('body').css({
+                    'padding-top': $('.page-header').outerHeight()
+                });
+            }
         }
 
         var headerHeight = $(document.querySelector('.page-header')).outerHeight();

@@ -116,3 +116,49 @@ textarea {
 optgroup {
     font-weight: normal;
 }
+
+.form-section {
+    form {
+        .required-field {
+            //.checkbox:after ,
+            .control-label {
+                @extend .required-mark;
+            }
+        }
+        fieldset {
+            > legend {
+                @extend .bold;
+            }
+            &.scfSectionBorder {
+                > div {
+                    margin-left: $gap;
+                }
+                margin-bottom: $gap;
+            }
+        }
+        .btn {
+            color: #FFFFFF;
+            background-color: #2ABE52;
+            border: none;
+            /* text-shadow: 0 0 black; */
+            margin-top: 10px;
+            width: 100%;
+        }
+    }
+}
+
+.interest-section {
+    .required-field {
+        @extend .required-mark;
+    }
+}
+
+.required-mark {
+    &:before {
+        color: #d00;
+        content: "*";
+        @extend .bold;
+        margin-top: $gap-xs;
+        margin-right: $gap-xs;
+    }
+}

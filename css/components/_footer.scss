@@ -75,9 +75,13 @@
             text-align: center;
         }
     }
+    .middle {
+        h3 {
+            margin-bottom: $gap-half;
+        }
+    }
     .middle,
     .footer-bottom {
-        //max-width: 570px;
         font-weight: $heading-font-weight;
         text-align: center;
         margin: 0 auto;

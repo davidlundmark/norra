@@ -2,7 +2,7 @@
 var SubMenuHandler = {
     $submenus: null,
     init: function() {
-        if (!ScreensizeHandler.isBigScreen) return;
+        //if (!ScreensizeHandler.isBigScreen) return;
         //var $subMenus = $('.page-header li.has-child');
         var _submenus = document.querySelectorAll('.page-header li.has-child');
         if (_submenus === null) return;

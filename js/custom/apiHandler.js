@@ -152,12 +152,16 @@ NewsHandler = {
             NewsHandler.clearNewsList();
         }
 
-        if (data.length < NewsHandler.pageSize) {
-            //end reached, hide load more
-            if (!NewsHandler.$loadmore.hasClass('hide')) NewsHandler.$loadmore.addClass('hide');
-        } else {
-            if (NewsHandler.$loadmore.hasClass('hide')) NewsHandler.$loadmore.removeClass('hide');
+        if(!data.length) {
+            NewsHandler.$loadmore.addClass('hide'); 
         }
+
+        // if (data.length < NewsHandler.pageSize) {
+        //     //end reached, hide load more
+        //     if (!NewsHandler.$loadmore.hasClass('hide')) NewsHandler.$loadmore.addClass('hide');
+        // } else {
+        //     if (NewsHandler.$loadmore.hasClass('hide')) NewsHandler.$loadmore.removeClass('hide');
+        // }
 
         //loop thru result and create new <li> DOM elements
         var _language = Language.toLowerCase();
@@ -183,6 +187,10 @@ NewsHandler = {
                 _summary.innerHTML = item.Summary;
             }
 
+            if(NewsHandler.id == 'news') {
+                _clone.querySelector('.card-tag').innerHTML = item.MainSite;
+            }
+
             //Link
             //_clone.querySelector('.text-link').setAttribute('href', window.location.origin + item.Link.replace('http://', ''));
             _clone.querySelector('.text-link').setAttribute('href', item.Link);
@@ -202,6 +210,11 @@ NewsHandler = {
 
             NewsHandler.items.push(_clone);
             NewsHandler.$newsList.append($(_clone));
+
+            if (i == data.length - 1) {
+                if (item.ShowMore == false) NewsHandler.$loadmore.addClass('hide');
+                else NewsHandler.$loadmore.removeClass('hide');
+            }
         });
 
         if (NewsHandler.$loadmore) {

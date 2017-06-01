@@ -38,7 +38,7 @@ var FlexsliderHandler = {
 
         this.$flexslider.flexslider({
             directionNav: true,
-            controlNav: true,
+            controlNav: false,
             animationLoop: true,
             slideshow: false,
             slideshowSpeed: 0,

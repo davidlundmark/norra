@@ -1,15 +1,18 @@
 (function() {
     require('../lib/jquery.matchHeight.js');
     //Grid same height
-    if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
+    //if (typeof useGridSameHeight !== 'undefined' && useGridSameHeight) {
         if ($('html').hasClass('ie-old')) { //only do this for IE <= 9
-            var _sameheight = document.querySelectorAll('.same-height');
+            var _sameheight = document.querySelectorAll('.row.same-height');
             if (_sameheight !== null) {
-                $(_sameheight).find('> .column').matchHeight();
+                $(_sameheight).each(function() {
+                    $(this).find('> .column').matchHeight();
+                });
+                //$(_sameheight).find('> .column').matchHeight();
                 //$('.same-height > .column').matchHeight();
             }
         }
-    }
+    //}
 
     if (typeof useSlickSameHeight !== 'undefined' && useSlickSameHeight) {
         var _texts = document.querySelectorAll('.slick-carousel .title.match-height');

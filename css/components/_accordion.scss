@@ -5,13 +5,15 @@ ol {
         margin: 0 0 $gap 0;
         padding: 0;
         > li.menu-item:first-child {
-            > a {
+            > a,
+            > div > a {
                 border-top: none !important;
             }
         }
         li.menu-item {
             list-style: none;
-            > a {
+            > a,
+            > div > a {
                 width: 100%;
                 background-color: $accordion-background-color;
                 @include transition();
@@ -23,7 +25,8 @@ ol {
             }
             .no-touch & {
                 &:hover {
-                    > a {
+                    > a,
+                    > div > a {
                         background-color: $accordion-hover-background-color;
                         color: $accordion-hover-color;
                     }
@@ -35,10 +38,13 @@ ol {
             @include customTransitionTiming($easeOutCubic);
         }
         .is-expanded {
-            > a .icon-container {
-                .icon {
-                    //transform: rotate(-90deg);
-                    transform: rotate(-180deg);
+            > a,
+            > div > a {
+                .icon-container {
+                    .icon {
+                        //transform: rotate(-90deg);
+                        transform: rotate(-180deg);
+                    }
                 }
             }
         }
@@ -47,14 +53,16 @@ ol {
             padding: 0;
             display: none;
             li.menu-item {
-                > a {
+                > a,
+                > div > a {
                     background-color: $accordion-sub-background-color;
                     color: $accordion-sub-color;
-                    padding-left: $accordion-sub-indent;
+                    //padding-left: $accordion-sub-indent;
                 }
                 .no-touch & {
                     &:hover {
-                        > a {
+                        > a,
+                        > div > a {
                             color: $accordion-sub-hover-color;
                             background-color: $accordion-sub-hover-background-color;
                         }
@@ -63,8 +71,9 @@ ol {
             }
             .submenu {
                 li.menu-item {
-                    > a {
-                        padding-left: $accordion-sub-indent+$gap;
+                    > a,
+                    > div > a {
+                        //padding-left: $accordion-sub-indent+$gap;
                     }
                 }
             }
