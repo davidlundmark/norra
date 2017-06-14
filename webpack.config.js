@@ -93,7 +93,8 @@ module.exports = {
         modulesDirectories: ['node_modules'],
         alias: {
             "vex": 'vex-js/src/vex.js',
-            "vex-dialog": 'vex-js/node_modules/vex-dialog/src/vex.dialog.js',
+            "vex-dialog": 'vex-js/node_modules/vex-dialog/src/vex.dialog.js'//,
+            //"LazyLoad": 'vanilla-lazyload/dist/lazyload.transpiled.min.js'
         }
     },
     sassLoader: {

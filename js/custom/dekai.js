@@ -2,6 +2,8 @@ require('../lib/fastclick.js');
 
 //#region Dekai
 deKai = {
+    lazyLoad: null,
+    lazyLoadPicture: null,
     isMobile: false,
     //check if IE
     checkOS: function() {
@@ -65,6 +67,36 @@ deKai = {
     hideOverlay: function() {
         $(document.getElementById('page-wrapper')).removeClass('visibility-hidden');
         $(document.querySelector('.overlay')).delay(200).fadeOut(200);
+    },
+
+    lazyLoad: function() {
+        var _lazy = document.querySelector('.lazy');
+        var _lazyPicture = document.querySelector('.lazy-picture');
+
+        if (_lazy !== null || _lazyPicture !== null) {
+            const LazyLoad = require('../lib/lazyload.transpiled.min.js');
+            //const LazyLoad = require('LazyLoad');
+
+            if (_lazy !== null) {
+                this.lazyLoad =new LazyLoad({
+                    elements_selector: '.lazy'
+                });
+            } 
+
+            if (_lazyPicture !== null) {
+                this.lazyLoadPicture = new LazyLoad({
+                    elements_selector: '.lazy-picture',
+                    callback_load: function(e) {
+                        BackgroundImageHandler.swapPicture(e.parentNode);
+                    }
+                });
+            }
+        }
+    },
+
+    updateLazy: function() {
+        if(this.lazyLoad) this.lazyLoad.update();
+        if(this.lazyLoadPicture) this.lazyLoadPicture.update();
     }
 };
 //#endregion

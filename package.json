@@ -20,6 +20,7 @@
     "scrollmagic": "^2.0.5",
     "style-loader": "^0.13.1",
     "url-loader": "^0.5.7",
+    "vanilla-lazyload": "^7.2.1",
     "webpack": "^1.13.2"
   },
   "devDependencies": {},

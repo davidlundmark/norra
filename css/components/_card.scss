@@ -597,10 +597,10 @@
     &-calendar-item {
         > .card {
             &-date {
+                background-color: $quaternary-background-color;
                 h4 {
                     padding: $gap;
                     color: $light-font-color;
-                    background-color: $quaternary-background-color;
                     margin: 0;
                     @include breakpoint($breakpoint-md) {
                         padding-top: $gap-half;
@@ -608,6 +608,15 @@
                         span {
                             display: inline-block;
                         }
+                    }
+                }
+                .month {
+                    //text-transform: capitalize;
+                }
+
+                &.long-event {
+                    > * {
+                        font-size: $base-font-size;
                     }
                 }
             }

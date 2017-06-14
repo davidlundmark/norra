@@ -161,6 +161,8 @@
         background-color: $base-background-color;
     }
     
+    .course-slick-section,
+    .course-grid-section,
     .related-items,
     .map-section,
     .course-categories,
@@ -691,7 +693,7 @@
                 }
             }
         }
-        .news-grid-section + .news-grid-section {
+        .course-slick-section + .course-slick-section {
             > .section-container {
                 @include lineBefore();
                 //@include border($dir: top);

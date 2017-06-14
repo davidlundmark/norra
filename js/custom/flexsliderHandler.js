@@ -60,6 +60,8 @@ var FlexsliderHandler = {
                     this.handleScroll();
                 }.bind(this));
 
+                deKai.updateLazy();
+
             }.bind(this),
             after: function(slider) {}
         });
@@ -68,8 +70,8 @@ var FlexsliderHandler = {
     setTopPadding: function() {
         this.menuHeight = this.$pageheader.outerHeight();
 
-        var $subwebMenu = this.$pageheader.find('.subweb-menu');
-        if($subwebMenu.length) this.menuHeight -= this.$pageheader.find('.rootweb-menu').outerHeight();
+        //var $subwebMenu = this.$pageheader.find('.subweb-menu');
+        //if($subwebMenu.length) this.menuHeight -= this.$pageheader.find('.rootweb-menu').outerHeight();
 
         this.$pageslider.css({
             'top': this.menuHeight

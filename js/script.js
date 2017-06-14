@@ -114,7 +114,7 @@
                 $(_loadmore).on('click', function(e) {
                     var $this = $(this);
                     var $parent = $this.parent();
-                    $parent.find('.search-item.hide').slice(0, 3).removeClass('hide');
+                    $parent.find('.search-item.hide').slice(0, 10).removeClass('hide');
                     if (!$parent.find('.search-item.hide').length) $this.hide();
                     return false;
                 });
@@ -173,50 +173,8 @@
             }
         }
 
-        // $('.page-header .search .icon-container').on('click', function(e) {
-        //     var $this = $(this);
-        //     $this.siblings('.label').fadeToggle(200, function() {
-        //         $(this).focus();
-        //     });
-        // });
+        deKai.lazyLoad();
 
-        // $('.page-header .search .label').keypress(function(e) {
-        //     if (e.which == 13) {
-        //         alert('SÖK: ' + $(this).val());
-        //     }
-        // });
-
-
-        // $('#mobile-menu .search .icon-container').on('click', function(e) {
-        //     var $this = $(this);
-        //     alert('SÖK: ' + $this.parent().find('.label').val());
-        // });
-
-        // $('#mobile-menu .search .label').keypress(function(e) {
-        //     if (e.which == 13) {
-        //         alert('SÖK: ' + $(this).val());
-        //     }
-        // });
-
-        // if (document.querySelector('.page-image') !== null) {
-        //     $('body').css({
-        //         'padding-top': $('.page-header').outerHeight()
-        //     });
-        // }
-
-        /*
-        $('#mobile-menu .search .label').on('click', function(e) {
-            var scrollTop = $(window).scrollTop();
-            var interval = 0;
-            var scroller = setInterval(function() {
-                $(window).scrollTop(scrollTop);
-                interval++;
-                if (interval > 10) {
-                    clearInterval(scroller);
-                }
-            }, 1);
-        });
-        */
 
         // if (typeof usePictureChange !== 'undefined' && usePictureChange) {
         //     var _pictures = document.querySelectorAll('picture.change-source');

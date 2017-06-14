@@ -2,9 +2,9 @@
 NewsHandler = {
     id: '',
     apiUrl: window.location.origin + '/sitecore/api/ssc/norra/',
-    newsUrl: 'News/1337/GetNews',
-    calendarUrl: 'Calendar/1337/GetCalendar',
-    pressUrl: 'News/1337/GetPress',
+    newsUrl: 'NewsMOVED/1337/GetNews',
+    calendarUrl: 'CalendarMOVED/1337/GetCalendar',
+    pressUrl: 'NewsMOVED/1337/GetPress',
     siteId: null,
     page: 2,
     pageSize: 3,
@@ -152,8 +152,8 @@ NewsHandler = {
             NewsHandler.clearNewsList();
         }
 
-        if(!data.length) {
-            NewsHandler.$loadmore.addClass('hide'); 
+        if (!data.length) {
+            NewsHandler.$loadmore.addClass('hide');
         }
 
         // if (data.length < NewsHandler.pageSize) {
@@ -171,13 +171,21 @@ NewsHandler = {
             //Title
             _clone.querySelector('.title').innerHTML = item.Title;
 
-            var monthName = new Date(item.Date).toLocaleString(Language, { month: 'long' });
-
             //Date
-            var date = item.Date.split('-');
-            _clone.querySelector('.day').innerHTML = date[2];
-            _clone.querySelector('.month').innerHTML = monthName; //date[1];
-            _clone.querySelector('.year').innerHTML = date[0];
+            var date = '';
+
+            if (NewsHandler.id == 'calendar' && item.LongEvent) {
+                _clone.querySelector('.card-date').className += ' long-event';
+                _clone.querySelector('.day').innerHTML = item.Day;
+                _clone.querySelector('.month').innerHTML = item.Month;
+                _clone.querySelector('.year').innerHTML = item.Year;
+            } else {
+                var monthName = new Date(item.Date).toLocaleString(Language, { month: 'long' });
+                date = item.Date.split('-');
+                _clone.querySelector('.day').innerHTML = date[2];
+                _clone.querySelector('.month').innerHTML = monthName; //date[1];
+                _clone.querySelector('.year').innerHTML = date[0];
+            }
 
             //Summary
             var _summary = _clone.querySelector('.summary');
@@ -187,7 +195,7 @@ NewsHandler = {
                 _summary.innerHTML = item.Summary;
             }
 
-            if(NewsHandler.id == 'news') {
+            if (NewsHandler.id == 'news') {
                 _clone.querySelector('.card-tag').innerHTML = item.MainSite;
             }
 
@@ -260,14 +268,14 @@ NewsHandler = {
 
         var apiFunction;
 
-        if(this.usePress) apiFunction = this.pressUrl;
-        else if(this.id == 'news') apiFunction = this.newsUrl;
+        if (this.usePress) apiFunction = this.pressUrl;
+        else if (this.id == 'news') apiFunction = this.newsUrl;
         else apiFunction = this.calendarUrl;
 
         $.getJSON({
             type: 'GET',
             dataType: 'json',
-            url: this.apiUrl + apiFunction,//((this.id == 'news') ? this.newsUrl : this.calendarUrl),
+            url: this.apiUrl + apiFunction, //((this.id == 'news') ? this.newsUrl : this.calendarUrl),
             data: {
                 page: this.page,
                 pageSize: this.pageSize,

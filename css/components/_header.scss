@@ -342,7 +342,7 @@
         right: $page-section-padding;
         padding: 23px;
         padding-right: 0;
-        top: 0; //12px;
+        top: 4px; //12px;
         @include breakpoint($breakpoint-lg) {
             right: $gap;
         }
@@ -370,6 +370,9 @@
                 padding-bottom: $gap-half;
                 top: 7px;
             }
+        }
+        @include breakpoint($breakpoint-lg) {
+            top: 0;
         }
         &.open {
             .burger {
